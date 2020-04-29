@@ -16,12 +16,22 @@ from AI import AI
 from Action import Action
 from queue import PriorityQueue, Queue
 
+######################################
+# Global Var #########################
+######################################
+
+DEBUG = False
 AlphaSweeper = False
 MANUAL = not AlphaSweeper
-############ import ############
-# if MANUAL:
-# from tkinter import *
-################################
+
+######################################
+# debug console out ##################
+######################################
+import builtins
+def print(*args, **kwargs):
+	# builtins.print(*args, **kwargs)
+	pass
+######################################
 
 
 class MyAI( AI ):
@@ -107,7 +117,7 @@ class MyAI( AI ):
 	def __init__(self, rowDimension, colDimension, totalMines, startX, startY):
 
 		MyAI.gamecount += 1
-		print("Game:", MyAI.gamecount)
+		# print("Game:", MyAI.gamecount)
 
 		# init Game Variables
 		self.board = self.Board(rowDimension, colDimension)
@@ -231,6 +241,9 @@ class MyAI( AI ):
 
 	def humanOverridingLayer(self, number) -> Action:
 		result = input("Action(x,y): ").split()
+		# get input from console
+		while len(result) != 3:
+			result = input("Action(x,y): ").split()
 		self.lastMoveXY = (int(result[1]), int(result[2]))
 		action = self.makeMove(eval("self.Action(self." + result[0].upper() + ")"), *self.lastMoveXY)
 		self.lastMove = action
@@ -241,6 +254,8 @@ class MyAI( AI ):
 	#################################################################
 	def getAction(self, number: int) -> "Action Object":
 		""" DO NOT MODIFY self.lastMove OR self.moveCount """
+
+
 
 		try:
 			# update game status
@@ -259,8 +274,7 @@ class MyAI( AI ):
 				# print(self.actionQueue)
 				return preprocessingLayerResult
 
-			input("stop preprocessing, start heuristic: ")
-
+			# input("stop preprocessing, start heuristic: ")
 			print(self.frontier)
 
 			# 2 Heuristic Layer:
@@ -270,8 +284,8 @@ class MyAI( AI ):
 				return heuristicLayerResult
 
 			# 5 Human Overriding Layer
-			humanLayerResult = self.humanOverridingLayer(number)
-			return humanLayerResult
+			# humanLayerResult = self.humanOverridingLayer(number)
+			# return humanLayerResult
 
 			self.board.display()
 			return Action(self.Action.LEAVE, 1, 1)
