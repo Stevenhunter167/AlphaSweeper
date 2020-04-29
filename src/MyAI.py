@@ -74,7 +74,8 @@ class MyAI( AI ):
 
 		# init Game Variables
 		self.board = self.Board(rowDimension, colDimension)
-		self.lastMove = (startX, startY)
+		self.lastMoveXY = (startX, startY)
+		self.lastMove = Action(self.Action(self.UNCOVER), startX, startY)
 		self.moveCount = 1
 
 		# moves
@@ -105,48 +106,20 @@ class MyAI( AI ):
 	def popMove(self):
 		priorityAction = self.actionQueue.get()
 		action = priorityAction.action
-		self.lastMove = (action.getX(), action.getY())
+		self.lastMoveXY = (action.getX(), action.getY())
+		self.lastMove = action
 		return action
 
 	def makeMove(self, actionCode, X, Y) -> Action:
-		self.lastMove = (X, Y)
-		return Action(self.Action(actionCode), X, Y)
+		self.lastMoveXY = (X, Y)
+		self.lastMove = Action(self.Action(actionCode), X, Y)
+		return self.lastMove
 
 	#################################################################
-
-	def getAction(self, number: int) -> "Action Object":
-		""" DO NOT MODIFY self.lastMove OR self.moveCount """
-
-		try:
-			# update game status
-			print("Move", self.moveCount, ":", self.lastMove, "status:", number)
-			self.board.set(*self.lastMove, number)
-			self.board.display()
-
-			# preprocessing
-
-			if number == 0:
-				for x, y in self.lookSurround(*self.lastMove):
-					if self.board.get(x, y) == self.board.TILE:
-						self.pushMove(self.UNCOVER, x, y, priority=5)
-
-			if self.hasNextMove():
-				return self.popMove()
-
-			# evaluate action
-			result = input("Action(x,y): ").split()
-
-			self.lastMove = (int(result[1]), int(result[2]))
-			action = Action(eval("self.Action(self." + result[0].upper() + ")"), *self.lastMove)
-
-			return action
-
-		except Exception as e:
-			print(e)
-			input()
+	# Basic Movements
+	#################################################################
 
 	# lookup
-
 	def lookSurround(self, X, Y):
 		for dx in range(-1, 2):
 			for dy in range(-1, 2):
@@ -154,4 +127,71 @@ class MyAI( AI ):
 					if self.board.isLegalPosition(X + dx, Y + dy):
 						yield X + dx, Y + dy
 
-	# heuristics
+	#################################################################
+	# Layer 0: Preprocessing Layer
+	# Layer 1: Heuristic Layer
+	# Layer 2: Probability Layer
+	# Layer 3: NN Layer
+	# Layer 4: Human Overriding Layer
+	#################################################################
+
+	def preprocessingLayer(self, number):
+
+		# routine
+		self.moveCount += 1
+		if number == -1:
+			if self.lastMove.getMove() == self.Action(self.UNFLAG) \
+				and self.board.get(*self.lastMove) == "F":
+				self.board.set(*self.lastMoveXY, self.board.TILE)
+			elif self.lastMove.getMove() == self.Action(self.FLAG):
+				self.board.set(*self.lastMove, "F")
+		else:
+			self.board.set(*self.lastMoveXY, number)
+
+		# preprocessing
+		if number == 0:
+			for x, y in self.lookSurround(*self.lastMoveXY):
+				if self.board.get(x, y) == self.board.TILE:
+					self.pushMove(self.UNCOVER, x, y, priority=5)
+
+		if self.hasNextMove():
+			return self.popMove()
+
+	def heuristicLayer(self, number):
+		pass
+
+	def humanOverridingLayer(self, number):
+		result = input("Action(x,y): ").split()
+		self.lastMoveXY = (int(result[1]), int(result[2]))
+		action = self.makeMove(eval("self.Action(self." + result[0].upper() + ")"), *self.lastMoveXY)
+		self.lastMove = action
+		return action
+
+	#################################################################
+	# MAIN ##########################################################
+	#################################################################
+	def getAction(self, number: int) -> "Action Object":
+		""" DO NOT MODIFY self.lastMove OR self.moveCount """
+
+		try:
+			# update game status
+			print("Move", self.moveCount, ":", self.lastMoveXY, "status:", number)
+			self.board.display()
+
+			# evaluate action
+
+			# 1 Preprocessing Layer
+			preprocessingLayerResult = self.preprocessingLayer(number)
+			if preprocessingLayerResult is not None:
+				return preprocessingLayerResult
+
+			# 5 Human Overriding Layer
+			humanLayerResult = self.humanOverridingLayer(number)
+			return humanLayerResult
+
+		except Exception as e:
+			print(e)
+			input()
+
+	#################################################################
+
