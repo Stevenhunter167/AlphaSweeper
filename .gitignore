@@ -3,3 +3,4 @@ venv/
 .idea/
 *.pyc
 WorldGenerator/Problems
+WorldGenerator/History
