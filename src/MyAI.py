@@ -28,9 +28,20 @@ MANUAL = not AlphaSweeper
 # debug console out ##################
 ######################################
 import builtins
+from time import time
+from inspect import currentframe, getframeinfo
+
 def print(*args, **kwargs):
-	# builtins.print(*args, **kwargs)
-	pass
+	builtins.print(*args, **kwargs)
+
+def debug(string):
+	previous_frame = currentframe().f_back
+	(filename, line_number, function_name, lines, index) = getframeinfo(previous_frame)
+	with open("debug.txt", 'a') as f:
+		f.write("#############################################################\n")
+		f.write("line: " + str(line_number) + "\n")
+		f.write(string + "\n")
+	# builtins.print("line:", line_number, *args, **kwargs)
 ######################################
 
 
@@ -65,7 +76,7 @@ class MyAI( AI ):
 			""" display current board """
 			print("===" * (self.rowDimension + 1), "[board]")
 			for i in range(self.rowDimension - 1, -1, -1):
-				print(i, end=" | ")
+				print("%2d| " %(i), end="")
 				for j in range(self.colDimension):
 					print(self.board[i][j], end="  ")
 				print()
@@ -75,16 +86,38 @@ class MyAI( AI ):
 			print()
 			print("    ", end="")
 			for i in range(self.colDimension):
-				print(i, end="  ")
+				print("%-2d" % i, end=" ")
 			print()
+
+		def __str__(self):
+			result = ""
+			result += ("===" * (self.rowDimension + 1) + " [board]\n")
+			for i in range(self.rowDimension - 1, -1, -1):
+				result += ("%2d|" % (i))
+				for j in range(self.colDimension):
+					result += (" %s " % str(self.board[i][j]))
+				result += "\n"
+			result += ("   ")
+			for i in range(self.colDimension):
+				result += (" - ")
+			result += "\n"
+			result += ("    ")
+			for i in range(self.colDimension):
+				result += ("%-2d " % i)
+			result += "\n"
+			return result
 
 		def displayWithMarkup(self, markUps):
 			""" display board with markup map """
 			print("===" * (self.rowDimension + 1), "[markup]")
 			for i in range(self.rowDimension - 1, -1, -1):
-				print(i, end=" | ")
+				print("%2d|" % (i), end="")
 				for j in range(self.colDimension):
-					print(markUps.get((j, i), self.board[i][j]), end="  ")
+					x = markUps.get((j, i), self.board[i][j])
+					if (j, i) in markUps:
+						print(x, end="")
+					else:
+						print(" %s " % str(self.board[i][j]), end="")
 				print()
 			print("   ", end="")
 			for i in range(self.colDimension):
@@ -92,8 +125,30 @@ class MyAI( AI ):
 			print()
 			print("    ", end="")
 			for i in range(self.colDimension):
-				print(i, end="  ")
+				print("%-2d" % i, end=" ")
 			print()
+
+		def toStringMarkup(self, markUps):
+			result = ""
+			result += ("===" * (self.rowDimension + 1) + " [markup]\n")
+			for i in range(self.rowDimension - 1, -1, -1):
+				result += ("%2d|" % (i))
+				for j in range(self.colDimension):
+					x = markUps.get((j, i), self.board[i][j])
+					if (j, i) in markUps:
+						result += (x)
+					else:
+						result += (" %s " % str(self.board[i][j]))
+				result += "\n"
+			result += ("   ")
+			for i in range(self.colDimension):
+				result += (" - ")
+			result += "\n"
+			result += ("    ")
+			for i in range(self.colDimension):
+				result += ("%-2d " % i)
+			result += "\n"
+			return result
 
 		def set(self, X, Y, char):
 			if self.isLegalPosition(X, Y):
@@ -182,11 +237,13 @@ class MyAI( AI ):
 						yield X + dx, Y + dy
 
 	#################################################################
-	# Layer 0: Preprocessing Layer
-	# Layer 1: Heuristic Layer
-	# Layer 2: Probability Layer
-	# Layer 3: NN Layer
-	# Layer 4: Human Overriding Layer
+	#          Layer Name						result type
+	# Layer 0: Preprocessing Layer				deterministic
+	# Layer 1: Heuristic Layer					deterministic
+	# Layer 2: CSP Layer						deterministic
+	# Layer 3: Probablistic CSP Layer			probabilistic
+	# Layer 4: NN Layer							probabilistic
+	# Layer 5: Human Overriding Layer			      -
 	#################################################################
 
 	def preprocessingLayer(self, number) -> Action:
@@ -202,6 +259,10 @@ class MyAI( AI ):
 
 		if self.hasNextMove():
 			return self.popMove()
+
+	#################################################################
+	# heuristic Layer ###############################################
+	#################################################################
 
 	def heuristicLayer(self, number) -> Action:
 
@@ -239,6 +300,117 @@ class MyAI( AI ):
 		if self.hasNextMove():
 			return self.popMove()
 
+	#################################################################
+	# CSP Layer #####################################################
+	#################################################################
+
+	@staticmethod
+	def recursive_backtrack(varset: {'var': None},
+							constrains: 'lambda(varset): bool',
+							domains: {'var'},
+							resultList: list):
+		"""
+		A recursive backtrack searching algorithm
+		perform search in state (domain) space
+		return: varset (with assigned value that satisfies constrains)
+		"""
+
+		# 1.return varset if every var have assignment
+		if all(i is not None for i in varset.values()):
+			resultList.append(varset)
+			return True
+
+		# 2.select next-unassigned-var
+		var = None
+		for i in varset:
+			if varset[i] == None:
+				var = i
+
+		# 3.for each value in domains
+		for value in domains:
+			# assign next order-domain-value
+			varset[var] = value
+			# if constraint is satisfied
+			if constrains(varset):
+				# print(varset)
+				result = MyAI.recursive_backtrack(varset.copy(), constrains, domains, resultList)
+				# if result is not False:
+				# 	return result
+
+				# all childrens of this node is deadend
+				# remove assignment
+				varset[var] = None
+		return False
+
+	def buildConstraint(self):
+
+		# constrainList = list()
+		# for (X, Y) in self.frontier:
+			# subConstrain for each frontier number
+
+			# constrainList.append(subConstrain)
+
+		# frontier = self.frontier
+		def constraints(varset):
+
+			def subConstrain(varset, X, Y):
+
+				currentStatus = [] # current assignment
+				for (x, y) in self.lookSurround(X, Y):
+					if self.board.get(x, y) == self.board.TILE:
+						currentStatus.append(varset[(x, y)])
+					elif self.board.get(x, y) == self.board.FLAG:
+						currentStatus.append(1)
+
+				# print((X,Y), currentStatus)
+
+				if None in currentStatus:
+					return currentStatus.count(1) <= self.board.get(X, Y)
+				elif sum(currentStatus) == self.board.get(X, Y):
+					return True
+				return False
+			for (X,Y) in self.frontier:
+				if not subConstrain(varset, X, Y):
+					return False
+			return True
+
+		return constraints
+
+	def buildVarSet(self):
+		tiles = dict()
+		for (X, Y) in self.frontier:
+			for (x, y) in self.lookSurround(X,Y):
+				if self.board.get(x, y) == self.board.TILE:
+					tiles[(x, y)] = None
+		return tiles
+
+	def CSP(self) -> Action:
+		print("started CSP")
+		startTime = time()
+		print(startTime)
+
+		resultList = list()
+		varset = self.buildVarSet()
+		self.recursive_backtrack(varset=varset,
+								 constrains=self.buildConstraint(),
+								 domains={0,1},
+								 resultList=resultList)
+
+		result = {location:0 for location in varset.keys()}
+		for configuration in resultList:
+			for location in configuration:
+				result[location] += configuration[location]
+
+		# debug
+		debug(str(self.board) + "\nlastmove: " + str(self.lastMoveXY))
+		for configuration in resultList:
+			debug(self.board.toStringMarkup({(x,y): '[m]' if configuration[x,y] else '[x]'
+											 for x,y in configuration}))
+
+		print("CSP result:", result)
+		print("size:", len(resultList))
+		print("CSP finished in:", time() - startTime, "seconds")
+
 	def humanOverridingLayer(self, number) -> Action:
 		result = input("Action(x,y): ").split()
 		# get input from console
@@ -249,27 +421,32 @@ class MyAI( AI ):
 		self.lastMove = action
 		return action
 
+	def winCheck(self):
+		for r in range(self.board.rowDimension):
+			for c in range(self.board.colDimension):
+				if self.board.get(c, r) == self.board.TILE:
+					return None
+		return Action(self.Action(self.LEAVE), 1, 1)
+
 	#################################################################
 	# MAIN ##########################################################
 	#################################################################
+
 	def getAction(self, number: int) -> "Action Object":
 		""" DO NOT MODIFY self.lastMove OR self.moveCount """
-
-
-
 		try:
 			# update game status
 			self.updateBoard(number)
 			print()
 			print("---" * (self.board.rowDimension + 1), "Move", self.moveCount, ":", self.lastMoveXY, "status:", number)
-			self.board.display()
+			# self.board.display()
 
 			# evaluate action in layers
 
-			# 1 Preprocessing Layer: finish action -> save unable moves to frontier
+			# 0 Preprocessing Layer: finish action -> save unable moves to frontier
 			preprocessingLayerResult = self.preprocessingLayer(number)
 			if preprocessingLayerResult is not None:
-				self.board.displayWithMarkup({i: "+" for i in self.frontier})
+				self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
 				# print("going to move:", preprocessingLayerResult.getMove(), preprocessingLayerResult.getX(), preprocessingLayerResult.getY())
 				# print(self.actionQueue)
 				return preprocessingLayerResult
@@ -277,15 +454,34 @@ class MyAI( AI ):
 			# input("stop preprocessing, start heuristic: ")
 			print(self.frontier)
 
-			# 2 Heuristic Layer:
+			# 1 Heuristic Layer:
 			heuristicLayerResult = self.heuristicLayer(number)
-			self.board.displayWithMarkup({i: "+" for i in self.frontier})
+			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
 			if heuristicLayerResult is not None:
 				return heuristicLayerResult
 
+			# 2 Probability Layer:
+			# calculate probability of each tile near frontier
+			# generate combinations using constraint satisfaction
+
+
+			# print(self.buildConstraint()(
+			# 	{(0, 4): 0, (1, 4): 0, (2, 4): 0, (3, 4): 0, (4, 4): 1,
+			# 	 (7, 0): 0, (7, 1): 0, (7, 2): 0, (5, 4): 0, (6, 4): 0,
+			# 	 (7, 3): 0, (7, 4): 0}, self.frontier
+			# ))
+
+
+			# input("start CSP: ")
+			self.CSP()
+			self.board.display()
+			winResult = self.winCheck()
+			if winResult is not None:
+				return winResult
+
 			# 5 Human Overriding Layer
-			# humanLayerResult = self.humanOverridingLayer(number)
-			# return humanLayerResult
+			humanLayerResult = self.humanOverridingLayer(number)
+			return humanLayerResult
 
 			self.board.display()
 			return Action(self.Action.LEAVE, 1, 1)
