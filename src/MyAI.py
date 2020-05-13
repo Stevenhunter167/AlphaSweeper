@@ -28,11 +28,12 @@ MANUAL = not AlphaSweeper
 # debug console out ##################
 ######################################
 import builtins
-from time import time
+from time import time, sleep
 from inspect import currentframe, getframeinfo
 
 def print(*args, **kwargs):
 	builtins.print(*args, **kwargs)
+	pass
 
 def debug(string):
 	previous_frame = currentframe().f_back
@@ -175,6 +176,7 @@ class MyAI( AI ):
 		# print("Game:", MyAI.gamecount)
 
 		# init Game Variables
+		self.totalMines = totalMines
 		self.board = self.Board(rowDimension, colDimension)
 		self.lastMoveXY = (startX, startY)
 		self.lastMove = Action(self.Action(self.UNCOVER), startX, startY)
@@ -246,7 +248,35 @@ class MyAI( AI ):
 	# Layer 5: Human Overriding Layer			      -
 	#################################################################
 
+	#################################################################
+	# preprocessing Layer ###########################################
+	#################################################################
+
+	def allCells(self):
+		for y in range(self.board.rowDimension):
+			for x in range(self.board.colDimension):
+				yield (x, y)
+
+
 	def preprocessingLayer(self, number) -> Action:
+
+		allCellResult = [self.board.get(x, y) for x, y in self.allCells()]
+
+		# discoverd all mines
+		if allCellResult.count(self.board.FLAG) == self.totalMines:
+			for (x, y) in self.allCells():
+				if self.board.get(x, y) == self.board.TILE:
+					self.pushMove(self.UNCOVER, x, y)
+			return self.popMove()
+
+		# all rest tiles are mines
+		if allCellResult.count(self.board.FLAG) + allCellResult.count(self.board.TILE) == self.totalMines:
+			for (x, y) in self.allCells():
+				if self.board.get(x, y) == self.board.TILE:
+					self.pushMove(self.FLAG, x, y)
+			return self.popMove()
+
+
 
 		# preprocessing a uncovered tile
 		if number == 0:
@@ -343,27 +373,15 @@ class MyAI( AI ):
 		return False
 
 	def buildConstraint(self):
-
-		# constrainList = list()
-		# for (X, Y) in self.frontier:
-			# subConstrain for each frontier number
-
-			# constrainList.append(subConstrain)
-
-		# frontier = self.frontier
 		def constraints(varset):
-
 			def subConstrain(varset, X, Y):
-
 				currentStatus = [] # current assignment
 				for (x, y) in self.lookSurround(X, Y):
 					if self.board.get(x, y) == self.board.TILE:
 						currentStatus.append(varset[(x, y)])
 					elif self.board.get(x, y) == self.board.FLAG:
 						currentStatus.append(1)
-
 				# print((X,Y), currentStatus)
-
 				if None in currentStatus:
 					return currentStatus.count(1) <= self.board.get(X, Y)
 				elif sum(currentStatus) == self.board.get(X, Y):
@@ -387,7 +405,6 @@ class MyAI( AI ):
 	def CSP(self) -> Action:
 		print("started CSP")
 		startTime = time()
-		print(startTime)
 
 		resultList = list()
 		varset = self.buildVarSet()
@@ -402,14 +419,38 @@ class MyAI( AI ):
 				result[location] += configuration[location]
 
 		# debug
-		debug(str(self.board) + "\nlastmove: " + str(self.lastMoveXY))
-		for configuration in resultList:
-			debug(self.board.toStringMarkup({(x,y): '[m]' if configuration[x,y] else '[x]'
-											 for x,y in configuration}))
+		# debug(str(self.board) + "\nlastmove: " + str(self.lastMoveXY))
+		# for configuration in resultList:
+		# 	debug(self.board.toStringMarkup({(x,y): '[m]' if configuration[x,y] else '[x]'
+		# 									 for x,y in configuration}))
 
-		print("CSP result:", result)
-		print("size:", len(resultList))
+		# print("CSP result:", result)
+		# print("size:", len(resultList))
 		print("CSP finished in:", time() - startTime, "seconds")
+		print(result)
+		print(len(resultList))
+		minMine = min(result.values())
+		maxMine = max(result.values())
+		# input("leastMine:"+str(leastMine))
+		if minMine == 0: # There is somewhere that cannot be mine
+			for location in result:
+				if result[location] == 0:
+					self.pushMove(self.UNCOVER, *location)
+			return self.popMove()
+		elif maxMine == len(resultList):
+			for location in result:
+				if result[location] == maxMine:
+					print("CSP flagged", location)
+					self.pushMove(self.FLAG, *location)
+			return self.popMove()
+		# else:
+		# 	# Take a best guess
+		# 	for location in result:
+		# 		if result[location] == minMine:
+		# 			print("CSP probablistic:", location)
+		# 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
+		# 			return Action(self.Action(self.UNCOVER), *location)
+
 
 	def humanOverridingLayer(self, number) -> Action:
 		result = input("Action(x,y): ").split()
@@ -422,10 +463,9 @@ class MyAI( AI ):
 		return action
 
 	def winCheck(self):
-		for r in range(self.board.rowDimension):
-			for c in range(self.board.colDimension):
-				if self.board.get(c, r) == self.board.TILE:
-					return None
+		for (x, y) in self.allCells():
+			if self.board.get(x, y) == self.board.TILE:
+				return None
 		return Action(self.Action(self.LEAVE), 1, 1)
 
 	#################################################################
@@ -434,6 +474,7 @@ class MyAI( AI ):
 
 	def getAction(self, number: int) -> "Action Object":
 		""" DO NOT MODIFY self.lastMove OR self.moveCount """
+
 		try:
 			# update game status
 			self.updateBoard(number)
@@ -442,6 +483,9 @@ class MyAI( AI ):
 			# self.board.display()
 
 			# evaluate action in layers
+			winResult = self.winCheck()
+			if winResult is not None:
+				return winResult
 
 			# 0 Preprocessing Layer: finish action -> save unable moves to frontier
 			preprocessingLayerResult = self.preprocessingLayer(number)
@@ -452,7 +496,9 @@ class MyAI( AI ):
 				return preprocessingLayerResult
 
 			# input("stop preprocessing, start heuristic: ")
-			print(self.frontier)
+			# print(self.frontier)
+
+			sleep(1)
 
 			# 1 Heuristic Layer:
 			heuristicLayerResult = self.heuristicLayer(number)
@@ -464,26 +510,17 @@ class MyAI( AI ):
 			# calculate probability of each tile near frontier
 			# generate combinations using constraint satisfaction
 
+			cspLayerResult = self.CSP()
+			if cspLayerResult is not None:
+				return cspLayerResult
 
-			# print(self.buildConstraint()(
-			# 	{(0, 4): 0, (1, 4): 0, (2, 4): 0, (3, 4): 0, (4, 4): 1,
-			# 	 (7, 0): 0, (7, 1): 0, (7, 2): 0, (5, 4): 0, (6, 4): 0,
-			# 	 (7, 3): 0, (7, 4): 0}, self.frontier
-			# ))
-
-
-			# input("start CSP: ")
-			self.CSP()
-			self.board.display()
-			winResult = self.winCheck()
-			if winResult is not None:
-				return winResult
 
 			# 5 Human Overriding Layer
 			humanLayerResult = self.humanOverridingLayer(number)
 			return humanLayerResult
 
 			self.board.display()
+			# builtins.print(self.gamecount)
 			return Action(self.Action.LEAVE, 1, 1)
 
 		except Exception as e:
@@ -491,3 +528,4 @@ class MyAI( AI ):
 			input()
 
 	#################################################################
+		# Add frontier splitting
