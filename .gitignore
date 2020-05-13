@@ -2,5 +2,7 @@
 venv/
 .idea/
 *.pyc
-WorldGenerator/Problems
-WorldGenerator/History
+
+WorldGenerator/
+!/WorldGenerator/generateSuperEasy.sh
+!/WorldGenerator/generateTournament.sh
