@@ -28,8 +28,15 @@ MANUAL = not AlphaSweeper
 # debug console out ##################
 ######################################
 import builtins
+import traceback
 from time import time, sleep
 from inspect import currentframe, getframeinfo
+
+
+def line():
+	previous_frame = currentframe().f_back
+	(filename, line_number, function_name, lines, index) = getframeinfo(previous_frame)
+	return "line: " + str(line_number)
 
 def print(*args, **kwargs):
 	builtins.print(*args, **kwargs)
@@ -156,6 +163,41 @@ class MyAI( AI ):
 				self.board[Y][X] = char
 				return True
 			return False
+
+	class Equivalence:
+		def __init__(self):
+			self.parent = {}
+
+		def add(self, a, b):
+			self.addSingleton(a)
+			self.addSingleton(b)
+			self.merge(a, b)
+
+		def addSingleton(self, a):
+			if a not in self.parent:
+				self.parent[a] = a
+
+		def merge(self, a, b):
+			self.parent[self.root(a)] = self.root(b)
+
+		def check(self, a, b):
+			return self.root(a) == self.root(b)
+
+		def root(self, a):
+			while True:
+				pa = self.parent[a]
+				if pa == a:
+					break
+				a = pa
+			return a
+
+		def classes(self):
+			res = {}
+			for element in self.parent:
+				res.setdefault(self.root(element), set())
+				res[self.root(element)].add(element)
+				res[self.root(element)].add(self.root(element))
+			return res
 
 	def updateBoard(self, number):
 		# routine
@@ -372,26 +414,27 @@ class MyAI( AI ):
 				varset[var] = None
 		return False
 
-	def buildConstraint(self):
-		def constraints(varset):
-			def subConstrain(varset, X, Y):
-				currentStatus = [] # current assignment
+	def buildConstraint(self, frontier):
+		def constraints(varset) -> bool:
+			def subConstrain(varset, X, Y): # varset satisfies mine constrain at X,Y
+				currentStatus = []  # current assignment
 				for (x, y) in self.lookSurround(X, Y):
 					if self.board.get(x, y) == self.board.TILE:
 						currentStatus.append(varset[(x, y)])
 					elif self.board.get(x, y) == self.board.FLAG:
 						currentStatus.append(1)
-				# print((X,Y), currentStatus)
 				if None in currentStatus:
 					return currentStatus.count(1) <= self.board.get(X, Y)
 				elif sum(currentStatus) == self.board.get(X, Y):
 					return True
 				return False
-			for (X,Y) in self.frontier:
+			# print("constrain on:", sorted(varset))
+			# print(frontier)
+			for (X,Y) in frontier:
 				if not subConstrain(varset, X, Y):
 					return False
 			return True
-
+		# print(line(), "finished buildConstrain")
 		return constraints
 
 	def buildVarSet(self):
@@ -402,54 +445,112 @@ class MyAI( AI ):
 					tiles[(x, y)] = None
 		return tiles
 
-	def CSP(self) -> Action:
-		print("started CSP")
+	# def buildVarSet(self, tiles):
+	# 	res = dict()
+	# 	for (x, y) in tiles:
+	# 		res[(x, y)] = None
+	# 	return res
+
+	def splitFrontiers(self) -> (set, dict):
+
+		""" set: frontier, dict: varset """
+
+		# eq class of tiles, if t1 and t2 are eq, they are in the same frontier
+		e = self.Equivalence()
+
+		# if a and b share 1 uncoverd tile, they are in the same frontier
+		for coord in self.frontier:
+			tiles = []
+			for neighbour in self.lookSurround(*coord):
+				if self.board.get(*neighbour) == self.Board.TILE:
+					tiles.append(neighbour)
+			first = tiles.pop(0)
+			for t in tiles:
+				e.add(first, t)
+
+		# build frontier and result list
+		res = []
+		for tiles in e.classes().values():
+			frontier = set()
+			for t in tiles:
+				for location in self.lookSurround(*t):
+					if type(self.board.get(*location)) == int\
+						and self.board.get(*location) > 0:
+						frontier.add(location)
+			varset = {i: None for i in tiles}
+			res.append((frontier, varset))
+
+		return res
+
+	def CSP(self, frontier, varset) -> (dict, Action):
+		print("started CSP on", frontier)
 		startTime = time()
 
 		resultList = list()
-		varset = self.buildVarSet()
+		#debug
+		markup = {}
+		markup.update({i: '[%d]' %(self.board.get(*i)) for i in frontier})
+		markup.update({j: '(.)' for j in varset})
+		self.board.displayWithMarkup(markup)
+		#end
+		constrains = self.buildConstraint(frontier)
 		self.recursive_backtrack(varset=varset,
-								 constrains=self.buildConstraint(),
-								 domains={0,1},
+								 constrains=constrains,
+								 domains={0, 1},
 								 resultList=resultList)
 
-		result = {location:0 for location in varset.keys()}
+		result = {location: 0 for location in varset.keys()}
+		print(result)
+
+		# count all possible results
 		for configuration in resultList:
 			for location in configuration:
 				result[location] += configuration[location]
 
-		# debug
-		# debug(str(self.board) + "\nlastmove: " + str(self.lastMoveXY))
-		# for configuration in resultList:
-		# 	debug(self.board.toStringMarkup({(x,y): '[m]' if configuration[x,y] else '[x]'
-		# 									 for x,y in configuration}))
-
-		# print("CSP result:", result)
-		# print("size:", len(resultList))
 		print("CSP finished in:", time() - startTime, "seconds")
-		print(result)
-		print(len(resultList))
+		print(line(), result)
+		print("possible results:", len(resultList))
 		minMine = min(result.values())
 		maxMine = max(result.values())
+
 		# input("leastMine:"+str(leastMine))
-		if minMine == 0: # There is somewhere that cannot be mine
+		if minMine == 0:  # There is somewhere that cannot be mine
 			for location in result:
 				if result[location] == 0:
 					self.pushMove(self.UNCOVER, *location)
-			return self.popMove()
+			return (result, self.popMove())
 		elif maxMine == len(resultList):
 			for location in result:
 				if result[location] == maxMine:
 					print("CSP flagged", location)
 					self.pushMove(self.FLAG, *location)
-			return self.popMove()
-		# else:
-		# 	# Take a best guess
-		# 	for location in result:
-		# 		if result[location] == minMine:
-		# 			print("CSP probablistic:", location)
-		# 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
-		# 			return Action(self.Action(self.UNCOVER), *location)
+			return (result, self.popMove())
+		else:
+			# construct probability distribution
+			for location in result:
+				result[location] = result[location] / len(resultList)
+			return (result, None)
+
+	def cspEval(self) -> (dict, Action):
+		results = {}
+		for frontier, varset in self.splitFrontiers(): # calculate p for all frontiers
+			res, action = self.CSP(frontier, varset)
+			if action is not None:
+				return res, action
+
+		return self.CSP(self.frontier, self.buildVarSet())
+
+
+	def probEval(self, varset: {(int,int):float}) -> Action:
+		minimum = 1
+		(X, Y) = (None, None)
+		for (x, y), p in varset.items():
+			if p < minimum:
+				X, Y = x, y
+				minimum = p
+		self.pushMove(self.UNCOVER, X, Y)
+		return self.popMove()
+
 
 
 	def humanOverridingLayer(self, number) -> Action:
@@ -490,7 +591,7 @@ class MyAI( AI ):
 			# 0 Preprocessing Layer: finish action -> save unable moves to frontier
 			preprocessingLayerResult = self.preprocessingLayer(number)
 			if preprocessingLayerResult is not None:
-				self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
+				# self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
 				# print("going to move:", preprocessingLayerResult.getMove(), preprocessingLayerResult.getX(), preprocessingLayerResult.getY())
 				# print(self.actionQueue)
 				return preprocessingLayerResult
@@ -498,7 +599,7 @@ class MyAI( AI ):
 			# input("stop preprocessing, start heuristic: ")
 			# print(self.frontier)
 
-			sleep(1)
+			# sleep(1)
 
 			# 1 Heuristic Layer:
 			heuristicLayerResult = self.heuristicLayer(number)
@@ -506,25 +607,49 @@ class MyAI( AI ):
 			if heuristicLayerResult is not None:
 				return heuristicLayerResult
 
-			# 2 Probability Layer:
-			# calculate probability of each tile near frontier
-			# generate combinations using constraint satisfaction
 
-			cspLayerResult = self.CSP()
-			if cspLayerResult is not None:
-				return cspLayerResult
+
+			if len(self.frontier) > 0: # not all tiles are surrounded by mines
+
+				# 2 CSP Layer: result, weight_vector
+				# calculate probability of each tile near frontier
+				# generate combinations using constraint satisfaction
+				print(self.frontier)
+				print("start splitfrontier")
+				fs = list(self.splitFrontiers())
+				print("frontier split:", len(fs), fs)
+				print("end splitfrontier")
+
+				cspResult, cspAction = self.cspEval()
+				if cspAction is not None:
+					return cspAction
+
+				print("cspResult:", cspResult)
+
+				# Probablity Evaluation Layer
+				evalResult = self.probEval(cspResult)
+				if evalResult is not None:
+					return evalResult
+			else: # all tiles are surrounded by mines
+				for location in self.allCells():
+					if self.board.get(*location) == self.board.TILE:
+						self.pushMove(self.UNCOVER, *location)
+						return self.popMove()
 
 
 			# 5 Human Overriding Layer
+			self.board.displayWithMarkup(
+				{i: "(%d)" % self.board.get(*i) for i in self.frontier})
 			humanLayerResult = self.humanOverridingLayer(number)
 			return humanLayerResult
 
-			self.board.display()
+
 			# builtins.print(self.gamecount)
 			return Action(self.Action.LEAVE, 1, 1)
 
 		except Exception as e:
-			print(e)
+			print("EXCEPTION:")
+			print(traceback.format_exc())
 			input()
 
 	#################################################################
