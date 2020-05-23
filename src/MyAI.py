@@ -537,8 +537,8 @@ class MyAI( AI ):
 			res, action = self.CSP(frontier, varset)
 			if action is not None:
 				return res, action
-
-		return self.CSP(self.frontier, self.buildVarSet())
+			results.update(res)
+		return results, None
 
 
 	def probEval(self, varset: {(int,int):float}) -> Action:
