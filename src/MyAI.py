@@ -380,12 +380,16 @@ class MyAI( AI ):
 	def recursive_backtrack(varset: {'var': None},
 							constrains: 'lambda(varset): bool',
 							domains: {'var'},
-							resultList: list):
+							resultList: list,
+							startTime: float):
 		"""
 		A recursive backtrack searching algorithm
 		perform search in state (domain) space
 		return: varset (with assigned value that satisfies constrains)
 		"""
+
+		if time() - startTime > 120:
+			return False
 
 		# 1.return varset if every var have assignment
 		if all(i is not None for i in varset.values()):
