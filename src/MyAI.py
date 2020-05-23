@@ -501,7 +501,8 @@ class MyAI( AI ):
 		self.recursive_backtrack(varset=varset,
 								 constrains=constrains,
 								 domains={0, 1},
-								 resultList=resultList)
+								 resultList=resultList,
+								 startTime=startTime)
 
 		result = {location: 0 for location in varset.keys()}
 		print(result)
