@@ -3,6 +3,6 @@ venv/
 .idea/
 *.pyc
 
-WorldGenerator/
+WorldGenerator/*
 !/WorldGenerator/generateSuperEasy.sh
 !/WorldGenerator/generateTournament.sh
