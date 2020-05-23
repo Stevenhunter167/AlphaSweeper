@@ -224,6 +224,8 @@ class MyAI( AI ):
 		self.lastMove = Action(self.Action(self.UNCOVER), startX, startY)
 		self.moveCount = 1
 
+		self.BEGINTIME = time()
+
 		# moves
 		self.actionQueue = dict()
 
@@ -578,6 +580,14 @@ class MyAI( AI ):
 	# MAIN ##########################################################
 	#################################################################
 
+	def timeLeft(self):
+		return 300 - (time() - self.BEGINTIME)
+
+	def chooseRandom(self):
+		for location in self.allCells():
+			self.pushMove(self.UNCOVER, *location)
+			return self.popMove()
+
 	def getAction(self, number: int) -> "Action Object":
 		""" DO NOT MODIFY self.lastMove OR self.moveCount """
 
@@ -612,6 +622,9 @@ class MyAI( AI ):
 			if heuristicLayerResult is not None:
 				return heuristicLayerResult
 
+			if self.timeLeft() < 60:
+				print("notime->random")
+				return self.chooseRandom()
 
 
 			if len(self.frontier) > 0: # not all tiles are surrounded by mines
