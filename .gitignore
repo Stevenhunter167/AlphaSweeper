@@ -4,5 +4,6 @@ venv/
 *.pyc
 
 WorldGenerator/*
+!/WorldGenerator/WorldGenerator.py
 !/WorldGenerator/generateSuperEasy.sh
 !/WorldGenerator/generateTournament.sh
