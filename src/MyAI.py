@@ -409,7 +409,7 @@ class MyAI( AI ):
 			# if constraint is satisfied
 			if constrains(varset):
 				# print(varset)
-				result = MyAI.recursive_backtrack(varset.copy(), constrains, domains, resultList)
+				result = MyAI.recursive_backtrack(varset.copy(), constrains, domains, resultList, startTime)
 				# if result is not False:
 				# 	return result
 
