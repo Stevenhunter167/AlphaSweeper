@@ -378,8 +378,9 @@ class MyAI( AI ):
 	# CSP Layer #####################################################
 	#################################################################
 
-	@staticmethod
-	def recursive_backtrack(varset: {'var': None},
+
+	def recursive_backtrack(self,
+							varset: {'var': None},
 							constrains: 'lambda(varset): bool',
 							domains: {'var'},
 							resultList: list):
@@ -388,6 +389,9 @@ class MyAI( AI ):
 		perform search in state (domain) space
 		return: varset (with assigned value that satisfies constrains)
 		"""
+
+		if self.timeLeft() < 10:
+			return False
 
 		# 1.return varset if every var have assignment
 		if all(i is not None for i in varset.values()):
@@ -407,14 +411,13 @@ class MyAI( AI ):
 			# if constraint is satisfied
 			if constrains(varset):
 				# print(varset)
-				result = MyAI.recursive_backtrack(varset.copy(), constrains, domains, resultList)
+				result = self.recursive_backtrack(varset.copy(), constrains, domains, resultList)
 				# if result is not False:
 				# 	return result
 
 				# all childrens of this node is deadend
 				# remove assignment
 				varset[var] = None
-		return False
 
 	def buildConstraint(self, frontier):
 		def constraints(varset) -> bool:
@@ -496,10 +499,13 @@ class MyAI( AI ):
 		self.board.displayWithMarkup(markup)
 		#end
 		constrains = self.buildConstraint(frontier)
-		self.recursive_backtrack(varset=varset,
+		res = self.recursive_backtrack(varset=varset,
 								 constrains=constrains,
 								 domains={0, 1},
 								 resultList=resultList)
+
+		if res == False:
+			return ({}, self.chooseRandom())
 
 		result = {location: 0 for location in varset.keys()}
 		print(result)
@@ -579,9 +585,17 @@ class MyAI( AI ):
 		return 300 - (time() - self.BEGINTIME)
 
 	def chooseRandom(self):
+		varset = self.buildVarSet()
 		for location in self.allCells():
-			self.pushMove(self.UNCOVER, *location)
-			return self.popMove()
+			if self.board.get(*location) == self.board.TILE and location not in varset:
+				self.pushMove(self.UNCOVER, *location)
+				return self.popMove()
+		else:
+			for location in self.allCells():
+				if self.board.get(*location) == self.board.TILE:
+					self.pushMove(self.UNCOVER, *location)
+					return self.popMove()
+
 
 	def getAction(self, number: int) -> "Action Object":
 		""" DO NOT MODIFY self.lastMove OR self.moveCount """
@@ -590,7 +604,7 @@ class MyAI( AI ):
 			# update game status
 			self.updateBoard(number)
 			print()
-			print("---" * (self.board.rowDimension + 1), "Move", self.moveCount, ":", self.lastMoveXY, "status:", number)
+			print("---" * (self.board.rowDimension + 1), "Move", self.moveCount, ":", self.lastMoveXY, "status:", number, "timeleft:", self.timeLeft())
 			# self.board.display()
 
 			# evaluate action in layers
@@ -616,11 +630,6 @@ class MyAI( AI ):
 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
 			if heuristicLayerResult is not None:
 				return heuristicLayerResult
-
-			if self.timeLeft() < 60:
-				print("notime->random")
-				return self.chooseRandom()
-
 
 			if len(self.frontier) > 0: # not all tiles are surrounded by mines
 
