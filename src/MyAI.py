@@ -1,16 +1,10 @@
-# ==============================CS-199==================================
+# ==========CS-171=============
 # FILE:			MyAI.py
 #
-# AUTHOR: 		Justin Chung
+# AUTHOR: 		Litian Liang
+# TEAM:			AlphaSweeper
 #
-# DESCRIPTION:	This file contains the MyAI class. You will implement your
-#				agent in this file. You will write the 'getAction' function,
-#				the constructor, and any additional helper functions.
-#
-# NOTES: 		- MyAI inherits from the abstract AI class in AI.py.
-#
-#				- DO NOT MAKE CHANGES TO THIS FILE.
-# ==============================CS-199==================================
+# =============================
 
 from AI import AI
 from Action import Action
@@ -39,16 +33,17 @@ def line():
 	return "line: " + str(line_number)
 
 def print(*args, **kwargs):
-	builtins.print(*args, **kwargs)
+	# builtins.print(*args, **kwargs)
 	pass
 
 def debug(string):
-	previous_frame = currentframe().f_back
-	(filename, line_number, function_name, lines, index) = getframeinfo(previous_frame)
-	with open("debug.txt", 'a') as f:
-		f.write("#############################################################\n")
-		f.write("line: " + str(line_number) + "\n")
-		f.write(string + "\n")
+	# previous_frame = currentframe().f_back
+	# (filename, line_number, function_name, lines, index) = getframeinfo(previous_frame)
+	# with open("debug.txt", 'a') as f:
+	# 	f.write("#############################################################\n")
+	# 	f.write("line: " + str(line_number) + "\n")
+	# 	f.write(string + "\n")
+	pass
 	# builtins.print("line:", line_number, *args, **kwargs)
 ######################################
 
@@ -418,6 +413,8 @@ class MyAI( AI ):
 				# all childrens of this node is deadend
 				# remove assignment
 				varset[var] = None
+				if result == False:
+					return False
 
 	def buildConstraint(self, frontier):
 		def constraints(varset) -> bool:
@@ -660,10 +657,10 @@ class MyAI( AI ):
 
 
 			# 5 Human Overriding Layer
-			self.board.displayWithMarkup(
-				{i: "(%d)" % self.board.get(*i) for i in self.frontier})
-			humanLayerResult = self.humanOverridingLayer(number)
-			return humanLayerResult
+			# self.board.displayWithMarkup(
+			# 	{i: "(%d)" % self.board.get(*i) for i in self.frontier})
+			# humanLayerResult = self.humanOverridingLayer(number)
+			# return humanLayerResult
 
 
 			# builtins.print(self.gamecount)
