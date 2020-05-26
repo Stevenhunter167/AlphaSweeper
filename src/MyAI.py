@@ -8,12 +8,13 @@
 
 from AI import AI
 from Action import Action
-from queue import PriorityQueue, Queue
+# from queue import PriorityQueue, Queue
 
 ######################################
 # Global Var #########################
 ######################################
 
+LOG = True
 DEBUG = False
 AlphaSweeper = False
 MANUAL = not AlphaSweeper
@@ -25,6 +26,7 @@ import builtins
 import traceback
 from time import time, sleep
 from inspect import currentframe, getframeinfo
+from pprint import pformat
 
 
 def line():
@@ -36,15 +38,18 @@ def print(*args, **kwargs):
 	# builtins.print(*args, **kwargs)
 	pass
 
-def debug(string):
-	# previous_frame = currentframe().f_back
-	# (filename, line_number, function_name, lines, index) = getframeinfo(previous_frame)
-	# with open("debug.txt", 'a') as f:
-	# 	f.write("#############################################################\n")
-	# 	f.write("line: " + str(line_number) + "\n")
-	# 	f.write(string + "\n")
+def print2(*args, **kwargs):
+	builtins.print(*args, **kwargs)
 	pass
-	# builtins.print("line:", line_number, *args, **kwargs)
+
+def debug(*args, **kwargs):
+	builtins.print("[debug" + line() + "]", *args, **kwargs)
+
+def log(filename, string):
+	outputFolder = "../dataset/May25/"
+	with open(outputFolder + str(filename) + ".txt", 'a') as f:
+		f.write(("#" * 60) + "\n")
+		f.write(string + "\n")
 ######################################
 
 
@@ -56,6 +61,7 @@ class MyAI( AI ):
 	UNFLAG = 3
 
 	gamecount = 0
+
 
 	class Board:
 
@@ -69,6 +75,12 @@ class MyAI( AI ):
 
 		def isLegalPosition(self, X, Y):
 			return 0 <= X < self.colDimension and 0 <= Y < self.rowDimension
+
+		def set(self, X, Y, char):
+			if self.isLegalPosition(X, Y):
+				self.board[Y][X] = char
+				return True
+			return False
 
 		def get(self, X, Y):
 			if self.isLegalPosition(X, Y):
@@ -153,11 +165,7 @@ class MyAI( AI ):
 			result += "\n"
 			return result
 
-		def set(self, X, Y, char):
-			if self.isLegalPosition(X, Y):
-				self.board[Y][X] = char
-				return True
-			return False
+
 
 	class Equivalence:
 		def __init__(self):
@@ -207,22 +215,40 @@ class MyAI( AI ):
 		else:
 			self.board.set(*self.lastMoveXY, number)
 
+	def log(self, string):
+		log(MyAI.gamecount, string)
+
 	def __init__(self, rowDimension, colDimension, totalMines, startX, startY):
 
 		MyAI.gamecount += 1
-		# print("Game:", MyAI.gamecount)
 
 		# init Game Variables
 		self.totalMines = totalMines
+		self.totalFlags = 0
+		self.tileLeft = rowDimension * colDimension
 		self.board = self.Board(rowDimension, colDimension)
 		self.lastMoveXY = (startX, startY)
 		self.lastMove = Action(self.Action(self.UNCOVER), startX, startY)
 		self.moveCount = 1
 
+		print2("Game: %d, BoardSize: (%d,%d), TotalMines: %d"
+				 %(MyAI.gamecount,
+				   rowDimension,
+				   colDimension,
+				   totalMines))
+		self.log("Game: %d, BoardSize: (%d,%d), TotalMines: %d"
+				 %(MyAI.gamecount,
+				   rowDimension,
+				   colDimension,
+				   totalMines)
+		)
+
 		self.BEGINTIME = time()
 
 		# moves
 		self.actionQueue = dict()
+		# corresponding heuristic map
+		self.heuristicQueue = dict()
 
 		# Heuristic Layer Components
 		# frontier
@@ -248,16 +274,27 @@ class MyAI( AI ):
 		del self.actionQueue[location]
 		return action
 
-	def pushMove(self, actionCode, X, Y, priority=5) -> None:
+	def pushMove(self, actionCode, X, Y, heuristic="NOT PROVIDED") -> None:
 		# self.actionQueue.put(self.PriorityAction(Action(self.Action(actionCode), X, Y), priority))
 		self.actionQueue[(X, Y)] = actionCode
+		self.heuristicQueue[(X, Y)] = heuristic
 
 	def popMove(self):
 		if len(self.actionQueue) == 0:
-			raise Exception("empty action queue")
+			return None
 		action = self.nextMove()
 		self.lastMoveXY = (action.getX(), action.getY())
 		self.lastMove = action
+
+		self.log("popMove: " + str(self.moveCount) + " " + str(self.lastMove.getMove()) + " " + str(self.lastMoveXY)
+				 + " strategy: " + str(self.heuristicQueue[self.lastMoveXY])
+				 + " mineleft: " + str(self.totalMines - self.totalFlags))
+
+		if self.lastMove.getMove() == AI.Action.FLAG:
+			self.totalFlags += 1
+			self.tileLeft -= 1
+		elif self.lastMove.getMove() == AI.Action.UNCOVER:
+			self.tileLeft -= 1
 		return action
 
 	def makeMove(self, actionCode, X, Y) -> Action:
@@ -280,11 +317,12 @@ class MyAI( AI ):
 	#################################################################
 	#          Layer Name						result type
 	# Layer 0: Preprocessing Layer				deterministic
-	# Layer 1: Heuristic Layer					deterministic
-	# Layer 2: CSP Layer						deterministic
-	# Layer 3: Probablistic CSP Layer			probabilistic
-	# Layer 4: NN Layer							probabilistic
-	# Layer 5: Human Overriding Layer			      -
+	# Layer 1: Basic Layer						deterministic
+	# Layer 2: Pattern Matching					deterministic
+	# Layer 3: CSP Layer						deterministic
+	# Layer 4: Probablistic CSP Layer			probabilistic
+	# Layer 5: NN Layer							probabilistic
+	# Layer 6: Human Overriding Layer			      -
 	#################################################################
 
 	#################################################################
@@ -298,34 +336,35 @@ class MyAI( AI ):
 
 
 	def preprocessingLayer(self, number) -> Action:
+		hName = "PREPROCESS"
 
 		allCellResult = [self.board.get(x, y) for x, y in self.allCells()]
 
 		# discoverd all mines
-		if allCellResult.count(self.board.FLAG) == self.totalMines:
+		if self.totalFlags == self.totalMines:
 			for (x, y) in self.allCells():
 				if self.board.get(x, y) == self.board.TILE:
-					self.pushMove(self.UNCOVER, x, y)
+					self.pushMove(self.UNCOVER, x, y, heuristic=hName)
 			return self.popMove()
 
 		# all rest tiles are mines
-		if allCellResult.count(self.board.FLAG) + allCellResult.count(self.board.TILE) == self.totalMines:
+		if self.totalFlags + self.tileLeft == self.totalMines:
 			for (x, y) in self.allCells():
 				if self.board.get(x, y) == self.board.TILE:
-					self.pushMove(self.FLAG, x, y)
+					self.pushMove(self.FLAG, x, y, heuristic=hName)
 			return self.popMove()
-
-
 
 		# preprocessing a uncovered tile
 		if number == 0:
 			for x, y in self.lookSurround(*self.lastMoveXY):
 				if self.board.get(x, y) == self.board.TILE:
-					self.pushMove(self.UNCOVER, x, y, priority=5)
+					self.pushMove(self.UNCOVER, x, y, heuristic=hName)
 
+		# there are some mines around, add to frontier
 		if number > 0:
 			self.frontier.add(self.lastMoveXY)
 
+		# finish any move in queue
 		if self.hasNextMove():
 			return self.popMove()
 
@@ -333,9 +372,10 @@ class MyAI( AI ):
 	# heuristic Layer ###############################################
 	#################################################################
 
-	def heuristicLayer(self, number) -> Action:
+	def basicLayer(self, number) -> Action:
 
 		# 1 frontier heuristic
+		hName = "BASIC"
 
 		# 1.1 flag surrounding deterministic tiles
 		removeFromFrontier = list()
@@ -352,14 +392,14 @@ class MyAI( AI ):
 			elif surround.count(self.board.TILE) + surround.count(self.board.FLAG) == self.board.get(X, Y):
 				for (x, y) in self.lookSurround(X, Y):
 					if self.board.get(x, y) == self.board.TILE:
-						self.pushMove(self.FLAG, x, y, priority=4)
+						self.pushMove(self.FLAG, x, y, heuristic=hName)
 				removeFromFrontier.append((X, Y))
 
 			# if flag == number, uncover all tiles
 			elif surround.count(self.board.FLAG) == self.board.get(X, Y):
 				for (x, y) in self.lookSurround(X, Y):
 					if self.board.get(x, y) == self.board.TILE:
-						self.pushMove(self.UNCOVER, x, y, priority=4)
+						self.pushMove(self.UNCOVER, x, y, heuristic=hName)
 				removeFromFrontier.append((X, Y))
 
 		for XYcoordinate in removeFromFrontier:
@@ -485,6 +525,10 @@ class MyAI( AI ):
 		return res
 
 	def CSP(self, frontier, varset) -> (dict, Action):
+
+		# CSP Layer
+		hName = "CSP"
+
 		print("started CSP on", frontier)
 		startTime = time()
 
@@ -494,6 +538,7 @@ class MyAI( AI ):
 		markup.update({i: '[%d]' %(self.board.get(*i)) for i in frontier})
 		markup.update({j: '(.)' for j in varset})
 		self.board.displayWithMarkup(markup)
+		# hName += "\n" + self.board.toStringMarkup(markup) + "\n"
 		#end
 		constrains = self.buildConstraint(frontier)
 		res = self.recursive_backtrack(varset=varset,
@@ -505,12 +550,13 @@ class MyAI( AI ):
 			return ({}, self.chooseRandom())
 
 		result = {location: 0 for location in varset.keys()}
-		print(result)
 
 		# count all possible results
 		for configuration in resultList:
 			for location in configuration:
 				result[location] += configuration[location]
+
+		hName += pformat(resultList)
 
 		print("CSP finished in:", time() - startTime, "seconds")
 		print(line(), result)
@@ -522,13 +568,13 @@ class MyAI( AI ):
 		if minMine == 0:  # There is somewhere that cannot be mine
 			for location in result:
 				if result[location] == 0:
-					self.pushMove(self.UNCOVER, *location)
+					self.pushMove(self.UNCOVER, *location, heuristic=hName)
 			return (result, self.popMove())
 		elif maxMine == len(resultList):
 			for location in result:
 				if result[location] == maxMine:
 					print("CSP flagged", location)
-					self.pushMove(self.FLAG, *location)
+					self.pushMove(self.FLAG, *location, heuristic=hName)
 			return (result, self.popMove())
 		else:
 			# construct probability distribution
@@ -547,14 +593,32 @@ class MyAI( AI ):
 
 
 	def probEval(self, varset: {(int,int):float}) -> Action:
+
+		hName = "PROBABILISTIC"
+
+		# minimum prob on frontier
 		minimum = 1
 		(X, Y) = (None, None)
 		for (x, y), p in varset.items():
 			if p < minimum:
 				X, Y = x, y
 				minimum = p
-		self.pushMove(self.UNCOVER, X, Y)
-		return self.popMove()
+
+		# minimum random click prob = (safe tile) / (total uncovered tile)
+		minimum_random = (self.totalMines - self.totalFlags) / self.tileLeft
+
+		hName += " frontier: %.2f random: %.2f" %(minimum, minimum_random)
+
+		if minimum <= minimum_random: # safer clicking on frontier
+			self.pushMove(self.UNCOVER, X, Y, heuristic=hName)
+			return self.popMove()
+		elif minimum_random < minimum:# safer clicking on a random cell
+			varset = self.buildVarSet()
+			for location in self.allCells():
+				if self.board.get(
+						*location) == self.board.TILE and location not in varset:
+					self.pushMove(self.UNCOVER, *location, heuristic=hName)
+					return self.popMove()
 
 
 
@@ -572,6 +636,8 @@ class MyAI( AI ):
 		for (x, y) in self.allCells():
 			if self.board.get(x, y) == self.board.TILE:
 				return None
+		self.log("GameStatus: WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
+		print2("GameStatus: WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
 		return Action(self.Action(self.LEAVE), 1, 1)
 
 	#################################################################
@@ -582,15 +648,19 @@ class MyAI( AI ):
 		return 300 - (time() - self.BEGINTIME)
 
 	def chooseRandom(self):
+
+		# random
+		hName = "RANDOM"
+
 		varset = self.buildVarSet()
 		for location in self.allCells():
 			if self.board.get(*location) == self.board.TILE and location not in varset:
-				self.pushMove(self.UNCOVER, *location)
+				self.pushMove(self.UNCOVER, *location, heuristic=hName)
 				return self.popMove()
 		else:
 			for location in self.allCells():
 				if self.board.get(*location) == self.board.TILE:
-					self.pushMove(self.UNCOVER, *location)
+					self.pushMove(self.UNCOVER, *location, heuristic=hName)
 					return self.popMove()
 
 
@@ -602,6 +672,9 @@ class MyAI( AI ):
 			self.updateBoard(number)
 			print()
 			print("---" * (self.board.rowDimension + 1), "Move", self.moveCount, ":", self.lastMoveXY, "status:", number, "timeleft:", self.timeLeft())
+
+			self.log("timeleft:" + str(self.timeLeft()) + "\n" + self.board.toStringMarkup({i: "(%d)" % self.board.get(*i) for i in self.frontier}))
+
 			# self.board.display()
 
 			# evaluate action in layers
@@ -622,11 +695,12 @@ class MyAI( AI ):
 
 			# sleep(1)
 
-			# 1 Heuristic Layer:
-			heuristicLayerResult = self.heuristicLayer(number)
+			# 1 Basic Layer:
+			basicLayerResult = self.basicLayer(number)
+			if basicLayerResult is not None:
+				return basicLayerResult
+
 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
-			if heuristicLayerResult is not None:
-				return heuristicLayerResult
 
 			if len(self.frontier) > 0: # not all tiles are surrounded by mines
 
@@ -644,16 +718,17 @@ class MyAI( AI ):
 					return cspAction
 
 				print("cspResult:", cspResult)
+				self.log("CSPresult" + str(cspResult))
 
 				# Probablity Evaluation Layer
 				evalResult = self.probEval(cspResult)
+				# self.log(line()+str(evalResult.getMove() if evalResult is not None else None))
 				if evalResult is not None:
 					return evalResult
+				else:
+					return self.chooseRandom()
 			else: # all tiles are surrounded by mines
-				for location in self.allCells():
-					if self.board.get(*location) == self.board.TILE:
-						self.pushMove(self.UNCOVER, *location)
-						return self.popMove()
+				return self.chooseRandom()
 
 
 			# 5 Human Overriding Layer
