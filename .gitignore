@@ -2,7 +2,8 @@
 venv/
 .idea/
 *.pyc
-
+dataset/*
+!dataset/Analyzer.py
 WorldGenerator/*
 !/WorldGenerator/WorldGenerator.py
 !/WorldGenerator/generateSuperEasy.sh

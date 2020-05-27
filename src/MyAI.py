@@ -46,7 +46,7 @@ def debug(*args, **kwargs):
 	builtins.print("[debug" + line() + "]", *args, **kwargs)
 
 def log(filename, string):
-	outputFolder = "../dataset/May25/"
+	outputFolder = "../dataset/tournament/"
 	with open(outputFolder + str(filename) + ".txt", 'a') as f:
 		f.write(("#" * 60) + "\n")
 		f.write(string + "\n")
@@ -318,7 +318,7 @@ class MyAI( AI ):
 	#          Layer Name						result type
 	# Layer 0: Preprocessing Layer				deterministic
 	# Layer 1: Basic Layer						deterministic
-	# Layer 2: Pattern Matching					deterministic
+	# Layer 2: Grouping							deterministic
 	# Layer 3: CSP Layer						deterministic
 	# Layer 4: Probablistic CSP Layer			probabilistic
 	# Layer 5: NN Layer							probabilistic
@@ -718,7 +718,8 @@ class MyAI( AI ):
 					return cspAction
 
 				print("cspResult:", cspResult)
-				self.log("CSPresult" + str(cspResult))
+				# self.log("CSPresult" + str(cspResult))
+
 
 				# Probablity Evaluation Layer
 				evalResult = self.probEval(cspResult)
