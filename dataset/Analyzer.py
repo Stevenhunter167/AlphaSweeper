@@ -1,6 +1,6 @@
 import glob
 print()
-folder = "./tournament/"
+folder = "./May29/"
 
 win=0
 total=0
@@ -23,7 +23,7 @@ for filename in glob.glob(folder + "*.txt"):
         # print(gamesize)
         s = fl[-1].strip()
         if not s.startswith("GameStatus"):
-            # print("Game" + fl[1].split(',')[0][-1] + ": " + s)
+            print("Game", filename, ": " + s)
             games[gamesize][1] += 1
         else:
             games[gamesize][0] += 1

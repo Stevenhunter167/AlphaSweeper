@@ -46,7 +46,7 @@ def debug(*args, **kwargs):
 	builtins.print("[debug" + line() + "]", *args, **kwargs)
 
 def log(filename, string):
-	outputFolder = "../dataset/tournament/"
+	outputFolder = "../dataset/May29/"
 	with open(outputFolder + str(filename) + ".txt", 'a') as f:
 		f.write(("#" * 60) + "\n")
 		f.write(string + "\n")
@@ -55,13 +55,22 @@ def log(filename, string):
 
 class MyAI( AI ):
 
+	# action code
 	LEAVE = 0
 	UNCOVER = 1
 	FLAG = 2
 	UNFLAG = 3
 
+	# statistics
 	gamecount = 0
-
+	beginnerStats = [0, -1]
+	intermediateStats = [0, -1]
+	expertStats = [0, -1]
+	stats = {
+		( 8, 8) : beginnerStats,
+		(16,16) : intermediateStats,
+		(16,30) : expertStats
+	}
 
 	class Board:
 
@@ -221,6 +230,8 @@ class MyAI( AI ):
 	def __init__(self, rowDimension, colDimension, totalMines, startX, startY):
 
 		MyAI.gamecount += 1
+		# 1 more game at this difficulty level
+		self.stats[(rowDimension, colDimension)][1] += 1
 
 		# init Game Variables
 		self.totalMines = totalMines
@@ -235,7 +246,14 @@ class MyAI( AI ):
 				 %(MyAI.gamecount,
 				   rowDimension,
 				   colDimension,
-				   totalMines))
+				   totalMines), end=" | ")
+		print2("Current Win [B: (%d/%d) I: (%d/%d) E: (%d/%d)]"
+			   %(self.beginnerStats[0],
+				 self.beginnerStats[1],
+				 self.intermediateStats[0],
+				 self.intermediateStats[1],
+				 self.expertStats[0],
+				 self.expertStats[1]))
 		self.log("Game: %d, BoardSize: (%d,%d), TotalMines: %d"
 				 %(MyAI.gamecount,
 				   rowDimension,
@@ -289,6 +307,9 @@ class MyAI( AI ):
 		self.log("popMove: " + str(self.moveCount) + " " + str(self.lastMove.getMove()) + " " + str(self.lastMoveXY)
 				 + " strategy: " + str(self.heuristicQueue[self.lastMoveXY])
 				 + " mineleft: " + str(self.totalMines - self.totalFlags))
+		# print2("popMove: " + str(self.moveCount) + " " + str(self.lastMove.getMove()) + " " + str(self.lastMoveXY)
+		# 		 + " strategy: " + str(self.heuristicQueue[self.lastMoveXY])
+		# 		 + " mineleft: " + str(self.totalMines - self.totalFlags))
 
 		if self.lastMove.getMove() == AI.Action.FLAG:
 			self.totalFlags += 1
@@ -320,8 +341,8 @@ class MyAI( AI ):
 	# Layer 1: Basic Layer						deterministic
 	# Layer 2: Grouping							deterministic
 	# Layer 3: CSP Layer						deterministic
-	# Layer 4: Probablistic CSP Layer			probabilistic
-	# Layer 5: NN Layer							probabilistic
+	# Layer 4: PSEQ Layer						probabilistic
+	# Layer 5: Probablistic CSP Layer			probabilistic
 	# Layer 6: Human Overriding Layer			      -
 	#################################################################
 
@@ -408,6 +429,50 @@ class MyAI( AI ):
 
 		if self.hasNextMove():
 			return self.popMove()
+
+	#################################################################
+	# Grouping ######################################################
+	#################################################################
+
+	def buildGroup(self, frontier):
+		groups = list()
+		for (X,Y) in frontier:
+			thisGroup = set()
+			minecount = self.board.get(X,Y)
+			for location in self.lookSurround(X,Y):
+				if self.board.get(*location) == self.board.TILE:
+					thisGroup.add(location)
+				elif self.board.get(*location) == self.board.FLAG:
+					minecount -= 1
+			groups.append((thisGroup, minecount))
+		return groups
+
+	def grouping(self):
+		hName = "GROUPING"
+		groups = self.buildGroup(self.frontier)
+		groupingAction = False
+		for pivotLocations, pivotMine in groups:
+			for locations, locMine in groups:
+				# check every pair in group
+
+				if locations != pivotLocations and locations.issubset(pivotLocations):
+					# if not same set and locations is subset of pivot
+
+					difference = pivotLocations - locations
+					if len(difference) == pivotMine - locMine:
+						# flag the difference, make move
+						for (x,y) in difference:
+							self.pushMove(self.FLAG, x, y, heuristic=hName)
+					elif (pivotMine - locMine) == 0:
+						# difference are safe, make move
+						groupingAction = True
+						for (x,y) in difference:
+							self.pushMove(self.UNCOVER, x, y, heuristic=hName)
+
+		if groupingAction:
+			return self.popMove()
+		else:
+			return None
 
 	#################################################################
 	# CSP Layer #####################################################
@@ -556,8 +621,7 @@ class MyAI( AI ):
 			for location in configuration:
 				result[location] += configuration[location]
 
-		hName += pformat(resultList)
-
+		# hName += pformat(resultList)
 		print("CSP finished in:", time() - startTime, "seconds")
 		print(line(), result)
 		print("possible results:", len(resultList))
@@ -637,7 +701,10 @@ class MyAI( AI ):
 			if self.board.get(x, y) == self.board.TILE:
 				return None
 		self.log("GameStatus: WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
-		print2("GameStatus: WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
+		print2("WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
+
+		# world win count += 1
+		self.stats[(self.board.rowDimension, self.board.colDimension)][0] += 1
 		return Action(self.Action(self.LEAVE), 1, 1)
 
 	#################################################################
@@ -702,11 +769,16 @@ class MyAI( AI ):
 
 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
 
-			if len(self.frontier) > 0: # not all tiles are surrounded by mines
+			# 2 Grouping
+			groupingResult = self.grouping()
+			if groupingResult is not None:
+				return groupingResult
 
-				# 2 CSP Layer: result, weight_vector
-				# calculate probability of each tile near frontier
-				# generate combinations using constraint satisfaction
+			# 3 CSP Layer: result, weight_vector
+			# calculate probability of each tile near frontier
+			# generate combinations using constraint satisfaction
+
+			if len(self.frontier) > 0: # not all tiles are surrounded by mines
 				print(self.frontier)
 				print("start splitfrontier")
 				fs = list(self.splitFrontiers())
@@ -728,6 +800,7 @@ class MyAI( AI ):
 					return evalResult
 				else:
 					return self.chooseRandom()
+
 			else: # all tiles are surrounded by mines
 				return self.chooseRandom()
 
