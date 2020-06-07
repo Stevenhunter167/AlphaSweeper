@@ -46,7 +46,7 @@ def debug(*args, **kwargs):
 	builtins.print("[debug" + line() + "]", *args, **kwargs)
 
 def log(filename, string):
-	outputFolder = "../dataset/May29/"
+	outputFolder = "../dataset/Expert3000run2/"
 	with open(outputFolder + str(filename) + ".txt", 'a') as f:
 		f.write(("#" * 60) + "\n")
 		f.write(string + "\n")
@@ -71,6 +71,9 @@ class MyAI( AI ):
 		(16,16) : intermediateStats,
 		(16,30) : expertStats
 	}
+
+	# parameters
+	THREASH_TIME = 4 # time left for stoping all time consuming heuristics
 
 	class Board:
 
@@ -247,13 +250,14 @@ class MyAI( AI ):
 				   rowDimension,
 				   colDimension,
 				   totalMines), end=" | ")
-		print2("Current Win [B: (%d/%d) I: (%d/%d) E: (%d/%d)]"
+		print2("Current Win [B: (%d/%d) I: (%d/%d) E: %d/%d (%.2f)]"
 			   %(self.beginnerStats[0],
 				 self.beginnerStats[1],
 				 self.intermediateStats[0],
 				 self.intermediateStats[1],
 				 self.expertStats[0],
-				 self.expertStats[1]))
+				 self.expertStats[1],
+				 self.expertStats[0] / self.expertStats[1] if self.expertStats[1] != 0 else 0))
 		self.log("Game: %d, BoardSize: (%d,%d), TotalMines: %d"
 				 %(MyAI.gamecount,
 				   rowDimension,
@@ -461,6 +465,7 @@ class MyAI( AI ):
 					difference = pivotLocations - locations
 					if len(difference) == pivotMine - locMine:
 						# flag the difference, make move
+						groupingAction = True
 						for (x,y) in difference:
 							self.pushMove(self.FLAG, x, y, heuristic=hName)
 					elif (pivotMine - locMine) == 0:
@@ -490,7 +495,7 @@ class MyAI( AI ):
 		return: varset (with assigned value that satisfies constrains)
 		"""
 
-		if self.timeLeft() < 10:
+		if self.timeLeft() < self.THREASH_TIME:
 			return False
 
 		# 1.return varset if every var have assignment
@@ -648,7 +653,8 @@ class MyAI( AI ):
 
 	def cspEval(self) -> (dict, Action):
 		results = {}
-		for frontier, varset in self.splitFrontiers(): # calculate p for all frontiers
+		# calculate p for all frontiers
+		for frontier, varset in sorted(self.splitFrontiers(), key=lambda f_v: len(f_v[1])): # sort frontier from small to large
 			res, action = self.CSP(frontier, varset)
 			if action is not None:
 				return res, action
