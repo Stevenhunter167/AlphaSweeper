@@ -47,17 +47,17 @@ def debug(*args, **kwargs):
 	builtins.print("[debug" + line() + "]", *args, **kwargs)
 
 def log(filename, string):
-	global OUTFOLDER
-	with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
-		f.write(("#" * 60) + "\n")
-		f.write(string + "\n")
+	# global OUTFOLDER
+	# with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
+	# 	f.write(("#" * 60) + "\n")
+	# 	f.write(string + "\n")
 	pass
 
 def logCSP(filename, string):
-	global OUTFOLDER
-	with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
-		f.write(("#" * 60) + "\n")
-		f.write(string + "\n")
+	# global OUTFOLDER
+	# with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
+	# 	f.write(("#" * 60) + "\n")
+	# 	f.write(string + "\n")
 	pass
 ######################################
 
@@ -81,9 +81,9 @@ class MyAI( AI ):
 		(16,30) : expertStats
 	}
 
-	# parameters
-	THREASH_TIME = 4 # time left for stoping all time consuming heuristics
-	THREASH_SUBGROUP = 5
+	# Model Hyperparameters
+	THREASH_TIME = 4 		# time left for stoping all time consuming heuristics
+	THREASH_SUBGROUP = 6	# maximum number to use subgroup
 
 	class Board:
 
@@ -590,11 +590,15 @@ class MyAI( AI ):
 			resultList.append(varset)
 			return True
 
-		# 2.select next-unassigned-var
+		# 2.select next-unassigned-var: degree heuristic
 		var = None
+		degree = -1
 		for i in varset:
-			if varset[i] == None:
+			constrain_degree = len([pos for pos in list(self.lookSurround(*i)) if self.board.get(*pos) is int and self.board.get(*pos) > 0])
+			if varset[i] == None and constrain_degree > degree:
 				var = i
+				degree = constrain_degree
+
 
 		# 3.for each value in domains
 		for value in domains:
