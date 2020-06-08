@@ -710,7 +710,7 @@ class MyAI( AI ):
 			'frontier_size': len(frontier),
 			'varset_size': len(varset)
 		}
-		logCSP("CSP"+str(self.gamecount), logCSPdata)
+		logCSP("CSP"+str(self.gamecount), str(logCSPdata))
 
 		if res == False:
 			return ({}, self.chooseRandom())
