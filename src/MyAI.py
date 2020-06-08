@@ -18,6 +18,7 @@ LOG = True
 DEBUG = False
 AlphaSweeper = False
 MANUAL = not AlphaSweeper
+OUTFOLDER = "../dataset/intermediate100_with_subgroup/"
 
 ######################################
 # debug console out ##################
@@ -46,10 +47,17 @@ def debug(*args, **kwargs):
 	builtins.print("[debug" + line() + "]", *args, **kwargs)
 
 def log(filename, string):
-	# outputFolder = "../dataset/intermediate100_with_subgroup/"
-	# with open(outputFolder + str(filename) + ".txt", 'a') as f:
-	# 	f.write(("#" * 60) + "\n")
-	# 	f.write(string + "\n")
+	global OUTFOLDER
+	with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
+		f.write(("#" * 60) + "\n")
+		f.write(string + "\n")
+	pass
+
+def logCSP(filename, string):
+	global OUTFOLDER
+	with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
+		f.write(("#" * 60) + "\n")
+		f.write(string + "\n")
 	pass
 ######################################
 
@@ -695,6 +703,15 @@ class MyAI( AI ):
 								 domains={0, 1},
 								 resultList=resultList)
 
+		print("CSP finished in:", time() - startTime, "seconds")
+		logCSPdata = {
+			'finished': res,
+			'time': time() - startTime,
+			'frontier_size': len(frontier),
+			'varset_size': len(varset)
+		}
+		logCSP("CSP"+str(self.gamecount), logCSPdata)
+
 		if res == False:
 			return ({}, self.chooseRandom())
 
@@ -706,7 +723,7 @@ class MyAI( AI ):
 				result[location] += configuration[location]
 
 		# hName += pformat(resultList)
-		print("CSP finished in:", time() - startTime, "seconds")
+
 		print(line(), result)
 		print("possible results:", len(resultList))
 		minMine = min(result.values())
