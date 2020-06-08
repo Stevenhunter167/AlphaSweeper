@@ -8,7 +8,7 @@
 
 from AI import AI
 from Action import Action
-# from queue import PriorityQueue, Queue
+from itertools import combinations
 
 ######################################
 # Global Var #########################
@@ -46,10 +46,11 @@ def debug(*args, **kwargs):
 	builtins.print("[debug" + line() + "]", *args, **kwargs)
 
 def log(filename, string):
-	outputFolder = "../dataset/Expert3000run2/"
-	with open(outputFolder + str(filename) + ".txt", 'a') as f:
-		f.write(("#" * 60) + "\n")
-		f.write(string + "\n")
+	# outputFolder = "../dataset/intermediate100_with_subgroup/"
+	# with open(outputFolder + str(filename) + ".txt", 'a') as f:
+	# 	f.write(("#" * 60) + "\n")
+	# 	f.write(string + "\n")
+	pass
 ######################################
 
 
@@ -74,6 +75,7 @@ class MyAI( AI ):
 
 	# parameters
 	THREASH_TIME = 4 # time left for stoping all time consuming heuristics
+	THREASH_SUBGROUP = 5
 
 	class Board:
 
@@ -250,11 +252,13 @@ class MyAI( AI ):
 				   rowDimension,
 				   colDimension,
 				   totalMines), end=" | ")
-		print2("Current Win [B: (%d/%d) I: (%d/%d) E: %d/%d (%.2f)]"
+		print2("Current Win [B: %d/%d (%.2f) I: %d/%d (%.2f) E: %d/%d (%.2f)]"
 			   %(self.beginnerStats[0],
 				 self.beginnerStats[1],
+				 self.beginnerStats[0] / self.beginnerStats[1] if self.beginnerStats[1] != 0 else 0,
 				 self.intermediateStats[0],
 				 self.intermediateStats[1],
+				 self.intermediateStats[0] / self.intermediateStats[1] if self.intermediateStats[1] != 0 else 0,
 				 self.expertStats[0],
 				 self.expertStats[1],
 				 self.expertStats[0] / self.expertStats[1] if self.expertStats[1] != 0 else 0))
@@ -451,9 +455,84 @@ class MyAI( AI ):
 			groups.append((thisGroup, minecount))
 		return groups
 
+	def groupof(self, group, count):
+		return [set(i) for i in combinations(group, count)]
+
+	def subgrouping(self, groups):
+
+		hName = "SUBGROUP"
+
+		ge = {}
+		le = {}
+		for group, mine_count in groups:
+
+			if mine_count >= self.THREASH_SUBGROUP:
+				continue
+
+			# print2(group, mine_count)
+
+			# greater or equals
+			safe_count = len(group) - mine_count
+			for x in range(1, mine_count):
+				for subgroup in self.groupof(group, safe_count + x):
+					ge[tuple(sorted(subgroup))] = (x, group, mine_count)
+					# print2(subgroup, x)
+
+			# less or equals
+			for y in range(len(group)-1, mine_count, -1):
+				for subgroup in self.groupof(group, y):
+					le[tuple(sorted(subgroup))] = (mine_count, group, mine_count)
+					# print2(subgroup, y)
+
+		# print2(ge)
+		# print2(le)
+		# input(line())
+		subgroupAction = False
+
+		for sub1 in ge:
+			for sub2 in le:
+				count1, group1, mc1 = ge[sub1]
+				count2, group2, mc2 = le[sub2]
+				if sub1 == sub2 and count1 == count2:
+					subgroup = set(sub1)
+					# check its 2 relevent groups for deduction
+
+					# M(group) == M(subgroup), all rest are safe
+					if subgroup.issubset(group1) and mc1 - count1 == 0:
+						subgroupAction = True
+						difference1 = group1 - subgroup
+						for location in difference1:
+							self.pushMove(self.UNCOVER, *location, heuristic=hName)
+					# M(group) - M(subgroup) = len(group - subgroup), all rest are mines
+					if subgroup.issubset(group1) and mc1 - count1 == len(group1) - len(subgroup):
+						subgroupAction = True
+						difference1 = group1 - subgroup
+						for location in difference1:
+							self.pushMove(self.FLAG, *location, heuristic=hName)
+
+					# same logic for group2
+					if subgroup.issubset(group2) and mc2 - count2 == 0:
+						subgroupAction = True
+						difference2 = group2 - subgroup
+						for location in difference2:
+							self.pushMove(self.UNCOVER, *location, heuristic=hName)
+					if subgroup.issubset(group2) and mc2 - count2 == len(group2) - len(subgroup):
+						subgroupAction = True
+						difference2 = group2 - subgroup
+						for location in difference2:
+							self.pushMove(self.FLAG, *location, heuristic=hName)
+
+
+
+		if subgroupAction == True:
+			return self.popMove()
+		else:
+			return None
+
 	def grouping(self):
 		hName = "GROUPING"
 		groups = self.buildGroup(self.frontier)
+
 		groupingAction = False
 		for pivotLocations, pivotMine in groups:
 			for locations, locMine in groups:
@@ -468,7 +547,7 @@ class MyAI( AI ):
 						groupingAction = True
 						for (x,y) in difference:
 							self.pushMove(self.FLAG, x, y, heuristic=hName)
-					elif (pivotMine - locMine) == 0:
+					if (pivotMine - locMine) == 0:
 						# difference are safe, make move
 						groupingAction = True
 						for (x,y) in difference:
@@ -477,7 +556,7 @@ class MyAI( AI ):
 		if groupingAction:
 			return self.popMove()
 		else:
-			return None
+			return self.subgrouping(groups)
 
 	#################################################################
 	# CSP Layer #####################################################
@@ -823,7 +902,7 @@ class MyAI( AI ):
 
 		except Exception as e:
 			print("EXCEPTION:")
-			print(traceback.format_exc())
+			print2(traceback.format_exc())
 			input()
 
 	#################################################################
