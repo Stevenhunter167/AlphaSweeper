@@ -1,6 +1,9 @@
 import glob
 print()
-folder = "./Expert3000run2/"
+folder = "./intermediate100_with_subgroup/"
+# b: 868 - 882
+# i:  87 - 87
+# e:
 
 win=0
 total=0

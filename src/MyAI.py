@@ -59,8 +59,14 @@ def logCSP(filename, string):
 	# 	f.write(("#" * 60) + "\n")
 	# 	f.write(string + "\n")
 	pass
+
 ######################################
 
+def set0(arr):
+	for i in range(len(arr)):
+		for j in range(len(arr[i])):
+			arr[i][j] = 0
+	return arr
 
 class MyAI( AI ):
 
@@ -80,6 +86,11 @@ class MyAI( AI ):
 		(16,16) : intermediateStats,
 		(16,30) : expertStats
 	}
+
+	# Knowledge about last game
+	LASTGAMESTATUS = None			# did last game won ?
+	LASTGAMELASTMOVE = None			# where did I clicked last ?
+	LASTGAMETIMELEFT = None
 
 	# Model Hyperparameters
 	THREASH_TIME = 4 		# time left for stoping all time consuming heuristics
@@ -187,7 +198,57 @@ class MyAI( AI ):
 			result += "\n"
 			return result
 
+	# History: enhanced randoming
 
+	P 		= {
+		(8, 8): 0.15625,
+		(16, 16): 0.15625,
+		(16, 30): 0.20625
+	}
+
+	HISTORY = {
+		( 8, 8): set0(Board(8,8).board),
+		(16,16): set0(Board(16,16).board),
+		(16,30): set0(Board(16,30).board)
+	}
+
+	UNKNOWN = {
+		( 8, 8): set0(Board(8,8).board),
+		(16,16): set0(Board(16,16).board),
+		(16,30): set0(Board(16,30).board)
+	}
+
+	def new_recording(self): # started with everything unknown
+		target = MyAI.UNKNOWN[self.board.rowDimension, self.board.colDimension]
+		for i in range(len(target)):
+			for j in range(len(target[i])):
+				target[i][j] += 1
+
+	def cumulative_mine_count(self, x, y):
+		boardsize = (self.board.rowDimension, self.board.colDimension)
+		unknown = MyAI.UNKNOWN[boardsize]
+		history = MyAI.HISTORY[boardsize]
+		return unknown[y][x] * MyAI.P[boardsize] + history[y][x]
+
+	def best_in(self, range):
+		boardsize = (self.board.rowDimension, self.board.colDimension)
+		print([(pos, self.cumulative_mine_count(*pos)) for pos in range])
+
+		(X, Y) = None, None
+		cumScore = 99999
+		for (x, y) in range:
+			if self.cumulative_mine_count(x, y) < cumScore:
+				cumScore = self.cumulative_mine_count(x, y)
+				(X, Y) = (x, y)
+		print((X,Y))
+		return (X, Y)
+
+	@classmethod
+	def record_hist_mine(cls, boardSize, x, y, isMine):
+		cls.UNKNOWN[boardSize][y][x] -= 1
+		cls.HISTORY[boardSize][y][x] += int(isMine)
+
+	# Equivalence class (Union find) for frontier splitting in O(n)
 
 	class Equivalence:
 		def __init__(self):
@@ -254,6 +315,17 @@ class MyAI( AI ):
 		self.lastMoveXY = (startX, startY)
 		self.lastMove = Action(self.Action(self.UNCOVER), startX, startY)
 		self.moveCount = 1
+
+		if MyAI.LASTGAMESTATUS is False:
+			# update history
+			print2("LOST, LASTMOVE:", MyAI.LASTGAMELASTMOVE, "timeleft:", MyAI.LASTGAMETIMELEFT)
+			MyAI.LASTGAMELASTMOVE = None
+		else:
+			MyAI.LASTGAMESTATUS = False
+			MyAI.LASTGAMELASTMOVE = None
+
+		# setting up history
+		self.new_recording()
 
 		print2("Game: %d, BoardSize: (%d,%d), TotalMines: %d"
 				 %(MyAI.gamecount,
@@ -327,6 +399,10 @@ class MyAI( AI ):
 		# 		 + " strategy: " + str(self.heuristicQueue[self.lastMoveXY])
 		# 		 + " mineleft: " + str(self.totalMines - self.totalFlags))
 
+		# in case this is a mine, let the next game know it
+		MyAI.LASTGAMELASTMOVE = self.lastMoveXY
+		MyAI.LASTGAMETIMELEFT = self.timeLeft()
+
 		if self.lastMove.getMove() == AI.Action.FLAG:
 			self.totalFlags += 1
 			self.tileLeft -= 1
@@ -374,6 +450,11 @@ class MyAI( AI ):
 
 	def preprocessingLayer(self, number) -> Action:
 		hName = "PREPROCESS"
+
+		# update history
+		MyAI.record_hist_mine((self.board.rowDimension,self.board.colDimension),
+							  *self.lastMoveXY,
+							  number == -1) # true if this is mine
 
 		allCellResult = [self.board.get(x, y) for x, y in self.allCells()]
 
@@ -830,6 +911,7 @@ class MyAI( AI ):
 		self.log("GameStatus: WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
 		print2("WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
 
+		MyAI.LASTGAMESTATUS = True
 		# world win count += 1
 		self.stats[(self.board.rowDimension, self.board.colDimension)][0] += 1
 		return Action(self.Action(self.LEAVE), 1, 1)
@@ -847,15 +929,23 @@ class MyAI( AI ):
 		hName = "RANDOM"
 
 		varset = self.buildVarSet()
-		for location in self.allCells():
-			if self.board.get(*location) == self.board.TILE and location not in varset:
-				self.pushMove(self.UNCOVER, *location, heuristic=hName)
-				return self.popMove()
+		# for location in self.allCells():
+		# 	if self.board.get(*location) == self.board.TILE and location not in varset:
+		# 		self.pushMove(self.UNCOVER, *location, heuristic=hName)
+		# 		return self.popMove()
+		# else:
+		# 	for location in self.allCells():
+		# 		if self.board.get(*location) == self.board.TILE:
+		# 			self.pushMove(self.UNCOVER, *location, heuristic=hName)
+		# 			return self.popMove()
+		non_frontier = [location for location in self.allCells()
+						if self.board.get(*location) == self.board.TILE and location not in varset]
+
+		if len(non_frontier) > 0:
+			self.pushMove(self.UNCOVER, *self.best_in(non_frontier), heuristic=hName)
 		else:
-			for location in self.allCells():
-				if self.board.get(*location) == self.board.TILE:
-					self.pushMove(self.UNCOVER, *location, heuristic=hName)
-					return self.popMove()
+			self.pushMove(self.UNCOVER, *self.best_in(varset), heuristic=hName)
+		return self.popMove()
 
 
 	def getAction(self, number: int) -> "Action Object":
