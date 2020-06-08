@@ -571,6 +571,34 @@ class MyAI( AI ):
 	#################################################################
 
 
+	def select_nextunassigned(self, varset):
+		# option 1:
+		var = None
+		degree = -1
+		distance = 1157  # 16 ** 2 + 30 ** 2 + 1
+		for i in varset:
+			# degree
+			constrain_degree = len(
+				[pos for pos in list(self.lookSurround(*i))
+				 if type(self.board.get(*pos)) is int and self.board.get(*pos) > 0]
+			)
+			# euclidean distance ** 2
+			mindistance = min(
+				abs(pos[0] - i[0]) ** 2 + abs(pos[1] - i[1]) ** 2 for pos in
+				varset if varset[pos] != 0)
+
+			if varset[i] == None and mindistance < distance:
+				var = i
+				degree = constrain_degree
+				distance = mindistance
+			elif varset[i] == None and mindistance == distance and constrain_degree > degree: # and mindistance == distance
+				var = i
+				degree = constrain_degree
+				distance = mindistance
+		return var
+		# option 2: only degree heuristic
+
+
 	def recursive_backtrack(self,
 							varset: {'var': None},
 							constrains: 'lambda(varset): bool',
@@ -590,15 +618,8 @@ class MyAI( AI ):
 			resultList.append(varset)
 			return True
 
-		# 2.select next-unassigned-var: degree heuristic
-		var = None
-		degree = -1
-		for i in varset:
-			constrain_degree = len([pos for pos in list(self.lookSurround(*i)) if self.board.get(*pos) is int and self.board.get(*pos) > 0])
-			if varset[i] == None and constrain_degree > degree:
-				var = i
-				degree = constrain_degree
-
+		# 2.select next-unassigned-var using: (MRV + degree) heuristic
+		var = self.select_nextunassigned(varset)
 
 		# 3.for each value in domains
 		for value in domains:
