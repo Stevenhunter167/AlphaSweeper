@@ -91,6 +91,7 @@ class MyAI( AI ):
 	LASTGAMESTATUS = None			# did last game won ?
 	LASTGAMELASTMOVE = None			# where did I clicked last ?
 	LASTGAMETIMELEFT = None
+	LASTGAMEBOARDSIZE = None
 
 	# Model Hyperparameters
 	THREASH_TIME = 4 		# time left for stoping all time consuming heuristics
@@ -319,10 +320,12 @@ class MyAI( AI ):
 		if MyAI.LASTGAMESTATUS is False:
 			# update history
 			print2("LOST, LASTMOVE:", MyAI.LASTGAMELASTMOVE, "timeleft:", MyAI.LASTGAMETIMELEFT)
+			MyAI.record_hist_mine(MyAI.LASTGAMEBOARDSIZE, *MyAI.LASTGAMELASTMOVE, True)
 			MyAI.LASTGAMELASTMOVE = None
 		else:
 			MyAI.LASTGAMESTATUS = False
 			MyAI.LASTGAMELASTMOVE = None
+		MyAI.LASTGAMEBOARDSIZE = (self.board.rowDimension, self.board.colDimension)
 
 		# setting up history
 		self.new_recording()
