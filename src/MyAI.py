@@ -36,7 +36,7 @@ def line():
 	return "line: " + str(line_number)
 
 def print(*args, **kwargs):
-	# builtins.print(*args, **kwargs)
+	builtins.print(*args, **kwargs)
 	pass
 
 def print2(*args, **kwargs):
@@ -96,6 +96,7 @@ class MyAI( AI ):
 	# Model Hyperparameters
 	THREASH_TIME = 4 		# time left for stoping all time consuming heuristics
 	THREASH_SUBGROUP = 6	# maximum number to use subgroup
+	CORNER_FACTOR = 0.6
 
 	class Board:
 
@@ -229,7 +230,14 @@ class MyAI( AI ):
 		boardsize = (self.board.rowDimension, self.board.colDimension)
 		unknown = MyAI.UNKNOWN[boardsize]
 		history = MyAI.HISTORY[boardsize]
-		return unknown[y][x] * MyAI.P[boardsize] + history[y][x]
+		# prefer starting at corner
+		cornerFactor = self.CORNER_FACTOR if (x, y) in {(0, 0),
+										 (0, self.board.rowDimension - 1),
+										 (self.board.colDimension - 1, 0),
+										 (boardsize[0] - 1, boardsize[1] - 1)
+										} else 1
+
+		return (unknown[y][x] * MyAI.P[boardsize] + history[y][x]) * cornerFactor
 
 	def best_in(self, range):
 		boardsize = (self.board.rowDimension, self.board.colDimension)
@@ -241,6 +249,7 @@ class MyAI( AI ):
 			if self.cumulative_mine_count(x, y) < cumScore:
 				cumScore = self.cumulative_mine_count(x, y)
 				(X, Y) = (x, y)
+		print('best in')
 		print((X,Y))
 		return (X, Y)
 
