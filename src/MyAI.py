@@ -244,7 +244,7 @@ class MyAI( AI ):
 		print([(pos, self.cumulative_mine_count(*pos)) for pos in range])
 
 		(X, Y) = None, None
-		cumScore = 0
+		cumScore = -1
 
 		# choose a location where it was mine for the most of history
 		for (x, y) in range:
