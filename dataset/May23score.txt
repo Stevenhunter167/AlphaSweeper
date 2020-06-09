@@ -1,0 +1,254 @@
+Beginner: 841/1000
+Intermediate: 804/1000
+Expert:
+
+
+C:\Users\15011\AppData\Local\Programs\Python\Python37\python.exe C:/Users/15011/Desktop/AlphaSweeper/src/Main.py -f ../WorldGenerator/Problems/
+Game: 1, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 0/0 (0.00)]
+WIN, Finished in: 0.905144214630127(seconds)
+Game: 2, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 1/1 (1.00)]
+Game: 3, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 1/2 (0.50)]
+Game: 4, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 1/3 (0.33)]
+WIN, Finished in: 0.9225351810455322(seconds)
+Game: 5, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 2/4 (0.50)]
+Game: 6, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 2/5 (0.40)]
+Game: 7, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 2/6 (0.33)]
+Game: 8, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 2/7 (0.29)]
+Game: 9, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 2/8 (0.25)]
+WIN, Finished in: 0.7959082126617432(seconds)
+Game: 10, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 3/9 (0.33)]
+Game: 11, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 3/10 (0.30)]
+Game: 12, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 3/11 (0.27)]
+WIN, Finished in: 0.8337404727935791(seconds)
+Game: 13, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 4/12 (0.33)]
+Game: 14, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 4/13 (0.31)]
+Game: 15, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 4/14 (0.29)]
+Game: 16, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 4/15 (0.27)]
+Game: 17, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 4/16 (0.25)]
+WIN, Finished in: 0.7848730087280273(seconds)
+Game: 18, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 5/17 (0.29)]
+Game: 19, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 5/18 (0.28)]
+WIN, Finished in: 17.23996925354004(seconds)
+Game: 20, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 6/19 (0.32)]
+Game: 21, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 6/20 (0.30)]
+Game: 22, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 6/21 (0.29)]
+Game: 23, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 6/22 (0.27)]
+Game: 24, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 6/23 (0.26)]
+Game: 25, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 6/24 (0.25)]
+Game: 26, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 6/25 (0.24)]
+WIN, Finished in: 2.9980132579803467(seconds)
+Game: 27, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 7/26 (0.27)]
+WIN, Finished in: 0.885638952255249(seconds)
+Game: 28, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 8/27 (0.30)]
+Game: 29, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 8/28 (0.29)]
+Game: 30, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 8/29 (0.28)]
+Game: 31, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 8/30 (0.27)]
+Game: 32, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 8/31 (0.26)]
+Game: 33, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 8/32 (0.25)]
+WIN, Finished in: 0.9943099021911621(seconds)
+Game: 34, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 9/33 (0.27)]
+WIN, Finished in: 1.1060471534729004(seconds)
+Game: 35, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 10/34 (0.29)]
+WIN, Finished in: 75.59405183792114(seconds)
+Game: 36, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 11/35 (0.31)]
+WIN, Finished in: 2.7556374073028564(seconds)
+Game: 37, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 12/36 (0.33)]
+Game: 38, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 12/37 (0.32)]
+Game: 39, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 12/38 (0.32)]
+WIN, Finished in: 0.9335291385650635(seconds)
+Game: 40, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 13/39 (0.33)]
+Game: 41, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 13/40 (0.33)]
+Game: 42, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 13/41 (0.32)]
+WIN, Finished in: 0.7559535503387451(seconds)
+Game: 43, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 14/42 (0.33)]
+Game: 44, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 14/43 (0.33)]
+Game: 45, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 14/44 (0.32)]
+Game: 46, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 14/45 (0.31)]
+WIN, Finished in: 10.757261037826538(seconds)
+Game: 47, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 15/46 (0.33)]
+Game: 48, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 15/47 (0.32)]
+WIN, Finished in: 55.62740612030029(seconds)
+Game: 49, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 16/48 (0.33)]
+Game: 50, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 16/49 (0.33)]
+WIN, Finished in: 1.1688499450683594(seconds)
+Game: 51, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 17/50 (0.34)]
+Game: 52, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 17/51 (0.33)]
+Game: 53, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 17/52 (0.33)]
+Game: 54, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 17/53 (0.32)]
+Game: 55, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 17/54 (0.31)]
+WIN, Finished in: 2.5990378856658936(seconds)
+Game: 56, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 18/55 (0.33)]
+Game: 57, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 18/56 (0.32)]
+WIN, Finished in: 0.8277883529663086(seconds)
+Game: 58, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 19/57 (0.33)]
+WIN, Finished in: 26.39849281311035(seconds)
+Game: 59, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 20/58 (0.34)]
+Game: 60, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 20/59 (0.34)]
+WIN, Finished in: 7.68646240234375(seconds)
+Game: 61, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 21/60 (0.35)]
+Game: 62, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 21/61 (0.34)]
+Game: 63, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 21/62 (0.34)]
+WIN, Finished in: 4.242624521255493(seconds)
+Game: 64, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 22/63 (0.35)]
+Game: 65, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 22/64 (0.34)]
+Game: 66, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 22/65 (0.34)]
+WIN, Finished in: 0.892615795135498(seconds)
+Game: 67, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 23/66 (0.35)]
+Game: 68, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 23/67 (0.34)]
+Game: 69, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 23/68 (0.34)]
+WIN, Finished in: 1.731374979019165(seconds)
+Game: 70, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 24/69 (0.35)]
+Game: 71, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 24/70 (0.34)]
+Game: 72, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 24/71 (0.34)]
+WIN, Finished in: 0.8846280574798584(seconds)
+Game: 73, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 25/72 (0.35)]
+Game: 74, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 25/73 (0.34)]
+Game: 75, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 25/74 (0.34)]
+WIN, Finished in: 19.08400869369507(seconds)
+Game: 76, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 26/75 (0.35)]
+Game: 77, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 26/76 (0.34)]
+WIN, Finished in: 13.458071231842041(seconds)
+Game: 78, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 27/77 (0.35)]
+Game: 79, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 27/78 (0.35)]
+WIN, Finished in: 1.5717995166778564(seconds)
+Game: 80, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 28/79 (0.35)]
+WIN, Finished in: 3.8976175785064697(seconds)
+Game: 81, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 29/80 (0.36)]
+WIN, Finished in: 22.530768871307373(seconds)
+Game: 82, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 30/81 (0.37)]
+Game: 83, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 30/82 (0.37)]
+WIN, Finished in: 0.8557312488555908(seconds)
+Game: 84, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 31/83 (0.37)]
+Game: 85, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 31/84 (0.37)]
+Game: 86, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 31/85 (0.36)]
+Game: 87, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 31/86 (0.36)]
+Game: 88, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 31/87 (0.36)]
+WIN, Finished in: 1.9497811794281006(seconds)
+Game: 89, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 32/88 (0.36)]
+Game: 90, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 32/89 (0.36)]
+Game: 91, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 32/90 (0.36)]
+WIN, Finished in: 47.600783824920654(seconds)
+Game: 92, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 33/91 (0.36)]
+Game: 93, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 33/92 (0.36)]
+WIN, Finished in: 61.00421690940857(seconds)
+Game: 94, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 34/93 (0.37)]
+WIN, Finished in: 36.13671374320984(seconds)
+Game: 95, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 35/94 (0.37)]
+Game: 96, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 35/95 (0.37)]
+Game: 97, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 35/96 (0.36)]
+Game: 98, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 35/97 (0.36)]
+WIN, Finished in: 0.8887317180633545(seconds)
+Game: 99, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 36/98 (0.37)]
+WIN, Finished in: 0.9943447113037109(seconds)
+Game: 100, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 37/99 (0.37)]
+Game: 101, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 37/100 (0.37)]
+WIN, Finished in: 3.161545753479004(seconds)
+Game: 102, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 38/101 (0.38)]
+Game: 103, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 38/102 (0.37)]
+Game: 104, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 38/103 (0.37)]
+WIN, Finished in: 52.20385932922363(seconds)
+Game: 105, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 39/104 (0.38)]
+Game: 106, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 39/105 (0.37)]
+WIN, Finished in: 5.728713512420654(seconds)
+Game: 107, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 40/106 (0.38)]
+Game: 108, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 40/107 (0.37)]
+WIN, Finished in: 1.8640189170837402(seconds)
+Game: 109, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 41/108 (0.38)]
+WIN, Finished in: 1.0243000984191895(seconds)
+Game: 110, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 42/109 (0.39)]
+Game: 111, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 42/110 (0.38)]
+WIN, Finished in: 8.86032509803772(seconds)
+Game: 112, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 43/111 (0.39)]
+Game: 113, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 43/112 (0.38)]
+Game: 114, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 43/113 (0.38)]
+Game: 115, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 43/114 (0.38)]
+WIN, Finished in: 0.816765308380127(seconds)
+Game: 116, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 44/115 (0.38)]
+Game: 117, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 44/116 (0.38)]
+Game: 118, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 44/117 (0.38)]
+Game: 119, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 44/118 (0.37)]
+WIN, Finished in: 0.9723713397979736(seconds)
+Game: 120, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 45/119 (0.38)]
+WIN, Finished in: 1.1239726543426514(seconds)
+Game: 121, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 46/120 (0.38)]
+Game: 122, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 46/121 (0.38)]
+Game: 123, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 46/122 (0.38)]
+Game: 124, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 46/123 (0.37)]
+Game: 125, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 46/124 (0.37)]
+Game: 126, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 46/125 (0.37)]
+WIN, Finished in: 0.9923491477966309(seconds)
+Game: 127, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 47/126 (0.37)]
+Game: 128, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 47/127 (0.37)]
+WIN, Finished in: 8.672826528549194(seconds)
+Game: 129, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 48/128 (0.38)]
+Game: 130, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 48/129 (0.37)]
+WIN, Finished in: 6.424848318099976(seconds)
+Game: 131, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 49/130 (0.38)]
+Game: 132, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 49/131 (0.37)]
+Game: 133, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 49/132 (0.37)]
+Game: 134, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 49/133 (0.37)]
+Game: 135, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 49/134 (0.37)]
+Game: 136, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 49/135 (0.36)]
+WIN, Finished in: 290.11881041526794(seconds)
+Game: 137, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 50/136 (0.37)]
+Game: 138, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 50/137 (0.36)]
+Game: 139, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 50/138 (0.36)]
+WIN, Finished in: 14.17509412765503(seconds)
+Game: 140, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 51/139 (0.37)]
+Game: 141, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 51/140 (0.36)]
+WIN, Finished in: 0.7649712562561035(seconds)
+Game: 142, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 52/141 (0.37)]
+WIN, Finished in: 0.8567101955413818(seconds)
+Game: 143, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 53/142 (0.37)]
+Game: 144, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 53/143 (0.37)]
+WIN, Finished in: 0.8238294124603271(seconds)
+Game: 145, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 54/144 (0.38)]
+WIN, Finished in: 290.54070711135864(seconds)
+Game: 146, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 55/145 (0.38)]
+WIN, Finished in: 1.8141541481018066(seconds)
+Game: 147, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 56/146 (0.38)]
+Game: 148, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 56/147 (0.38)]
+WIN, Finished in: 0.8058459758758545(seconds)
+Game: 149, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 57/148 (0.39)]
+Game: 150, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 57/149 (0.38)]
+Game: 151, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 57/150 (0.38)]
+Game: 152, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 57/151 (0.38)]
+Game: 153, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 57/152 (0.38)]
+WIN, Finished in: 1.0551724433898926(seconds)
+Game: 154, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 58/153 (0.38)]
+WIN, Finished in: 46.40402007102966(seconds)
+Game: 155, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 59/154 (0.38)]
+Game: 156, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 59/155 (0.38)]
+Game: 157, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 59/156 (0.38)]
+WIN, Finished in: 1.1389577388763428(seconds)
+Game: 158, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 60/157 (0.38)]
+Game: 159, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 60/158 (0.38)]
+WIN, Finished in: 1.056185007095337(seconds)
+Game: 160, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 61/159 (0.38)]
+Game: 161, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 61/160 (0.38)]
+Game: 162, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 61/161 (0.38)]
+Game: 163, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 61/162 (0.38)]
+Game: 164, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 61/163 (0.37)]
+WIN, Finished in: 0.9195113182067871(seconds)
+Game: 165, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 62/164 (0.38)]
+Game: 166, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 62/165 (0.38)]
+Game: 167, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 62/166 (0.37)]
+WIN, Finished in: 0.872638463973999(seconds)
+Game: 168, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 63/167 (0.38)]
+Game: 169, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 63/168 (0.38)]
+Game: 170, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 63/169 (0.37)]
+Game: 171, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 63/170 (0.37)]
+Game: 172, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 63/171 (0.37)]
+Game: 173, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 63/172 (0.37)]
+WIN, Finished in: 2.218073606491089(seconds)
+Game: 174, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 64/173 (0.37)]
+WIN, Finished in: 1.1838679313659668(seconds)
+Game: 175, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 65/174 (0.37)]
+Game: 176, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 65/175 (0.37)]
+Game: 177, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 65/176 (0.37)]
+Game: 178, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 65/177 (0.37)]
+Game: 179, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 65/178 (0.37)]
+Game: 180, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 65/179 (0.36)]
+Game: 181, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 65/180 (0.36)]
+WIN, Finished in: 1.0312438011169434(seconds)
+Game: 182, BoardSize: (16,30), TotalMines: 99 | Current Win [B: (0/-1) I: (0/-1) E: 66/181 (0.36)]

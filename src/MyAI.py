@@ -1,59 +1,102 @@
-# ==============================CS-199==================================
+# ==========CS-171=============
+#
 # FILE:			MyAI.py
 #
-# AUTHOR: 		Justin Chung
+# AUTHOR: 		Litian Liang
+# TEAM:			AlphaSweeper
 #
-# DESCRIPTION:	This file contains the MyAI class. You will implement your
-#				agent in this file. You will write the 'getAction' function,
-#				the constructor, and any additional helper functions.
-#
-# NOTES: 		- MyAI inherits from the abstract AI class in AI.py.
-#
-#				- DO NOT MAKE CHANGES TO THIS FILE.
-# ==============================CS-199==================================
+# =============================
 
 from AI import AI
 from Action import Action
-from queue import PriorityQueue, Queue
+from itertools import combinations
 
-######################################
-# Global Var #########################
-######################################
+##############################################
+# Global Var #################################
+##############################################
 
-DEBUG = False
-AlphaSweeper = False
-MANUAL = not AlphaSweeper
+OUTFOLDER = "../dataset/intermediate100_with_subgroup/"
 
-######################################
-# debug console out ##################
-######################################
+##############################################
+# debug console out section ##################
+##############################################
 import builtins
-from time import time, sleep
+import traceback
+from time import time
 from inspect import currentframe, getframeinfo
+# from pprint import pformat
 
-def print(*args, **kwargs):
-	builtins.print(*args, **kwargs)
-	pass
 
-def debug(string):
+def line():
 	previous_frame = currentframe().f_back
 	(filename, line_number, function_name, lines, index) = getframeinfo(previous_frame)
-	with open("debug.txt", 'a') as f:
-		f.write("#############################################################\n")
-		f.write("line: " + str(line_number) + "\n")
-		f.write(string + "\n")
-	# builtins.print("line:", line_number, *args, **kwargs)
-######################################
+	return "line: " + str(line_number)
 
+def print(*args, **kwargs):
+	# builtins.print(*args, **kwargs)
+	pass
+
+def print2(*args, **kwargs):
+	# builtins.print(*args, **kwargs)
+	pass
+
+def debug(*args, **kwargs):
+	# builtins.print("[debug" + line() + "]", *args, **kwargs)
+	pass
+
+def log(filename, string):
+	# global OUTFOLDER
+	# with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
+	# 	f.write(("#" * 60) + "\n")
+	# 	f.write(string + "\n")
+	pass
+
+def logCSP(filename, string):
+	# global OUTFOLDER
+	# with open(OUTFOLDER + str(filename) + ".txt", 'a') as f:
+	# 	f.write(("#" * 60) + "\n")
+	# 	f.write(string + "\n")
+	pass
+
+##############################################
+# AlphaSweeper Agent #########################
+##############################################
+
+def set0(arr):
+	for i in range(len(arr)):
+		for j in range(len(arr[i])):
+			arr[i][j] = 0
+	return arr
 
 class MyAI( AI ):
 
+	# action code
 	LEAVE = 0
 	UNCOVER = 1
 	FLAG = 2
 	UNFLAG = 3
 
+	# statistics
 	gamecount = 0
+	beginnerStats = [0, -1]
+	intermediateStats = [0, -1]
+	expertStats = [0, -1]
+	stats = {
+		( 8, 8) : beginnerStats,
+		(16,16) : intermediateStats,
+		(16,30) : expertStats
+	}
+
+	# Knowledge about last game
+	LASTGAMESTATUS = None			# did last game won ?
+	LASTGAMELASTMOVE = None			# where did I clicked last ?
+	LASTGAMETIMELEFT = None
+	LASTGAMEBOARDSIZE = None
+
+	# Model Hyperparameters
+	THREASH_TIME = 4 		# time left for stoping all time consuming heuristics
+	THREASH_SUBGROUP = 6	# maximum number to use subgroup
+	CORNER_FACTOR = 1.2		# corner_factor is how much you prefer corner on a random move
 
 	class Board:
 
@@ -67,6 +110,12 @@ class MyAI( AI ):
 
 		def isLegalPosition(self, X, Y):
 			return 0 <= X < self.colDimension and 0 <= Y < self.rowDimension
+
+		def set(self, X, Y, char):
+			if self.isLegalPosition(X, Y):
+				self.board[Y][X] = char
+				return True
+			return False
 
 		def get(self, X, Y):
 			if self.isLegalPosition(X, Y):
@@ -151,11 +200,102 @@ class MyAI( AI ):
 			result += "\n"
 			return result
 
-		def set(self, X, Y, char):
-			if self.isLegalPosition(X, Y):
-				self.board[Y][X] = char
-				return True
-			return False
+	# History: enhanced randoming
+
+	P 		= {
+		(8, 8): 0.15625,
+		(16, 16): 0.15625,
+		(16, 30): 0.20625
+	}
+
+	HISTORY = {
+		( 8, 8): set0(Board(8,8).board),
+		(16,16): set0(Board(16,16).board),
+		(16,30): set0(Board(16,30).board)
+	}
+
+	UNKNOWN = {
+		( 8, 8): set0(Board(8,8).board),
+		(16,16): set0(Board(16,16).board),
+		(16,30): set0(Board(16,30).board)
+	}
+
+	def new_recording(self): # started with everything unknown
+		target = MyAI.UNKNOWN[self.board.rowDimension, self.board.colDimension]
+		for i in range(len(target)):
+			for j in range(len(target[i])):
+				target[i][j] += 1
+
+	def cumulative_mine_count(self, x, y):
+		boardsize = (self.board.rowDimension, self.board.colDimension)
+		unknown = MyAI.UNKNOWN[boardsize]
+		history = MyAI.HISTORY[boardsize]
+		# prefer starting at corner
+		cornerFactor = self.CORNER_FACTOR if (x, y) in {(0, 0),
+										 (0, self.board.rowDimension - 1),
+										 (self.board.colDimension - 1, 0),
+										 (boardsize[0] - 1, boardsize[1] - 1)
+										} else 1
+
+		return (unknown[y][x] * MyAI.P[boardsize] + history[y][x]) * cornerFactor
+
+	def best_in(self, range):
+		boardsize = (self.board.rowDimension, self.board.colDimension)
+		print([(pos, self.cumulative_mine_count(*pos)) for pos in range])
+
+		(X, Y) = None, None
+		cumScore = -1
+
+		# choose a location where it was mine for the most of history
+		for (x, y) in range:
+			if self.cumulative_mine_count(x, y) > cumScore:
+				cumScore = self.cumulative_mine_count(x, y)
+				(X, Y) = (x, y)
+		print('best in')
+		print((X,Y))
+		return (X, Y)
+
+	@classmethod
+	def record_hist_mine(cls, boardSize, x, y, isMine):
+		cls.UNKNOWN[boardSize][y][x] -= 1
+		cls.HISTORY[boardSize][y][x] += int(isMine)
+
+	# Equivalence class (Union find) for frontier splitting in O(n)
+
+	class Equivalence:
+		def __init__(self):
+			self.parent = {}
+
+		def add(self, a, b):
+			self.addSingleton(a)
+			self.addSingleton(b)
+			self.merge(a, b)
+
+		def addSingleton(self, a):
+			if a not in self.parent:
+				self.parent[a] = a
+
+		def merge(self, a, b):
+			self.parent[self.root(a)] = self.root(b)
+
+		def check(self, a, b):
+			return self.root(a) == self.root(b)
+
+		def root(self, a):
+			while True:
+				pa = self.parent[a]
+				if pa == a:
+					break
+				a = pa
+			return a
+
+		def classes(self):
+			res = {}
+			for element in self.parent:
+				res.setdefault(self.root(element), set())
+				res[self.root(element)].add(element)
+				res[self.root(element)].add(self.root(element))
+			return res
 
 	def updateBoard(self, number):
 		# routine
@@ -170,20 +310,65 @@ class MyAI( AI ):
 		else:
 			self.board.set(*self.lastMoveXY, number)
 
+	def log(self, string):
+		log(MyAI.gamecount, string)
+
 	def __init__(self, rowDimension, colDimension, totalMines, startX, startY):
 
 		MyAI.gamecount += 1
-		# print("Game:", MyAI.gamecount)
+		# 1 more game at this difficulty level
+		self.stats[(rowDimension, colDimension)][1] += 1
 
 		# init Game Variables
 		self.totalMines = totalMines
+		self.totalFlags = 0
+		self.tileLeft = rowDimension * colDimension
 		self.board = self.Board(rowDimension, colDimension)
 		self.lastMoveXY = (startX, startY)
 		self.lastMove = Action(self.Action(self.UNCOVER), startX, startY)
 		self.moveCount = 1
 
+		if MyAI.LASTGAMESTATUS is False:
+			# update history
+			print2("LOST, LASTMOVE:", MyAI.LASTGAMELASTMOVE, "timeleft:", MyAI.LASTGAMETIMELEFT)
+			MyAI.record_hist_mine(MyAI.LASTGAMEBOARDSIZE, *MyAI.LASTGAMELASTMOVE, True)
+			MyAI.LASTGAMELASTMOVE = None
+		else:
+			MyAI.LASTGAMESTATUS = False
+			MyAI.LASTGAMELASTMOVE = None
+		MyAI.LASTGAMEBOARDSIZE = (self.board.rowDimension, self.board.colDimension)
+
+		# setting up history
+		self.new_recording()
+
+		print2("Game: %d, BoardSize: (%d,%d), TotalMines: %d"
+				 %(MyAI.gamecount,
+				   rowDimension,
+				   colDimension,
+				   totalMines), end=" | ")
+		print2("Current Win [B: %d/%d (%.2f) I: %d/%d (%.2f) E: %d/%d (%.2f)]"
+			   %(self.beginnerStats[0],
+				 self.beginnerStats[1],
+				 self.beginnerStats[0] / self.beginnerStats[1] if self.beginnerStats[1] != 0 else 0,
+				 self.intermediateStats[0],
+				 self.intermediateStats[1],
+				 self.intermediateStats[0] / self.intermediateStats[1] if self.intermediateStats[1] != 0 else 0,
+				 self.expertStats[0],
+				 self.expertStats[1],
+				 self.expertStats[0] / self.expertStats[1] if self.expertStats[1] != 0 else 0))
+		self.log("Game: %d, BoardSize: (%d,%d), TotalMines: %d"
+				 %(MyAI.gamecount,
+				   rowDimension,
+				   colDimension,
+				   totalMines)
+		)
+
+		self.BEGINTIME = time()
+
 		# moves
 		self.actionQueue = dict()
+		# corresponding heuristic map
+		self.heuristicQueue = dict()
 
 		# Heuristic Layer Components
 		# frontier
@@ -209,16 +394,34 @@ class MyAI( AI ):
 		del self.actionQueue[location]
 		return action
 
-	def pushMove(self, actionCode, X, Y, priority=5) -> None:
+	def pushMove(self, actionCode, X, Y, heuristic="NOT PROVIDED") -> None:
 		# self.actionQueue.put(self.PriorityAction(Action(self.Action(actionCode), X, Y), priority))
 		self.actionQueue[(X, Y)] = actionCode
+		self.heuristicQueue[(X, Y)] = heuristic
 
 	def popMove(self):
 		if len(self.actionQueue) == 0:
-			raise Exception("empty action queue")
+			return None
 		action = self.nextMove()
 		self.lastMoveXY = (action.getX(), action.getY())
 		self.lastMove = action
+
+		self.log("popMove: " + str(self.moveCount) + " " + str(self.lastMove.getMove()) + " " + str(self.lastMoveXY)
+				 + " strategy: " + str(self.heuristicQueue[self.lastMoveXY])
+				 + " mineleft: " + str(self.totalMines - self.totalFlags))
+		# print2("popMove: " + str(self.moveCount) + " " + str(self.lastMove.getMove()) + " " + str(self.lastMoveXY)
+		# 		 + " strategy: " + str(self.heuristicQueue[self.lastMoveXY])
+		# 		 + " mineleft: " + str(self.totalMines - self.totalFlags))
+
+		# in case this is a mine, let the next game know it
+		MyAI.LASTGAMELASTMOVE = self.lastMoveXY
+		MyAI.LASTGAMETIMELEFT = self.timeLeft()
+
+		if self.lastMove.getMove() == AI.Action.FLAG:
+			self.totalFlags += 1
+			self.tileLeft -= 1
+		elif self.lastMove.getMove() == AI.Action.UNCOVER:
+			self.tileLeft -= 1
 		return action
 
 	def makeMove(self, actionCode, X, Y) -> Action:
@@ -230,6 +433,11 @@ class MyAI( AI ):
 	# Basic Movements
 	#################################################################
 
+	def allCells(self):
+		for y in range(self.board.rowDimension):
+			for x in range(self.board.colDimension):
+				yield (x, y)
+
 	# lookup
 	def lookSurround(self, X, Y):
 		for dx in range(-1, 2):
@@ -239,54 +447,56 @@ class MyAI( AI ):
 						yield X + dx, Y + dy
 
 	#################################################################
-	#          Layer Name						result type
+	# Strategy Overview #############################################
+	#################################################################
+	#          Layer Name						Result Type
 	# Layer 0: Preprocessing Layer				deterministic
-	# Layer 1: Heuristic Layer					deterministic
-	# Layer 2: CSP Layer						deterministic
-	# Layer 3: Probablistic CSP Layer			probabilistic
-	# Layer 4: NN Layer							probabilistic
-	# Layer 5: Human Overriding Layer			      -
+	# Layer 1: Basic Inference Layer			deterministic
+	# Layer 2: Grouping	+ Subgrouping			deterministic
+	# Layer 3: CSP Layer						deterministic
+	# Layer 4: Probablistic CSP Layer			probabilistic
+	# Layer 5: History Inspection Layer			probabilistic
 	#################################################################
 
 	#################################################################
 	# preprocessing Layer ###########################################
 	#################################################################
 
-	def allCells(self):
-		for y in range(self.board.rowDimension):
-			for x in range(self.board.colDimension):
-				yield (x, y)
-
-
 	def preprocessingLayer(self, number) -> Action:
+		hName = "PREPROCESS"
+
+		# update history
+		MyAI.record_hist_mine((self.board.rowDimension,self.board.colDimension),
+							  *self.lastMoveXY,
+							  number == -1) # true if this is mine
 
 		allCellResult = [self.board.get(x, y) for x, y in self.allCells()]
 
 		# discoverd all mines
-		if allCellResult.count(self.board.FLAG) == self.totalMines:
+		if self.totalFlags == self.totalMines:
 			for (x, y) in self.allCells():
 				if self.board.get(x, y) == self.board.TILE:
-					self.pushMove(self.UNCOVER, x, y)
+					self.pushMove(self.UNCOVER, x, y, heuristic=hName)
 			return self.popMove()
 
 		# all rest tiles are mines
-		if allCellResult.count(self.board.FLAG) + allCellResult.count(self.board.TILE) == self.totalMines:
+		if self.totalFlags + self.tileLeft == self.totalMines:
 			for (x, y) in self.allCells():
 				if self.board.get(x, y) == self.board.TILE:
-					self.pushMove(self.FLAG, x, y)
+					self.pushMove(self.FLAG, x, y, heuristic=hName)
 			return self.popMove()
-
-
 
 		# preprocessing a uncovered tile
 		if number == 0:
 			for x, y in self.lookSurround(*self.lastMoveXY):
 				if self.board.get(x, y) == self.board.TILE:
-					self.pushMove(self.UNCOVER, x, y, priority=5)
+					self.pushMove(self.UNCOVER, x, y, heuristic=hName)
 
+		# there are some mines around, add to frontier
 		if number > 0:
 			self.frontier.add(self.lastMoveXY)
 
+		# finish any move in queue
 		if self.hasNextMove():
 			return self.popMove()
 
@@ -294,9 +504,10 @@ class MyAI( AI ):
 	# heuristic Layer ###############################################
 	#################################################################
 
-	def heuristicLayer(self, number) -> Action:
+	def basicLayer(self, number) -> Action:
 
 		# 1 frontier heuristic
+		hName = "BASIC"
 
 		# 1.1 flag surrounding deterministic tiles
 		removeFromFrontier = list()
@@ -313,14 +524,14 @@ class MyAI( AI ):
 			elif surround.count(self.board.TILE) + surround.count(self.board.FLAG) == self.board.get(X, Y):
 				for (x, y) in self.lookSurround(X, Y):
 					if self.board.get(x, y) == self.board.TILE:
-						self.pushMove(self.FLAG, x, y, priority=4)
+						self.pushMove(self.FLAG, x, y, heuristic=hName)
 				removeFromFrontier.append((X, Y))
 
 			# if flag == number, uncover all tiles
 			elif surround.count(self.board.FLAG) == self.board.get(X, Y):
 				for (x, y) in self.lookSurround(X, Y):
 					if self.board.get(x, y) == self.board.TILE:
-						self.pushMove(self.UNCOVER, x, y, priority=4)
+						self.pushMove(self.UNCOVER, x, y, heuristic=hName)
 				removeFromFrontier.append((X, Y))
 
 		for XYcoordinate in removeFromFrontier:
@@ -331,11 +542,160 @@ class MyAI( AI ):
 			return self.popMove()
 
 	#################################################################
+	# Grouping ######################################################
+	#################################################################
+
+	def buildGroup(self, frontier):
+		groups = list()
+		for (X,Y) in frontier:
+			thisGroup = set()
+			minecount = self.board.get(X,Y)
+			for location in self.lookSurround(X,Y):
+				if self.board.get(*location) == self.board.TILE:
+					thisGroup.add(location)
+				elif self.board.get(*location) == self.board.FLAG:
+					minecount -= 1
+			groups.append((thisGroup, minecount))
+		return groups
+
+	def groupof(self, group, count):
+		return [set(i) for i in combinations(group, count)]
+
+	def subgrouping(self, groups):
+
+		hName = "SUBGROUP"
+
+		ge = {}
+		le = {}
+		for group, mine_count in groups:
+
+			if mine_count >= self.THREASH_SUBGROUP:
+				continue
+
+			# print2(group, mine_count)
+
+			# greater or equals
+			safe_count = len(group) - mine_count
+			for x in range(1, mine_count):
+				for subgroup in self.groupof(group, safe_count + x):
+					ge[tuple(sorted(subgroup))] = (x, group, mine_count)
+					# print2(subgroup, x)
+
+			# less or equals
+			for y in range(len(group)-1, mine_count, -1):
+				for subgroup in self.groupof(group, y):
+					le[tuple(sorted(subgroup))] = (mine_count, group, mine_count)
+					# print2(subgroup, y)
+
+		# print2(ge)
+		# print2(le)
+		# input(line())
+		subgroupAction = False
+
+		for sub1 in ge:
+			for sub2 in le:
+				count1, group1, mc1 = ge[sub1]
+				count2, group2, mc2 = le[sub2]
+				if sub1 == sub2 and count1 == count2:
+					subgroup = set(sub1)
+					# check its 2 relevent groups for deduction
+
+					# M(group) == M(subgroup), all rest are safe
+					if subgroup.issubset(group1) and mc1 - count1 == 0:
+						subgroupAction = True
+						difference1 = group1 - subgroup
+						for location in difference1:
+							self.pushMove(self.UNCOVER, *location, heuristic=hName)
+					# M(group) - M(subgroup) = len(group - subgroup), all rest are mines
+					if subgroup.issubset(group1) and mc1 - count1 == len(group1) - len(subgroup):
+						subgroupAction = True
+						difference1 = group1 - subgroup
+						for location in difference1:
+							self.pushMove(self.FLAG, *location, heuristic=hName)
+
+					# same logic for group2
+					if subgroup.issubset(group2) and mc2 - count2 == 0:
+						subgroupAction = True
+						difference2 = group2 - subgroup
+						for location in difference2:
+							self.pushMove(self.UNCOVER, *location, heuristic=hName)
+					if subgroup.issubset(group2) and mc2 - count2 == len(group2) - len(subgroup):
+						subgroupAction = True
+						difference2 = group2 - subgroup
+						for location in difference2:
+							self.pushMove(self.FLAG, *location, heuristic=hName)
+
+
+
+		if subgroupAction == True:
+			return self.popMove()
+		else:
+			return None
+
+	def grouping(self):
+		hName = "GROUPING"
+		groups = self.buildGroup(self.frontier)
+
+		groupingAction = False
+		for pivotLocations, pivotMine in groups:
+			for locations, locMine in groups:
+				# check every pair in group
+
+				if locations != pivotLocations and locations.issubset(pivotLocations):
+					# if not same set and locations is subset of pivot
+
+					difference = pivotLocations - locations
+					if len(difference) == pivotMine - locMine:
+						# flag the difference, make move
+						groupingAction = True
+						for (x,y) in difference:
+							self.pushMove(self.FLAG, x, y, heuristic=hName)
+					if (pivotMine - locMine) == 0:
+						# difference are safe, make move
+						groupingAction = True
+						for (x,y) in difference:
+							self.pushMove(self.UNCOVER, x, y, heuristic=hName)
+
+		if groupingAction:
+			return self.popMove()
+		else:
+			return self.subgrouping(groups)
+
+	#################################################################
 	# CSP Layer #####################################################
 	#################################################################
 
-	@staticmethod
-	def recursive_backtrack(varset: {'var': None},
+
+	def select_nextunassigned(self, varset):
+		# option 1:
+		var = None
+		degree = -1
+		distance = 1157  # 16 ** 2 + 30 ** 2 + 1
+		for i in varset:
+			# degree
+			constrain_degree = len(
+				[pos for pos in list(self.lookSurround(*i))
+				 if type(self.board.get(*pos)) is int and self.board.get(*pos) > 0]
+			)
+			# euclidean distance ** 2
+			mindistance = min(
+				abs(pos[0] - i[0]) ** 2 + abs(pos[1] - i[1]) ** 2 for pos in
+				varset if varset[pos] != 0)
+
+			if varset[i] == None and mindistance < distance:
+				var = i
+				degree = constrain_degree
+				distance = mindistance
+			elif varset[i] == None and mindistance == distance and constrain_degree > degree: # and mindistance == distance
+				var = i
+				degree = constrain_degree
+				distance = mindistance
+		return var
+		# option 2: only degree heuristic
+
+
+	def recursive_backtrack(self,
+							varset: {'var': None},
 							constrains: 'lambda(varset): bool',
 							domains: {'var'},
 							resultList: list):
@@ -345,16 +705,16 @@ class MyAI( AI ):
 		return: varset (with assigned value that satisfies constrains)
 		"""
 
+		if self.timeLeft() < self.THREASH_TIME:
+			return False
+
 		# 1.return varset if every var have assignment
 		if all(i is not None for i in varset.values()):
 			resultList.append(varset)
 			return True
 
-		# 2.select next-unassigned-var
-		var = None
-		for i in varset:
-			if varset[i] == None:
-				var = i
+		# 2.select next-unassigned-var using: (MRV + degree) heuristic
+		var = self.select_nextunassigned(varset)
 
 		# 3.for each value in domains
 		for value in domains:
@@ -363,35 +723,37 @@ class MyAI( AI ):
 			# if constraint is satisfied
 			if constrains(varset):
 				# print(varset)
-				result = MyAI.recursive_backtrack(varset.copy(), constrains, domains, resultList)
+				result = self.recursive_backtrack(varset.copy(), constrains, domains, resultList)
 				# if result is not False:
 				# 	return result
 
 				# all childrens of this node is deadend
 				# remove assignment
 				varset[var] = None
-		return False
+				if result == False:
+					return False
 
-	def buildConstraint(self):
-		def constraints(varset):
-			def subConstrain(varset, X, Y):
-				currentStatus = [] # current assignment
+	def buildConstraint(self, frontier):
+		def constraints(varset) -> bool:
+			def subConstrain(varset, X, Y): # varset satisfies mine constrain at X,Y
+				currentStatus = []  # current assignment
 				for (x, y) in self.lookSurround(X, Y):
 					if self.board.get(x, y) == self.board.TILE:
 						currentStatus.append(varset[(x, y)])
 					elif self.board.get(x, y) == self.board.FLAG:
 						currentStatus.append(1)
-				# print((X,Y), currentStatus)
 				if None in currentStatus:
 					return currentStatus.count(1) <= self.board.get(X, Y)
 				elif sum(currentStatus) == self.board.get(X, Y):
 					return True
 				return False
-			for (X,Y) in self.frontier:
+			# print("constrain on:", sorted(varset))
+			# print(frontier)
+			for (X,Y) in frontier:
 				if not subConstrain(varset, X, Y):
 					return False
 			return True
-
+		# print(line(), "finished buildConstrain")
 		return constraints
 
 	def buildVarSet(self):
@@ -402,54 +764,148 @@ class MyAI( AI ):
 					tiles[(x, y)] = None
 		return tiles
 
-	def CSP(self) -> Action:
-		print("started CSP")
+	# def buildVarSet(self, tiles):
+	# 	res = dict()
+	# 	for (x, y) in tiles:
+	# 		res[(x, y)] = None
+	# 	return res
+
+	def splitFrontiers(self) -> (set, dict):
+
+		""" set: frontier, dict: varset """
+
+		# eq class of tiles, if t1 and t2 are eq, they are in the same frontier
+		e = self.Equivalence()
+
+		# if a and b share 1 uncoverd tile, they are in the same frontier
+		for coord in self.frontier:
+			tiles = []
+			for neighbour in self.lookSurround(*coord):
+				if self.board.get(*neighbour) == self.Board.TILE:
+					tiles.append(neighbour)
+			first = tiles.pop(0)
+			for t in tiles:
+				e.add(first, t)
+
+		# build frontier and result list
+		res = []
+		for tiles in e.classes().values():
+			frontier = set()
+			for t in tiles:
+				for location in self.lookSurround(*t):
+					if type(self.board.get(*location)) == int\
+						and self.board.get(*location) > 0:
+						frontier.add(location)
+			varset = {i: None for i in tiles}
+			res.append((frontier, varset))
+
+		return res
+
+	def CSP(self, frontier, varset) -> (dict, Action):
+
+		# CSP Layer
+		hName = "CSP"
+
+		print("started CSP on", frontier)
 		startTime = time()
 
 		resultList = list()
-		varset = self.buildVarSet()
-		self.recursive_backtrack(varset=varset,
-								 constrains=self.buildConstraint(),
-								 domains={0,1},
+		#debug
+		markup = {}
+		markup.update({i: '[%d]' %(self.board.get(*i)) for i in frontier})
+		markup.update({j: '(.)' for j in varset})
+		self.board.displayWithMarkup(markup)
+		# hName += "\n" + self.board.toStringMarkup(markup) + "\n"
+		#end
+		constrains = self.buildConstraint(frontier)
+		res = self.recursive_backtrack(varset=varset,
+								 constrains=constrains,
+								 domains={0, 1},
 								 resultList=resultList)
 
-		result = {location:0 for location in varset.keys()}
+		print("CSP finished in:", time() - startTime, "seconds")
+		logCSPdata = {
+			'finished': res,
+			'time': time() - startTime,
+			'frontier_size': len(frontier),
+			'varset_size': len(varset)
+		}
+		logCSP("CSP"+str(self.gamecount), str(logCSPdata))
+
+		if res == False:
+			return ({}, self.chooseRandom())
+
+		result = {location: 0 for location in varset.keys()}
+
+		# count all possible results
 		for configuration in resultList:
 			for location in configuration:
 				result[location] += configuration[location]
 
-		# debug
-		# debug(str(self.board) + "\nlastmove: " + str(self.lastMoveXY))
-		# for configuration in resultList:
-		# 	debug(self.board.toStringMarkup({(x,y): '[m]' if configuration[x,y] else '[x]'
-		# 									 for x,y in configuration}))
+		# hName += pformat(resultList)
 
-		# print("CSP result:", result)
-		# print("size:", len(resultList))
-		print("CSP finished in:", time() - startTime, "seconds")
-		print(result)
-		print(len(resultList))
+		print(line(), result)
+		print("possible results:", len(resultList))
 		minMine = min(result.values())
 		maxMine = max(result.values())
+
 		# input("leastMine:"+str(leastMine))
-		if minMine == 0: # There is somewhere that cannot be mine
+		if minMine == 0:  # There is somewhere that cannot be mine
 			for location in result:
 				if result[location] == 0:
-					self.pushMove(self.UNCOVER, *location)
-			return self.popMove()
+					self.pushMove(self.UNCOVER, *location, heuristic=hName)
+			return (result, self.popMove())
 		elif maxMine == len(resultList):
 			for location in result:
 				if result[location] == maxMine:
 					print("CSP flagged", location)
-					self.pushMove(self.FLAG, *location)
+					self.pushMove(self.FLAG, *location, heuristic=hName)
+			return (result, self.popMove())
+		else:
+			# construct probability distribution
+			for location in result:
+				result[location] = result[location] / len(resultList)
+			return (result, None)
+
+	def cspEval(self) -> (dict, Action):
+		results = {}
+		# calculate p for all frontiers
+		for frontier, varset in sorted(self.splitFrontiers(), key=lambda f_v: len(f_v[1])): # sort frontier from small to large
+			res, action = self.CSP(frontier, varset)
+			if action is not None:
+				return res, action
+			results.update(res)
+		return results, None
+
+
+	def probEval(self, varset: {(int,int):float}) -> Action:
+
+		hName = "PROBABILISTIC"
+
+		# minimum prob on frontier
+		minimum = 1
+		(X, Y) = (None, None)
+		for (x, y), p in varset.items():
+			if p < minimum:
+				X, Y = x, y
+				minimum = p
+
+		# minimum random click prob = (safe tile) / (total uncovered tile)
+		minimum_random = (self.totalMines - self.totalFlags) / self.tileLeft
+
+		hName += " frontier: %.2f random: %.2f" %(minimum, minimum_random)
+
+		if minimum <= minimum_random: # safer clicking on frontier
+			self.pushMove(self.UNCOVER, X, Y, heuristic=hName)
 			return self.popMove()
-		# else:
-		# 	# Take a best guess
-		# 	for location in result:
-		# 		if result[location] == minMine:
-		# 			print("CSP probablistic:", location)
-		# 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
-		# 			return Action(self.Action(self.UNCOVER), *location)
+		elif minimum_random < minimum:# safer clicking on a random cell
+			varset = self.buildVarSet()
+			for location in self.allCells():
+				if self.board.get(
+						*location) == self.board.TILE and location not in varset:
+					self.pushMove(self.UNCOVER, *location, heuristic=hName)
+					return self.popMove()
+
 
 
 	def humanOverridingLayer(self, number) -> Action:
@@ -466,7 +922,45 @@ class MyAI( AI ):
 		for (x, y) in self.allCells():
 			if self.board.get(x, y) == self.board.TILE:
 				return None
+		self.log("GameStatus: WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
+		print2("WIN, Finished in: "+ str(time() - self.BEGINTIME) + "(seconds)")
+
+		MyAI.LASTGAMESTATUS = True
+		# world win count += 1
+		self.stats[(self.board.rowDimension, self.board.colDimension)][0] += 1
 		return Action(self.Action(self.LEAVE), 1, 1)
+
+
+	def timeLeft(self):
+		return 300 - (time() - self.BEGINTIME)
+
+	#################################################################
+	# History Inspection Layer ######################################
+	#################################################################
+
+	def chooseRandom(self):
+
+		# random
+		hName = "RANDOM"
+
+		varset = self.buildVarSet()
+		# for location in self.allCells():
+		# 	if self.board.get(*location) == self.board.TILE and location not in varset:
+		# 		self.pushMove(self.UNCOVER, *location, heuristic=hName)
+		# 		return self.popMove()
+		# else:
+		# 	for location in self.allCells():
+		# 		if self.board.get(*location) == self.board.TILE:
+		# 			self.pushMove(self.UNCOVER, *location, heuristic=hName)
+		# 			return self.popMove()
+		non_frontier = [location for location in self.allCells()
+						if self.board.get(*location) == self.board.TILE and location not in varset]
+
+		if len(non_frontier) > 0:
+			self.pushMove(self.UNCOVER, *self.best_in(non_frontier), heuristic=hName)
+		else:
+			self.pushMove(self.UNCOVER, *self.best_in(varset), heuristic=hName)
+		return self.popMove()
 
 	#################################################################
 	# MAIN ##########################################################
@@ -479,7 +973,10 @@ class MyAI( AI ):
 			# update game status
 			self.updateBoard(number)
 			print()
-			print("---" * (self.board.rowDimension + 1), "Move", self.moveCount, ":", self.lastMoveXY, "status:", number)
+			print("---" * (self.board.rowDimension + 1), "Move", self.moveCount, ":", self.lastMoveXY, "status:", number, "timeleft:", self.timeLeft())
+
+			self.log("timeleft:" + str(self.timeLeft()) + "\n" + self.board.toStringMarkup({i: "(%d)" % self.board.get(*i) for i in self.frontier}))
+
 			# self.board.display()
 
 			# evaluate action in layers
@@ -490,7 +987,7 @@ class MyAI( AI ):
 			# 0 Preprocessing Layer: finish action -> save unable moves to frontier
 			preprocessingLayerResult = self.preprocessingLayer(number)
 			if preprocessingLayerResult is not None:
-				self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
+				# self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
 				# print("going to move:", preprocessingLayerResult.getMove(), preprocessingLayerResult.getX(), preprocessingLayerResult.getY())
 				# print(self.actionQueue)
 				return preprocessingLayerResult
@@ -498,34 +995,67 @@ class MyAI( AI ):
 			# input("stop preprocessing, start heuristic: ")
 			# print(self.frontier)
 
-			sleep(1)
+			# sleep(1)
 
-			# 1 Heuristic Layer:
-			heuristicLayerResult = self.heuristicLayer(number)
+			# 1 Basic Layer:
+			basicLayerResult = self.basicLayer(number)
+			if basicLayerResult is not None:
+				return basicLayerResult
+
 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
-			if heuristicLayerResult is not None:
-				return heuristicLayerResult
 
-			# 2 Probability Layer:
+			# 2 Grouping + Subgrouping:
+			groupingResult = self.grouping()
+			if groupingResult is not None:
+				return groupingResult
+
+			# 3 CSP Layer: result, weight_vector
 			# calculate probability of each tile near frontier
 			# generate combinations using constraint satisfaction
 
-			cspLayerResult = self.CSP()
-			if cspLayerResult is not None:
-				return cspLayerResult
+			if len(self.frontier) > 0: # not all tiles are surrounded by mines
+				print(self.frontier)
+				print("start splitfrontier")
+				fs = list(self.splitFrontiers())
+				print("frontier split:", len(fs), fs)
+				print("end splitfrontier")
+
+				cspResult, cspAction = self.cspEval()
+				if cspAction is not None:
+					return cspAction
+
+				print("cspResult:", cspResult)
+				# self.log("CSPresult" + str(cspResult))
+
+
+				# Probablity Evaluation Layer
+				evalResult = self.probEval(cspResult)
+				# self.log(line()+str(evalResult.getMove() if evalResult is not None else None))
+				if evalResult is not None:
+					return evalResult
+				else:
+					return self.chooseRandom()
+
+			else: # all tiles are surrounded by mines
+				return self.chooseRandom()
 
 
 			# 5 Human Overriding Layer
-			humanLayerResult = self.humanOverridingLayer(number)
-			return humanLayerResult
+			# self.board.displayWithMarkup(
+			# 	{i: "(%d)" % self.board.get(*i) for i in self.frontier})
+			# humanLayerResult = self.humanOverridingLayer(number)
+			# return humanLayerResult
 
-			self.board.display()
+
 			# builtins.print(self.gamecount)
 			return Action(self.Action.LEAVE, 1, 1)
 
 		except Exception as e:
-			print(e)
-			input()
+			print("EXCEPTION:")
+			print2(traceback.format_exc())
+			# production version no stopping
+			# input()
+			return self.chooseRandom()
 
 	#################################################################
 		# Add frontier splitting

@@ -2,7 +2,9 @@
 venv/
 .idea/
 *.pyc
-
-WorldGenerator/
+dataset/*
+!dataset/Analyzer.py
+WorldGenerator/*
+!/WorldGenerator/WorldGenerator.py
 !/WorldGenerator/generateSuperEasy.sh
 !/WorldGenerator/generateTournament.sh

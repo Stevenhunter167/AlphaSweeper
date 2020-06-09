@@ -1,0 +1,1361 @@
+C:\Users\15011\AppData\Local\Programs\Python\Python37\python.exe C:/Users/15011/Desktop/AlphaSweeper/src/Main.py -f ../WorldGenerator/Problems/
+running: Expert_world_1.txt
+Game: 1, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 0/0 (0.00)]
+WIN, Finished in: 1.2626216411590576(seconds)
+running: Expert_world_10.txt
+Game: 2, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 1/1 (1.00)]
+running: Expert_world_100.txt
+Game: 3, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 1/2 (0.50)]
+running: Expert_world_1000.txt
+Game: 4, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 1/3 (0.33)]
+WIN, Finished in: 1.0850963592529297(seconds)
+running: Expert_world_1001.txt
+Game: 5, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 2/4 (0.50)]
+running: Expert_world_1002.txt
+Game: 6, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 2/5 (0.40)]
+running: Expert_world_1003.txt
+Game: 7, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 2/6 (0.33)]
+running: Expert_world_1004.txt
+Game: 8, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 2/7 (0.29)]
+running: Expert_world_1005.txt
+Game: 9, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 2/8 (0.25)]
+WIN, Finished in: 1.1673939228057861(seconds)
+running: Expert_world_1006.txt
+Game: 10, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 3/9 (0.33)]
+running: Expert_world_1007.txt
+Game: 11, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 3/10 (0.30)]
+running: Expert_world_1008.txt
+Game: 12, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 3/11 (0.27)]
+WIN, Finished in: 1.1479129791259766(seconds)
+running: Expert_world_1009.txt
+Game: 13, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 4/12 (0.33)]
+running: Expert_world_101.txt
+Game: 14, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 4/13 (0.31)]
+running: Expert_world_1010.txt
+Game: 15, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 4/14 (0.29)]
+running: Expert_world_1011.txt
+Game: 16, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 4/15 (0.27)]
+running: Expert_world_1012.txt
+Game: 17, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 4/16 (0.25)]
+WIN, Finished in: 1.2067384719848633(seconds)
+running: Expert_world_1013.txt
+Game: 18, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 5/17 (0.29)]
+running: Expert_world_1014.txt
+Game: 19, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 5/18 (0.28)]
+WIN, Finished in: 1.300520896911621(seconds)
+running: Expert_world_1015.txt
+Game: 20, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 6/19 (0.32)]
+running: Expert_world_1016.txt
+Game: 21, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 6/20 (0.30)]
+running: Expert_world_1017.txt
+Game: 22, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 6/21 (0.29)]
+running: Expert_world_1018.txt
+Game: 23, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 6/22 (0.27)]
+running: Expert_world_1019.txt
+Game: 24, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 6/23 (0.26)]
+running: Expert_world_102.txt
+Game: 25, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 6/24 (0.25)]
+running: Expert_world_1020.txt
+Game: 26, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 6/25 (0.24)]
+WIN, Finished in: 3.810804605484009(seconds)
+running: Expert_world_1021.txt
+Game: 27, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 7/26 (0.27)]
+WIN, Finished in: 1.092078685760498(seconds)
+running: Expert_world_1022.txt
+Game: 28, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 8/27 (0.30)]
+running: Expert_world_1023.txt
+Game: 29, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 8/28 (0.29)]
+running: Expert_world_1024.txt
+Game: 30, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 8/29 (0.28)]
+running: Expert_world_1025.txt
+Game: 31, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 8/30 (0.27)]
+running: Expert_world_1026.txt
+Game: 32, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 8/31 (0.26)]
+running: Expert_world_1027.txt
+Game: 33, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 8/32 (0.25)]
+WIN, Finished in: 1.1949021816253662(seconds)
+running: Expert_world_1028.txt
+Game: 34, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 9/33 (0.27)]
+WIN, Finished in: 1.1050152778625488(seconds)
+running: Expert_world_1029.txt
+Game: 35, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 10/34 (0.29)]
+WIN, Finished in: 91.98848390579224(seconds)
+running: Expert_world_103.txt
+Game: 36, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 11/35 (0.31)]
+WIN, Finished in: 1.0870933532714844(seconds)
+running: Expert_world_1030.txt
+Game: 37, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 12/36 (0.33)]
+running: Expert_world_1031.txt
+Game: 38, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 12/37 (0.32)]
+running: Expert_world_1032.txt
+Game: 39, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 12/38 (0.32)]
+WIN, Finished in: 1.1758558750152588(seconds)
+running: Expert_world_1033.txt
+Game: 40, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 13/39 (0.33)]
+running: Expert_world_1034.txt
+Game: 41, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 13/40 (0.33)]
+running: Expert_world_1035.txt
+Game: 42, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 13/41 (0.32)]
+WIN, Finished in: 1.1210033893585205(seconds)
+running: Expert_world_1036.txt
+Game: 43, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 14/42 (0.33)]
+running: Expert_world_1037.txt
+Game: 44, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 14/43 (0.33)]
+running: Expert_world_1038.txt
+Game: 45, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 14/44 (0.32)]
+running: Expert_world_1039.txt
+Game: 46, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 14/45 (0.31)]
+WIN, Finished in: 1.1868257522583008(seconds)
+running: Expert_world_104.txt
+Game: 47, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 15/46 (0.33)]
+running: Expert_world_1040.txt
+Game: 48, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 15/47 (0.32)]
+WIN, Finished in: 1.2556476593017578(seconds)
+running: Expert_world_1041.txt
+Game: 49, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 16/48 (0.33)]
+running: Expert_world_1042.txt
+Game: 50, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 16/49 (0.33)]
+WIN, Finished in: 1.4949860572814941(seconds)
+running: Expert_world_1043.txt
+Game: 51, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 17/50 (0.34)]
+running: Expert_world_1044.txt
+Game: 52, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 17/51 (0.33)]
+running: Expert_world_1045.txt
+Game: 53, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 17/52 (0.33)]
+running: Expert_world_1046.txt
+Game: 54, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 17/53 (0.32)]
+running: Expert_world_1047.txt
+Game: 55, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 17/54 (0.31)]
+WIN, Finished in: 3.527557611465454(seconds)
+running: Expert_world_1048.txt
+Game: 56, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 18/55 (0.33)]
+running: Expert_world_1049.txt
+Game: 57, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 18/56 (0.32)]
+WIN, Finished in: 1.2662174701690674(seconds)
+running: Expert_world_105.txt
+Game: 58, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 19/57 (0.33)]
+WIN, Finished in: 1.3005151748657227(seconds)
+running: Expert_world_1050.txt
+Game: 59, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 20/58 (0.34)]
+running: Expert_world_1051.txt
+Game: 60, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 20/59 (0.34)]
+WIN, Finished in: 8.258419275283813(seconds)
+running: Expert_world_1052.txt
+Game: 61, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 21/60 (0.35)]
+running: Expert_world_1053.txt
+Game: 62, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 21/61 (0.34)]
+running: Expert_world_1054.txt
+Game: 63, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 21/62 (0.34)]
+WIN, Finished in: 1.1781210899353027(seconds)
+running: Expert_world_1055.txt
+Game: 64, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 22/63 (0.35)]
+running: Expert_world_1056.txt
+Game: 65, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 22/64 (0.34)]
+running: Expert_world_1057.txt
+Game: 66, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 22/65 (0.34)]
+WIN, Finished in: 1.2875661849975586(seconds)
+running: Expert_world_1058.txt
+Game: 67, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 23/66 (0.35)]
+running: Expert_world_1059.txt
+Game: 68, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 23/67 (0.34)]
+running: Expert_world_106.txt
+Game: 69, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 23/68 (0.34)]
+WIN, Finished in: 2.41237473487854(seconds)
+running: Expert_world_1060.txt
+Game: 70, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 24/69 (0.35)]
+running: Expert_world_1061.txt
+Game: 71, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 24/70 (0.34)]
+running: Expert_world_1062.txt
+Game: 72, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 24/71 (0.34)]
+WIN, Finished in: 1.3603599071502686(seconds)
+running: Expert_world_1063.txt
+Game: 73, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 25/72 (0.35)]
+running: Expert_world_1064.txt
+Game: 74, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 25/73 (0.34)]
+running: Expert_world_1065.txt
+Game: 75, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 25/74 (0.34)]
+WIN, Finished in: 22.397199153900146(seconds)
+running: Expert_world_1066.txt
+Game: 76, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 26/75 (0.35)]
+running: Expert_world_1067.txt
+Game: 77, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 26/76 (0.34)]
+WIN, Finished in: 17.121254920959473(seconds)
+running: Expert_world_1068.txt
+Game: 78, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 27/77 (0.35)]
+running: Expert_world_1069.txt
+Game: 79, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 27/78 (0.35)]
+WIN, Finished in: 1.9148797988891602(seconds)
+running: Expert_world_107.txt
+Game: 80, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 28/79 (0.35)]
+WIN, Finished in: 4.878474235534668(seconds)
+running: Expert_world_1070.txt
+Game: 81, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 29/80 (0.36)]
+WIN, Finished in: 1.0711357593536377(seconds)
+running: Expert_world_1071.txt
+Game: 82, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 30/81 (0.37)]
+running: Expert_world_1072.txt
+Game: 83, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 30/82 (0.37)]
+WIN, Finished in: 1.1559085845947266(seconds)
+running: Expert_world_1073.txt
+Game: 84, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 31/83 (0.37)]
+running: Expert_world_1074.txt
+Game: 85, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 31/84 (0.37)]
+running: Expert_world_1075.txt
+Game: 86, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 31/85 (0.36)]
+running: Expert_world_1076.txt
+Game: 87, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 31/86 (0.36)]
+running: Expert_world_1077.txt
+Game: 88, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 31/87 (0.36)]
+WIN, Finished in: 1.3065111637115479(seconds)
+running: Expert_world_1078.txt
+Game: 89, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 32/88 (0.36)]
+running: Expert_world_1079.txt
+Game: 90, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 32/89 (0.36)]
+running: Expert_world_108.txt
+Game: 91, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 32/90 (0.36)]
+WIN, Finished in: 7.362303733825684(seconds)
+running: Expert_world_1080.txt
+Game: 92, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 33/91 (0.36)]
+running: Expert_world_1081.txt
+Game: 93, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 33/92 (0.36)]
+WIN, Finished in: 1.415726900100708(seconds)
+running: Expert_world_1082.txt
+Game: 94, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 34/93 (0.37)]
+WIN, Finished in: 1.3084986209869385(seconds)
+running: Expert_world_1083.txt
+Game: 95, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 35/94 (0.37)]
+running: Expert_world_1084.txt
+Game: 96, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 35/95 (0.37)]
+running: Expert_world_1085.txt
+Game: 97, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 35/96 (0.36)]
+running: Expert_world_1086.txt
+Game: 98, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 35/97 (0.36)]
+WIN, Finished in: 1.3154795169830322(seconds)
+running: Expert_world_1087.txt
+Game: 99, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 36/98 (0.37)]
+WIN, Finished in: 1.2596361637115479(seconds)
+running: Expert_world_1088.txt
+Game: 100, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 37/99 (0.37)]
+running: Expert_world_1089.txt
+Game: 101, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 37/100 (0.37)]
+WIN, Finished in: 4.1394970417022705(seconds)
+running: Expert_world_109.txt
+Game: 102, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 38/101 (0.38)]
+running: Expert_world_1090.txt
+Game: 103, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 38/102 (0.37)]
+running: Expert_world_1091.txt
+Game: 104, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 38/103 (0.37)]
+WIN, Finished in: 1.7763047218322754(seconds)
+running: Expert_world_1092.txt
+Game: 105, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 39/104 (0.38)]
+running: Expert_world_1093.txt
+Game: 106, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 39/105 (0.37)]
+WIN, Finished in: 1.9627501964569092(seconds)
+running: Expert_world_1094.txt
+Game: 107, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 40/106 (0.38)]
+WIN, Finished in: 158.0115966796875(seconds)
+running: Expert_world_1095.txt
+Game: 108, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 41/107 (0.38)]
+WIN, Finished in: 1.122002363204956(seconds)
+running: Expert_world_1096.txt
+Game: 109, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 42/108 (0.39)]
+WIN, Finished in: 1.5688021183013916(seconds)
+running: Expert_world_1097.txt
+Game: 110, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 43/109 (0.39)]
+running: Expert_world_1098.txt
+Game: 111, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 43/110 (0.39)]
+WIN, Finished in: 7.856010675430298(seconds)
+running: Expert_world_1099.txt
+Game: 112, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 44/111 (0.40)]
+running: Expert_world_11.txt
+Game: 113, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 44/112 (0.39)]
+running: Expert_world_110.txt
+Game: 114, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 44/113 (0.39)]
+running: Expert_world_1100.txt
+Game: 115, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 44/114 (0.39)]
+WIN, Finished in: 1.1539123058319092(seconds)
+running: Expert_world_1101.txt
+Game: 116, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 45/115 (0.39)]
+running: Expert_world_1102.txt
+Game: 117, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 45/116 (0.39)]
+running: Expert_world_1103.txt
+Game: 118, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 45/117 (0.38)]
+running: Expert_world_1104.txt
+Game: 119, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 45/118 (0.38)]
+WIN, Finished in: 1.198289155960083(seconds)
+running: Expert_world_1105.txt
+Game: 120, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 46/119 (0.39)]
+WIN, Finished in: 1.6785101890563965(seconds)
+running: Expert_world_1106.txt
+Game: 121, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 47/120 (0.39)]
+running: Expert_world_1107.txt
+Game: 122, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 47/121 (0.39)]
+running: Expert_world_1108.txt
+Game: 123, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 47/122 (0.39)]
+running: Expert_world_1109.txt
+Game: 124, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 47/123 (0.38)]
+running: Expert_world_111.txt
+Game: 125, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 47/124 (0.38)]
+running: Expert_world_1110.txt
+Game: 126, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 47/125 (0.38)]
+WIN, Finished in: 1.2765827178955078(seconds)
+running: Expert_world_1111.txt
+Game: 127, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 48/126 (0.38)]
+running: Expert_world_1112.txt
+Game: 128, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 48/127 (0.38)]
+WIN, Finished in: 5.865308523178101(seconds)
+running: Expert_world_1113.txt
+Game: 129, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 49/128 (0.38)]
+running: Expert_world_1114.txt
+Game: 130, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 49/129 (0.38)]
+WIN, Finished in: 8.674792766571045(seconds)
+running: Expert_world_1115.txt
+Game: 131, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 50/130 (0.38)]
+running: Expert_world_1116.txt
+Game: 132, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 50/131 (0.38)]
+running: Expert_world_1117.txt
+Game: 133, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 50/132 (0.38)]
+running: Expert_world_1118.txt
+Game: 134, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 50/133 (0.38)]
+running: Expert_world_1119.txt
+Game: 135, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 50/134 (0.37)]
+running: Expert_world_112.txt
+Game: 136, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 50/135 (0.37)]
+WIN, Finished in: 296.1490581035614(seconds)
+running: Expert_world_1120.txt
+Game: 137, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 51/136 (0.38)]
+running: Expert_world_1121.txt
+Game: 138, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 51/137 (0.37)]
+running: Expert_world_1122.txt
+Game: 139, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 51/138 (0.37)]
+WIN, Finished in: 16.823051929473877(seconds)
+running: Expert_world_1123.txt
+Game: 140, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 52/139 (0.37)]
+running: Expert_world_1124.txt
+Game: 141, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 52/140 (0.37)]
+WIN, Finished in: 0.9544425010681152(seconds)
+running: Expert_world_1125.txt
+Game: 142, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 53/141 (0.38)]
+WIN, Finished in: 1.1948034763336182(seconds)
+running: Expert_world_1126.txt
+Game: 143, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 54/142 (0.38)]
+running: Expert_world_1127.txt
+Game: 144, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 54/143 (0.38)]
+WIN, Finished in: 1.1010565757751465(seconds)
+running: Expert_world_1128.txt
+Game: 145, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 55/144 (0.38)]
+WIN, Finished in: 296.64991307258606(seconds)
+running: Expert_world_1129.txt
+Game: 146, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 56/145 (0.39)]
+WIN, Finished in: 2.4225025177001953(seconds)
+running: Expert_world_113.txt
+Game: 147, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 57/146 (0.39)]
+running: Expert_world_1130.txt
+Game: 148, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 57/147 (0.39)]
+WIN, Finished in: 1.087092399597168(seconds)
+running: Expert_world_1131.txt
+Game: 149, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 58/148 (0.39)]
+running: Expert_world_1132.txt
+Game: 150, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 58/149 (0.39)]
+running: Expert_world_1133.txt
+Game: 151, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 58/150 (0.39)]
+running: Expert_world_1134.txt
+Game: 152, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 58/151 (0.38)]
+running: Expert_world_1135.txt
+Game: 153, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 58/152 (0.38)]
+WIN, Finished in: 1.3463971614837646(seconds)
+running: Expert_world_1136.txt
+Game: 154, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 59/153 (0.39)]
+WIN, Finished in: 56.41274857521057(seconds)
+running: Expert_world_1137.txt
+Game: 155, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 60/154 (0.39)]
+running: Expert_world_1138.txt
+Game: 156, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 60/155 (0.39)]
+running: Expert_world_1139.txt
+Game: 157, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 60/156 (0.38)]
+WIN, Finished in: 1.33542799949646(seconds)
+running: Expert_world_114.txt
+Game: 158, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 61/157 (0.39)]
+running: Expert_world_1140.txt
+Game: 159, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 61/158 (0.39)]
+WIN, Finished in: 1.459097146987915(seconds)
+running: Expert_world_1141.txt
+Game: 160, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 62/159 (0.39)]
+running: Expert_world_1142.txt
+Game: 161, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 62/160 (0.39)]
+running: Expert_world_1143.txt
+Game: 162, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 62/161 (0.39)]
+running: Expert_world_1144.txt
+Game: 163, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 62/162 (0.38)]
+running: Expert_world_1145.txt
+Game: 164, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 62/163 (0.38)]
+WIN, Finished in: 1.233701467514038(seconds)
+running: Expert_world_1146.txt
+Game: 165, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 63/164 (0.38)]
+running: Expert_world_1147.txt
+Game: 166, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 63/165 (0.38)]
+running: Expert_world_1148.txt
+Game: 167, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 63/166 (0.38)]
+WIN, Finished in: 1.034233570098877(seconds)
+running: Expert_world_1149.txt
+Game: 168, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 64/167 (0.38)]
+running: Expert_world_115.txt
+Game: 169, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 64/168 (0.38)]
+running: Expert_world_1150.txt
+Game: 170, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 64/169 (0.38)]
+running: Expert_world_1151.txt
+Game: 171, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 64/170 (0.38)]
+running: Expert_world_1152.txt
+Game: 172, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 64/171 (0.37)]
+running: Expert_world_1153.txt
+Game: 173, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 64/172 (0.37)]
+WIN, Finished in: 3.0099472999572754(seconds)
+running: Expert_world_1154.txt
+Game: 174, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 65/173 (0.38)]
+WIN, Finished in: 1.313485860824585(seconds)
+running: Expert_world_1155.txt
+Game: 175, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 66/174 (0.38)]
+running: Expert_world_1156.txt
+Game: 176, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 66/175 (0.38)]
+running: Expert_world_1157.txt
+Game: 177, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 66/176 (0.38)]
+running: Expert_world_1158.txt
+Game: 178, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 66/177 (0.37)]
+running: Expert_world_1159.txt
+Game: 179, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 66/178 (0.37)]
+running: Expert_world_116.txt
+Game: 180, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 66/179 (0.37)]
+running: Expert_world_1160.txt
+Game: 181, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 66/180 (0.37)]
+WIN, Finished in: 1.4162123203277588(seconds)
+running: Expert_world_1161.txt
+Game: 182, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 67/181 (0.37)]
+running: Expert_world_1162.txt
+Game: 183, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 67/182 (0.37)]
+WIN, Finished in: 1.0801091194152832(seconds)
+running: Expert_world_1163.txt
+Game: 184, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 68/183 (0.37)]
+WIN, Finished in: 1.568803310394287(seconds)
+running: Expert_world_1164.txt
+Game: 185, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 69/184 (0.38)]
+running: Expert_world_1165.txt
+Game: 186, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 69/185 (0.37)]
+WIN, Finished in: 1.758807897567749(seconds)
+running: Expert_world_1166.txt
+Game: 187, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 70/186 (0.38)]
+WIN, Finished in: 1.185835838317871(seconds)
+running: Expert_world_1167.txt
+Game: 188, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 71/187 (0.38)]
+running: Expert_world_1168.txt
+Game: 189, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 71/188 (0.38)]
+WIN, Finished in: 1.3284330368041992(seconds)
+running: Expert_world_1169.txt
+Game: 190, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 72/189 (0.38)]
+running: Expert_world_117.txt
+Game: 191, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 72/190 (0.38)]
+running: Expert_world_1170.txt
+Game: 192, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 72/191 (0.38)]
+WIN, Finished in: 41.432849407196045(seconds)
+running: Expert_world_1171.txt
+Game: 193, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 73/192 (0.38)]
+running: Expert_world_1172.txt
+Game: 194, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 73/193 (0.38)]
+running: Expert_world_1173.txt
+Game: 195, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 73/194 (0.38)]
+WIN, Finished in: 45.957154512405396(seconds)
+running: Expert_world_1174.txt
+Game: 196, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 74/195 (0.38)]
+running: Expert_world_1175.txt
+Game: 197, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 74/196 (0.38)]
+WIN, Finished in: 22.196691036224365(seconds)
+running: Expert_world_1176.txt
+Game: 198, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 75/197 (0.38)]
+WIN, Finished in: 12.63809084892273(seconds)
+running: Expert_world_1177.txt
+Game: 199, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 76/198 (0.38)]
+running: Expert_world_1178.txt
+Game: 200, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 76/199 (0.38)]
+running: Expert_world_1179.txt
+Game: 201, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 76/200 (0.38)]
+running: Expert_world_118.txt
+Game: 202, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 76/201 (0.38)]
+running: Expert_world_1180.txt
+Game: 203, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 76/202 (0.38)]
+running: Expert_world_1181.txt
+Game: 204, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 76/203 (0.37)]
+running: Expert_world_1182.txt
+Game: 205, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 76/204 (0.37)]
+WIN, Finished in: 1.6644926071166992(seconds)
+running: Expert_world_1183.txt
+Game: 206, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 77/205 (0.38)]
+running: Expert_world_1184.txt
+Game: 207, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 77/206 (0.37)]
+running: Expert_world_1185.txt
+Game: 208, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 77/207 (0.37)]
+WIN, Finished in: 4.015260219573975(seconds)
+running: Expert_world_1186.txt
+Game: 209, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 78/208 (0.38)]
+running: Expert_world_1187.txt
+Game: 210, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 78/209 (0.37)]
+running: Expert_world_1188.txt
+Game: 211, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 78/210 (0.37)]
+WIN, Finished in: 2.282893419265747(seconds)
+running: Expert_world_1189.txt
+Game: 212, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 79/211 (0.37)]
+running: Expert_world_119.txt
+Game: 213, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 79/212 (0.37)]
+WIN, Finished in: 1.2405061721801758(seconds)
+running: Expert_world_1190.txt
+Game: 214, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 80/213 (0.38)]
+running: Expert_world_1191.txt
+Game: 215, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 80/214 (0.37)]
+running: Expert_world_1192.txt
+Game: 216, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 80/215 (0.37)]
+WIN, Finished in: 296.99352645874023(seconds)
+running: Expert_world_1193.txt
+Game: 217, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 81/216 (0.38)]
+running: Expert_world_1194.txt
+Game: 218, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 81/217 (0.37)]
+running: Expert_world_1195.txt
+Game: 219, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 81/218 (0.37)]
+running: Expert_world_1196.txt
+Game: 220, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 81/219 (0.37)]
+running: Expert_world_1197.txt
+Game: 221, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 81/220 (0.37)]
+WIN, Finished in: 1.3164777755737305(seconds)
+running: Expert_world_1198.txt
+Game: 222, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 82/221 (0.37)]
+WIN, Finished in: 139.93494486808777(seconds)
+running: Expert_world_1199.txt
+Game: 223, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 83/222 (0.37)]
+running: Expert_world_12.txt
+Game: 224, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 83/223 (0.37)]
+WIN, Finished in: 1.3733267784118652(seconds)
+running: Expert_world_120.txt
+Game: 225, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 84/224 (0.38)]
+WIN, Finished in: 1.5428729057312012(seconds)
+running: Expert_world_1200.txt
+Game: 226, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 85/225 (0.38)]
+WIN, Finished in: 4.508936882019043(seconds)
+running: Expert_world_1201.txt
+Game: 227, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 86/226 (0.38)]
+WIN, Finished in: 1.8161814212799072(seconds)
+running: Expert_world_1202.txt
+Game: 228, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 87/227 (0.38)]
+running: Expert_world_1203.txt
+Game: 229, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 87/228 (0.38)]
+running: Expert_world_1204.txt
+Game: 230, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 87/229 (0.38)]
+WIN, Finished in: 1.1559078693389893(seconds)
+running: Expert_world_1205.txt
+Game: 231, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 88/230 (0.38)]
+running: Expert_world_1206.txt
+Game: 232, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 88/231 (0.38)]
+WIN, Finished in: 1.3244874477386475(seconds)
+running: Expert_world_1207.txt
+Game: 233, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 89/232 (0.38)]
+running: Expert_world_1208.txt
+Game: 234, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 89/233 (0.38)]
+running: Expert_world_1209.txt
+Game: 235, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 89/234 (0.38)]
+running: Expert_world_121.txt
+Game: 236, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 89/235 (0.38)]
+WIN, Finished in: 1.5947802066802979(seconds)
+running: Expert_world_1210.txt
+Game: 237, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 90/236 (0.38)]
+running: Expert_world_1211.txt
+Game: 238, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 90/237 (0.38)]
+running: Expert_world_1212.txt
+Game: 239, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 90/238 (0.38)]
+WIN, Finished in: 10.207366943359375(seconds)
+running: Expert_world_1213.txt
+Game: 240, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 91/239 (0.38)]
+running: Expert_world_1214.txt
+Game: 241, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 91/240 (0.38)]
+running: Expert_world_1215.txt
+Game: 242, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 91/241 (0.38)]
+running: Expert_world_1216.txt
+Game: 243, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 91/242 (0.38)]
+WIN, Finished in: 1.2137539386749268(seconds)
+running: Expert_world_1217.txt
+Game: 244, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 92/243 (0.38)]
+WIN, Finished in: 5.443437814712524(seconds)
+running: Expert_world_1218.txt
+Game: 245, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 93/244 (0.38)]
+running: Expert_world_1219.txt
+Game: 246, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 93/245 (0.38)]
+WIN, Finished in: 1.408254623413086(seconds)
+running: Expert_world_122.txt
+Game: 247, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 94/246 (0.38)]
+running: Expert_world_1220.txt
+Game: 248, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 94/247 (0.38)]
+running: Expert_world_1221.txt
+Game: 249, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 94/248 (0.38)]
+running: Expert_world_1222.txt
+Game: 250, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 94/249 (0.38)]
+WIN, Finished in: 1.350386142730713(seconds)
+running: Expert_world_1223.txt
+Game: 251, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 95/250 (0.38)]
+running: Expert_world_1224.txt
+Game: 252, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 95/251 (0.38)]
+running: Expert_world_1225.txt
+Game: 253, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 95/252 (0.38)]
+running: Expert_world_1226.txt
+Game: 254, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 95/253 (0.38)]
+running: Expert_world_1227.txt
+Game: 255, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 95/254 (0.37)]
+running: Expert_world_1228.txt
+Game: 256, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 95/255 (0.37)]
+running: Expert_world_1229.txt
+Game: 257, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 95/256 (0.37)]
+WIN, Finished in: 1.2805492877960205(seconds)
+running: Expert_world_123.txt
+Game: 258, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 96/257 (0.37)]
+WIN, Finished in: 1.2805736064910889(seconds)
+running: Expert_world_1230.txt
+Game: 259, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 97/258 (0.38)]
+WIN, Finished in: 1.3144824504852295(seconds)
+running: Expert_world_1231.txt
+Game: 260, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 98/259 (0.38)]
+running: Expert_world_1232.txt
+Game: 261, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 98/260 (0.38)]
+WIN, Finished in: 1.426220178604126(seconds)
+running: Expert_world_1233.txt
+Game: 262, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 99/261 (0.38)]
+WIN, Finished in: 3.225890874862671(seconds)
+running: Expert_world_1234.txt
+Game: 263, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 100/262 (0.38)]
+running: Expert_world_1235.txt
+Game: 264, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 100/263 (0.38)]
+running: Expert_world_1236.txt
+Game: 265, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 100/264 (0.38)]
+WIN, Finished in: 43.3470413684845(seconds)
+running: Expert_world_1237.txt
+Game: 266, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 101/265 (0.38)]
+WIN, Finished in: 1.4445338249206543(seconds)
+running: Expert_world_1238.txt
+Game: 267, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 102/266 (0.38)]
+WIN, Finished in: 1.3324353694915771(seconds)
+running: Expert_world_1239.txt
+Game: 268, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 103/267 (0.39)]
+WIN, Finished in: 1.3763182163238525(seconds)
+running: Expert_world_124.txt
+Game: 269, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 104/268 (0.39)]
+running: Expert_world_1240.txt
+Game: 270, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 104/269 (0.39)]
+running: Expert_world_1241.txt
+Game: 271, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 104/270 (0.39)]
+running: Expert_world_1242.txt
+Game: 272, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 104/271 (0.38)]
+WIN, Finished in: 2.687811851501465(seconds)
+running: Expert_world_1243.txt
+Game: 273, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 105/272 (0.39)]
+running: Expert_world_1244.txt
+Game: 274, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 105/273 (0.38)]
+running: Expert_world_1245.txt
+Game: 275, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 105/274 (0.38)]
+running: Expert_world_1246.txt
+Game: 276, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 105/275 (0.38)]
+WIN, Finished in: 296.60624742507935(seconds)
+running: Expert_world_1247.txt
+Game: 277, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 106/276 (0.38)]
+running: Expert_world_1248.txt
+Game: 278, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 106/277 (0.38)]
+running: Expert_world_1249.txt
+Game: 279, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 106/278 (0.38)]
+running: Expert_world_125.txt
+Game: 280, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 106/279 (0.38)]
+running: Expert_world_1250.txt
+Game: 281, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 106/280 (0.38)]
+WIN, Finished in: 1.3224608898162842(seconds)
+running: Expert_world_1251.txt
+Game: 282, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 107/281 (0.38)]
+running: Expert_world_1252.txt
+Game: 283, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 107/282 (0.38)]
+WIN, Finished in: 1.3962652683258057(seconds)
+running: Expert_world_1253.txt
+Game: 284, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 108/283 (0.38)]
+WIN, Finished in: 1.3339438438415527(seconds)
+running: Expert_world_1254.txt
+Game: 285, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/284 (0.38)]
+running: Expert_world_1255.txt
+Game: 286, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/285 (0.38)]
+running: Expert_world_1256.txt
+Game: 287, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/286 (0.38)]
+running: Expert_world_1257.txt
+Game: 288, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/287 (0.38)]
+running: Expert_world_1258.txt
+Game: 289, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/288 (0.38)]
+running: Expert_world_1259.txt
+Game: 290, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/289 (0.38)]
+running: Expert_world_126.txt
+Game: 291, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/290 (0.38)]
+running: Expert_world_1260.txt
+Game: 292, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/291 (0.37)]
+running: Expert_world_1261.txt
+Game: 293, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 109/292 (0.37)]
+WIN, Finished in: 8.723260641098022(seconds)
+running: Expert_world_1262.txt
+Game: 294, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 110/293 (0.38)]
+WIN, Finished in: 1.2028045654296875(seconds)
+running: Expert_world_1263.txt
+Game: 295, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 111/294 (0.38)]
+running: Expert_world_1264.txt
+Game: 296, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 111/295 (0.38)]
+WIN, Finished in: 0.9843664169311523(seconds)
+running: Expert_world_1265.txt
+Game: 297, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 112/296 (0.38)]
+running: Expert_world_1266.txt
+Game: 298, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 112/297 (0.38)]
+running: Expert_world_1267.txt
+Game: 299, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 112/298 (0.38)]
+WIN, Finished in: 1.507965326309204(seconds)
+running: Expert_world_1268.txt
+Game: 300, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 113/299 (0.38)]
+running: Expert_world_1269.txt
+Game: 301, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 113/300 (0.38)]
+running: Expert_world_127.txt
+Game: 302, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 113/301 (0.38)]
+running: Expert_world_1270.txt
+Game: 303, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 113/302 (0.37)]
+WIN, Finished in: 1.2795758247375488(seconds)
+running: Expert_world_1271.txt
+Game: 304, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 114/303 (0.38)]
+running: Expert_world_1272.txt
+Game: 305, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 114/304 (0.38)]
+running: Expert_world_1273.txt
+Game: 306, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 114/305 (0.37)]
+WIN, Finished in: 1.289548397064209(seconds)
+running: Expert_world_1274.txt
+Game: 307, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 115/306 (0.38)]
+running: Expert_world_1275.txt
+Game: 308, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 115/307 (0.37)]
+running: Expert_world_1276.txt
+Game: 309, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 115/308 (0.37)]
+running: Expert_world_1277.txt
+Game: 310, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 115/309 (0.37)]
+running: Expert_world_1278.txt
+Game: 311, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 115/310 (0.37)]
+running: Expert_world_1279.txt
+Game: 312, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 115/311 (0.37)]
+running: Expert_world_128.txt
+Game: 313, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 115/312 (0.37)]
+WIN, Finished in: 1.0053086280822754(seconds)
+running: Expert_world_1280.txt
+Game: 314, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 116/313 (0.37)]
+running: Expert_world_1281.txt
+Game: 315, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 116/314 (0.37)]
+running: Expert_world_1282.txt
+Game: 316, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 116/315 (0.37)]
+WIN, Finished in: 1.1429798603057861(seconds)
+running: Expert_world_1283.txt
+Game: 317, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 117/316 (0.37)]
+running: Expert_world_1284.txt
+Game: 318, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 117/317 (0.37)]
+WIN, Finished in: 1.3045287132263184(seconds)
+running: Expert_world_1285.txt
+Game: 319, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 118/318 (0.37)]
+running: Expert_world_1286.txt
+Game: 320, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 118/319 (0.37)]
+WIN, Finished in: 60.90009164810181(seconds)
+running: Expert_world_1287.txt
+Game: 321, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 119/320 (0.37)]
+running: Expert_world_1288.txt
+Game: 322, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 119/321 (0.37)]
+running: Expert_world_1289.txt
+Game: 323, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 119/322 (0.37)]
+WIN, Finished in: 2.7668540477752686(seconds)
+running: Expert_world_129.txt
+Game: 324, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 120/323 (0.37)]
+WIN, Finished in: 3.596377372741699(seconds)
+running: Expert_world_1290.txt
+Game: 325, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 121/324 (0.37)]
+running: Expert_world_1291.txt
+Game: 326, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 121/325 (0.37)]
+WIN, Finished in: 1.1888208389282227(seconds)
+running: Expert_world_1292.txt
+Game: 327, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 122/326 (0.37)]
+running: Expert_world_1293.txt
+Game: 328, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 122/327 (0.37)]
+running: Expert_world_1294.txt
+Game: 329, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 122/328 (0.37)]
+running: Expert_world_1295.txt
+Game: 330, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 122/329 (0.37)]
+running: Expert_world_1296.txt
+Game: 331, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 122/330 (0.37)]
+running: Expert_world_1297.txt
+Game: 332, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 122/331 (0.37)]
+running: Expert_world_1298.txt
+Game: 333, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 122/332 (0.37)]
+WIN, Finished in: 1.3608825206756592(seconds)
+running: Expert_world_1299.txt
+Game: 334, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 123/333 (0.37)]
+WIN, Finished in: 1.47804594039917(seconds)
+running: Expert_world_13.txt
+Game: 335, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 124/334 (0.37)]
+running: Expert_world_130.txt
+Game: 336, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 124/335 (0.37)]
+running: Expert_world_1300.txt
+Game: 337, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 124/336 (0.37)]
+WIN, Finished in: 1.421199083328247(seconds)
+running: Expert_world_1301.txt
+Game: 338, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 125/337 (0.37)]
+WIN, Finished in: 2.222055435180664(seconds)
+running: Expert_world_1302.txt
+Game: 339, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 126/338 (0.37)]
+running: Expert_world_1303.txt
+Game: 340, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 126/339 (0.37)]
+running: Expert_world_1304.txt
+Game: 341, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 126/340 (0.37)]
+WIN, Finished in: 1.4840292930603027(seconds)
+running: Expert_world_1305.txt
+Game: 342, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 127/341 (0.37)]
+running: Expert_world_1306.txt
+Game: 343, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 127/342 (0.37)]
+WIN, Finished in: 1.8415825366973877(seconds)
+running: Expert_world_1307.txt
+Game: 344, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 128/343 (0.37)]
+running: Expert_world_1308.txt
+Game: 345, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 128/344 (0.37)]
+running: Expert_world_1309.txt
+Game: 346, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 128/345 (0.37)]
+running: Expert_world_131.txt
+Game: 347, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 128/346 (0.37)]
+WIN, Finished in: 1.4362642765045166(seconds)
+running: Expert_world_1310.txt
+Game: 348, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 129/347 (0.37)]
+WIN, Finished in: 7.198339223861694(seconds)
+running: Expert_world_1311.txt
+Game: 349, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 130/348 (0.37)]
+WIN, Finished in: 2.9780313968658447(seconds)
+running: Expert_world_1312.txt
+Game: 350, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 131/349 (0.38)]
+WIN, Finished in: 1.2202696800231934(seconds)
+running: Expert_world_1313.txt
+Game: 351, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 132/350 (0.38)]
+running: Expert_world_1314.txt
+Game: 352, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 132/351 (0.38)]
+running: Expert_world_1315.txt
+Game: 353, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 132/352 (0.38)]
+running: Expert_world_1316.txt
+Game: 354, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 132/353 (0.37)]
+WIN, Finished in: 2.1612179279327393(seconds)
+running: Expert_world_1317.txt
+Game: 355, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/354 (0.38)]
+running: Expert_world_1318.txt
+Game: 356, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/355 (0.37)]
+running: Expert_world_1319.txt
+Game: 357, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/356 (0.37)]
+running: Expert_world_132.txt
+Game: 358, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/357 (0.37)]
+running: Expert_world_1320.txt
+Game: 359, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/358 (0.37)]
+running: Expert_world_1321.txt
+Game: 360, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/359 (0.37)]
+running: Expert_world_1322.txt
+Game: 361, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/360 (0.37)]
+running: Expert_world_1323.txt
+Game: 362, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 133/361 (0.37)]
+WIN, Finished in: 4.239659070968628(seconds)
+running: Expert_world_1324.txt
+Game: 363, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 134/362 (0.37)]
+running: Expert_world_1325.txt
+Game: 364, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 134/363 (0.37)]
+running: Expert_world_1326.txt
+Game: 365, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 134/364 (0.37)]
+running: Expert_world_1327.txt
+Game: 366, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 134/365 (0.37)]
+WIN, Finished in: 1.3783109188079834(seconds)
+running: Expert_world_1328.txt
+Game: 367, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 135/366 (0.37)]
+WIN, Finished in: 1.5715625286102295(seconds)
+running: Expert_world_1329.txt
+Game: 368, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 136/367 (0.37)]
+WIN, Finished in: 1.3743233680725098(seconds)
+running: Expert_world_133.txt
+Game: 369, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 137/368 (0.37)]
+running: Expert_world_1330.txt
+Game: 370, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 137/369 (0.37)]
+WIN, Finished in: 1.3973400592803955(seconds)
+running: Expert_world_1331.txt
+Game: 371, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 138/370 (0.37)]
+running: Expert_world_1332.txt
+Game: 372, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 138/371 (0.37)]
+running: Expert_world_1333.txt
+Game: 373, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 138/372 (0.37)]
+WIN, Finished in: 1.4072363376617432(seconds)
+running: Expert_world_1334.txt
+Game: 374, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 139/373 (0.37)]
+running: Expert_world_1335.txt
+Game: 375, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 139/374 (0.37)]
+running: Expert_world_1336.txt
+Game: 376, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 139/375 (0.37)]
+WIN, Finished in: 5.52420711517334(seconds)
+running: Expert_world_1337.txt
+Game: 377, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 140/376 (0.37)]
+WIN, Finished in: 31.3228542804718(seconds)
+running: Expert_world_1338.txt
+Game: 378, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 141/377 (0.37)]
+running: Expert_world_1339.txt
+Game: 379, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 141/378 (0.37)]
+WIN, Finished in: 1.3384194374084473(seconds)
+running: Expert_world_134.txt
+Game: 380, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 142/379 (0.37)]
+running: Expert_world_1340.txt
+Game: 381, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 142/380 (0.37)]
+running: Expert_world_1341.txt
+Game: 382, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 142/381 (0.37)]
+WIN, Finished in: 1.4012513160705566(seconds)
+running: Expert_world_1342.txt
+Game: 383, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 143/382 (0.37)]
+WIN, Finished in: 1.3583717346191406(seconds)
+running: Expert_world_1343.txt
+Game: 384, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 144/383 (0.38)]
+running: Expert_world_1344.txt
+Game: 385, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 144/384 (0.38)]
+running: Expert_world_1345.txt
+Game: 386, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 144/385 (0.37)]
+running: Expert_world_1346.txt
+Game: 387, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 144/386 (0.37)]
+WIN, Finished in: 1.5727920532226562(seconds)
+running: Expert_world_1347.txt
+Game: 388, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 145/387 (0.37)]
+running: Expert_world_1348.txt
+Game: 389, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 145/388 (0.37)]
+WIN, Finished in: 1.324455738067627(seconds)
+running: Expert_world_1349.txt
+Game: 390, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 146/389 (0.38)]
+running: Expert_world_135.txt
+Game: 391, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 146/390 (0.37)]
+running: Expert_world_1350.txt
+Game: 392, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 146/391 (0.37)]
+running: Expert_world_1351.txt
+Game: 393, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 146/392 (0.37)]
+WIN, Finished in: 1.3234734535217285(seconds)
+running: Expert_world_1352.txt
+Game: 394, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 147/393 (0.37)]
+WIN, Finished in: 1.2396690845489502(seconds)
+running: Expert_world_1353.txt
+Game: 395, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 148/394 (0.38)]
+running: Expert_world_1354.txt
+Game: 396, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 148/395 (0.37)]
+WIN, Finished in: 34.17829513549805(seconds)
+running: Expert_world_1355.txt
+Game: 397, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 149/396 (0.38)]
+running: Expert_world_1356.txt
+Game: 398, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 149/397 (0.38)]
+running: Expert_world_1357.txt
+Game: 399, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 149/398 (0.37)]
+WIN, Finished in: 2.4444737434387207(seconds)
+running: Expert_world_1358.txt
+Game: 400, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 150/399 (0.38)]
+WIN, Finished in: 1.4117584228515625(seconds)
+running: Expert_world_1359.txt
+Game: 401, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 151/400 (0.38)]
+running: Expert_world_136.txt
+Game: 402, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 151/401 (0.38)]
+running: Expert_world_1360.txt
+Game: 403, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 151/402 (0.38)]
+WIN, Finished in: 1.1319730281829834(seconds)
+running: Expert_world_1361.txt
+Game: 404, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 152/403 (0.38)]
+running: Expert_world_1362.txt
+Game: 405, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 152/404 (0.38)]
+WIN, Finished in: 1.6615557670593262(seconds)
+running: Expert_world_1363.txt
+Game: 406, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 153/405 (0.38)]
+running: Expert_world_1364.txt
+Game: 407, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 153/406 (0.38)]
+running: Expert_world_1365.txt
+Game: 408, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 153/407 (0.38)]
+running: Expert_world_1366.txt
+Game: 409, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 153/408 (0.38)]
+WIN, Finished in: 117.32643866539001(seconds)
+running: Expert_world_1367.txt
+Game: 410, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 154/409 (0.38)]
+WIN, Finished in: 1.2037770748138428(seconds)
+running: Expert_world_1368.txt
+Game: 411, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 155/410 (0.38)]
+running: Expert_world_1369.txt
+Game: 412, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 155/411 (0.38)]
+running: Expert_world_137.txt
+Game: 413, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 155/412 (0.38)]
+WIN, Finished in: 1.275588035583496(seconds)
+running: Expert_world_1370.txt
+Game: 414, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 156/413 (0.38)]
+running: Expert_world_1371.txt
+Game: 415, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 156/414 (0.38)]
+running: Expert_world_1372.txt
+Game: 416, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 156/415 (0.38)]
+running: Expert_world_1373.txt
+Game: 417, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 156/416 (0.38)]
+WIN, Finished in: 1.2416775226593018(seconds)
+running: Expert_world_1374.txt
+Game: 418, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 157/417 (0.38)]
+running: Expert_world_1375.txt
+Game: 419, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 157/418 (0.38)]
+WIN, Finished in: 1.2975289821624756(seconds)
+running: Expert_world_1376.txt
+Game: 420, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 158/419 (0.38)]
+running: Expert_world_1377.txt
+Game: 421, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 158/420 (0.38)]
+running: Expert_world_1378.txt
+Game: 422, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 158/421 (0.38)]
+running: Expert_world_1379.txt
+Game: 423, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 158/422 (0.37)]
+WIN, Finished in: 238.29829740524292(seconds)
+running: Expert_world_138.txt
+Game: 424, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 159/423 (0.38)]
+running: Expert_world_1380.txt
+Game: 425, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 159/424 (0.38)]
+WIN, Finished in: 1.3194687366485596(seconds)
+running: Expert_world_1381.txt
+Game: 426, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 160/425 (0.38)]
+WIN, Finished in: 4.20477294921875(seconds)
+running: Expert_world_1382.txt
+Game: 427, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 161/426 (0.38)]
+running: Expert_world_1383.txt
+Game: 428, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 161/427 (0.38)]
+WIN, Finished in: 1.5578312873840332(seconds)
+running: Expert_world_1384.txt
+Game: 429, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 162/428 (0.38)]
+running: Expert_world_1385.txt
+Game: 430, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 162/429 (0.38)]
+WIN, Finished in: 1.259629487991333(seconds)
+running: Expert_world_1386.txt
+Game: 431, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 163/430 (0.38)]
+running: Expert_world_1387.txt
+Game: 432, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 163/431 (0.38)]
+WIN, Finished in: 1.110029697418213(seconds)
+running: Expert_world_1388.txt
+Game: 433, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 164/432 (0.38)]
+running: Expert_world_1389.txt
+Game: 434, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 164/433 (0.38)]
+running: Expert_world_139.txt
+Game: 435, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 164/434 (0.38)]
+WIN, Finished in: 1.3519339561462402(seconds)
+running: Expert_world_1390.txt
+Game: 436, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 165/435 (0.38)]
+WIN, Finished in: 1.8989169597625732(seconds)
+running: Expert_world_1391.txt
+Game: 437, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 166/436 (0.38)]
+running: Expert_world_1392.txt
+Game: 438, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 166/437 (0.38)]
+running: Expert_world_1393.txt
+Game: 439, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 166/438 (0.38)]
+WIN, Finished in: 1.1339664459228516(seconds)
+running: Expert_world_1394.txt
+Game: 440, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 167/439 (0.38)]
+WIN, Finished in: 1.299523115158081(seconds)
+running: Expert_world_1395.txt
+Game: 441, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 168/440 (0.38)]
+running: Expert_world_1396.txt
+Game: 442, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 168/441 (0.38)]
+running: Expert_world_1397.txt
+Game: 443, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 168/442 (0.38)]
+WIN, Finished in: 3.2458794116973877(seconds)
+running: Expert_world_1398.txt
+Game: 444, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 169/443 (0.38)]
+WIN, Finished in: 1.2416787147521973(seconds)
+running: Expert_world_1399.txt
+Game: 445, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 170/444 (0.38)]
+WIN, Finished in: 1.4102344512939453(seconds)
+running: Expert_world_14.txt
+Game: 446, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 171/445 (0.38)]
+WIN, Finished in: 1.382303237915039(seconds)
+running: Expert_world_140.txt
+Game: 447, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 172/446 (0.39)]
+WIN, Finished in: 4.409204721450806(seconds)
+running: Expert_world_1400.txt
+Game: 448, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 173/447 (0.39)]
+running: Expert_world_1401.txt
+Game: 449, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 173/448 (0.39)]
+running: Expert_world_1402.txt
+Game: 450, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 173/449 (0.39)]
+WIN, Finished in: 2.0420382022857666(seconds)
+running: Expert_world_1403.txt
+Game: 451, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 174/450 (0.39)]
+running: Expert_world_1404.txt
+Game: 452, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 174/451 (0.39)]
+WIN, Finished in: 1.265613317489624(seconds)
+running: Expert_world_1405.txt
+Game: 453, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 175/452 (0.39)]
+running: Expert_world_1406.txt
+Game: 454, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 175/453 (0.39)]
+running: Expert_world_1407.txt
+Game: 455, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 175/454 (0.39)]
+WIN, Finished in: 1.28108811378479(seconds)
+running: Expert_world_1408.txt
+Game: 456, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 176/455 (0.39)]
+running: Expert_world_1409.txt
+Game: 457, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 176/456 (0.39)]
+running: Expert_world_141.txt
+Game: 458, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 176/457 (0.39)]
+WIN, Finished in: 1.929844856262207(seconds)
+running: Expert_world_1410.txt
+Game: 459, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 177/458 (0.39)]
+WIN, Finished in: 1.2426750659942627(seconds)
+running: Expert_world_1411.txt
+Game: 460, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 178/459 (0.39)]
+running: Expert_world_1412.txt
+Game: 461, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 178/460 (0.39)]
+running: Expert_world_1413.txt
+Game: 462, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 178/461 (0.39)]
+running: Expert_world_1414.txt
+Game: 463, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 178/462 (0.39)]
+running: Expert_world_1415.txt
+Game: 464, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 178/463 (0.38)]
+WIN, Finished in: 1.3244545459747314(seconds)
+running: Expert_world_1416.txt
+Game: 465, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 179/464 (0.39)]
+WIN, Finished in: 3.4757068157196045(seconds)
+running: Expert_world_1417.txt
+Game: 466, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 180/465 (0.39)]
+WIN, Finished in: 1.226470708847046(seconds)
+running: Expert_world_1418.txt
+Game: 467, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 181/466 (0.39)]
+running: Expert_world_1419.txt
+Game: 468, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 181/467 (0.39)]
+running: Expert_world_142.txt
+Game: 469, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 181/468 (0.39)]
+running: Expert_world_1420.txt
+Game: 470, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 181/469 (0.39)]
+running: Expert_world_1421.txt
+Game: 471, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 181/470 (0.39)]
+WIN, Finished in: 1.052184820175171(seconds)
+running: Expert_world_1422.txt
+Game: 472, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 182/471 (0.39)]
+running: Expert_world_1423.txt
+Game: 473, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 182/472 (0.39)]
+WIN, Finished in: 2.416045665740967(seconds)
+running: Expert_world_1424.txt
+Game: 474, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 183/473 (0.39)]
+running: Expert_world_1425.txt
+Game: 475, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 183/474 (0.39)]
+running: Expert_world_1426.txt
+Game: 476, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 183/475 (0.39)]
+WIN, Finished in: 1.181837558746338(seconds)
+running: Expert_world_1427.txt
+Game: 477, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 184/476 (0.39)]
+WIN, Finished in: 1.2646470069885254(seconds)
+running: Expert_world_1428.txt
+Game: 478, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 185/477 (0.39)]
+running: Expert_world_1429.txt
+Game: 479, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 185/478 (0.39)]
+running: Expert_world_143.txt
+Game: 480, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 185/479 (0.39)]
+running: Expert_world_1430.txt
+Game: 481, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 185/480 (0.39)]
+WIN, Finished in: 4.344970464706421(seconds)
+running: Expert_world_1431.txt
+Game: 482, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 186/481 (0.39)]
+running: Expert_world_1432.txt
+Game: 483, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 186/482 (0.39)]
+running: Expert_world_1433.txt
+Game: 484, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 186/483 (0.39)]
+WIN, Finished in: 2.131701707839966(seconds)
+running: Expert_world_1434.txt
+Game: 485, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 187/484 (0.39)]
+running: Expert_world_1435.txt
+Game: 486, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 187/485 (0.39)]
+running: Expert_world_1436.txt
+Game: 487, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 187/486 (0.38)]
+WIN, Finished in: 1.2915441989898682(seconds)
+running: Expert_world_1437.txt
+Game: 488, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 188/487 (0.39)]
+running: Expert_world_1438.txt
+Game: 489, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 188/488 (0.39)]
+WIN, Finished in: 2.3100650310516357(seconds)
+running: Expert_world_1439.txt
+Game: 490, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 189/489 (0.39)]
+WIN, Finished in: 1.233699083328247(seconds)
+running: Expert_world_144.txt
+Game: 491, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 190/490 (0.39)]
+WIN, Finished in: 1.3543758392333984(seconds)
+running: Expert_world_1440.txt
+Game: 492, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 191/491 (0.39)]
+running: Expert_world_1441.txt
+Game: 493, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 191/492 (0.39)]
+WIN, Finished in: 1.4471287727355957(seconds)
+running: Expert_world_1442.txt
+Game: 494, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 192/493 (0.39)]
+running: Expert_world_1443.txt
+Game: 495, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 192/494 (0.39)]
+WIN, Finished in: 1.3374691009521484(seconds)
+running: Expert_world_1444.txt
+Game: 496, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 193/495 (0.39)]
+running: Expert_world_1445.txt
+Game: 497, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 193/496 (0.39)]
+WIN, Finished in: 1.2496411800384521(seconds)
+running: Expert_world_1446.txt
+Game: 498, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 194/497 (0.39)]
+running: Expert_world_1447.txt
+Game: 499, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 194/498 (0.39)]
+running: Expert_world_1448.txt
+Game: 500, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 194/499 (0.39)]
+running: Expert_world_1449.txt
+Game: 501, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 194/500 (0.39)]
+running: Expert_world_145.txt
+Game: 502, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 194/501 (0.39)]
+running: Expert_world_1450.txt
+Game: 503, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 194/502 (0.39)]
+running: Expert_world_1451.txt
+Game: 504, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 194/503 (0.39)]
+WIN, Finished in: 2.4984896183013916(seconds)
+running: Expert_world_1452.txt
+Game: 505, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 195/504 (0.39)]
+running: Expert_world_1453.txt
+Game: 506, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 195/505 (0.39)]
+WIN, Finished in: 4.757823705673218(seconds)
+running: Expert_world_1454.txt
+Game: 507, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 196/506 (0.39)]
+running: Expert_world_1455.txt
+Game: 508, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 196/507 (0.39)]
+running: Expert_world_1456.txt
+Game: 509, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 196/508 (0.39)]
+WIN, Finished in: 1.30104398727417(seconds)
+running: Expert_world_1457.txt
+Game: 510, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 197/509 (0.39)]
+running: Expert_world_1458.txt
+Game: 511, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 197/510 (0.39)]
+running: Expert_world_1459.txt
+Game: 512, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 197/511 (0.39)]
+running: Expert_world_146.txt
+Game: 513, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 197/512 (0.38)]
+running: Expert_world_1460.txt
+Game: 514, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 197/513 (0.38)]
+WIN, Finished in: 3.608872175216675(seconds)
+running: Expert_world_1461.txt
+Game: 515, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 198/514 (0.39)]
+running: Expert_world_1462.txt
+Game: 516, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 198/515 (0.38)]
+WIN, Finished in: 1.2921195030212402(seconds)
+running: Expert_world_1463.txt
+Game: 517, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 199/516 (0.39)]
+WIN, Finished in: 15.21888256072998(seconds)
+running: Expert_world_1464.txt
+Game: 518, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 200/517 (0.39)]
+WIN, Finished in: 3.1096503734588623(seconds)
+running: Expert_world_1465.txt
+Game: 519, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 201/518 (0.39)]
+running: Expert_world_1466.txt
+Game: 520, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 201/519 (0.39)]
+running: Expert_world_1467.txt
+Game: 521, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 201/520 (0.39)]
+running: Expert_world_1468.txt
+Game: 522, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 201/521 (0.39)]
+running: Expert_world_1469.txt
+Game: 523, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 201/522 (0.39)]
+running: Expert_world_147.txt
+Game: 524, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 201/523 (0.38)]
+WIN, Finished in: 1.2915456295013428(seconds)
+running: Expert_world_1470.txt
+Game: 525, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 202/524 (0.39)]
+WIN, Finished in: 5.07946515083313(seconds)
+running: Expert_world_1471.txt
+Game: 526, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 203/525 (0.39)]
+WIN, Finished in: 2.987511157989502(seconds)
+running: Expert_world_1472.txt
+Game: 527, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 204/526 (0.39)]
+WIN, Finished in: 1.2376892566680908(seconds)
+running: Expert_world_1473.txt
+Game: 528, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 205/527 (0.39)]
+running: Expert_world_1474.txt
+Game: 529, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 205/528 (0.39)]
+running: Expert_world_1475.txt
+Game: 530, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 205/529 (0.39)]
+running: Expert_world_1476.txt
+Game: 531, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 205/530 (0.39)]
+running: Expert_world_1477.txt
+Game: 532, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 205/531 (0.39)]
+WIN, Finished in: 1.2793586254119873(seconds)
+running: Expert_world_1478.txt
+Game: 533, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 206/532 (0.39)]
+WIN, Finished in: 1.271589756011963(seconds)
+running: Expert_world_1479.txt
+Game: 534, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/533 (0.39)]
+running: Expert_world_148.txt
+Game: 535, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/534 (0.39)]
+running: Expert_world_1480.txt
+Game: 536, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/535 (0.39)]
+running: Expert_world_1481.txt
+Game: 537, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/536 (0.39)]
+running: Expert_world_1482.txt
+Game: 538, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/537 (0.39)]
+running: Expert_world_1483.txt
+Game: 539, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/538 (0.38)]
+running: Expert_world_1484.txt
+Game: 540, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/539 (0.38)]
+running: Expert_world_1485.txt
+Game: 541, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 207/540 (0.38)]
+WIN, Finished in: 1.378359317779541(seconds)
+running: Expert_world_1486.txt
+Game: 542, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 208/541 (0.38)]
+running: Expert_world_1487.txt
+Game: 543, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 208/542 (0.38)]
+running: Expert_world_1488.txt
+Game: 544, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 208/543 (0.38)]
+WIN, Finished in: 1.0950696468353271(seconds)
+running: Expert_world_1489.txt
+Game: 545, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 209/544 (0.38)]
+WIN, Finished in: 1.494999647140503(seconds)
+running: Expert_world_149.txt
+Game: 546, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 210/545 (0.39)]
+running: Expert_world_1490.txt
+Game: 547, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 210/546 (0.38)]
+WIN, Finished in: 1.1967978477478027(seconds)
+running: Expert_world_1491.txt
+Game: 548, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 211/547 (0.39)]
+WIN, Finished in: 1.2167446613311768(seconds)
+running: Expert_world_1492.txt
+Game: 549, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 212/548 (0.39)]
+WIN, Finished in: 1.19380784034729(seconds)
+running: Expert_world_1493.txt
+Game: 550, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 213/549 (0.39)]
+running: Expert_world_1494.txt
+Game: 551, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 213/550 (0.39)]
+running: Expert_world_1495.txt
+Game: 552, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 213/551 (0.39)]
+WIN, Finished in: 1.1349480152130127(seconds)
+running: Expert_world_1496.txt
+Game: 553, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 214/552 (0.39)]
+WIN, Finished in: 1.2017858028411865(seconds)
+running: Expert_world_1497.txt
+Game: 554, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 215/553 (0.39)]
+running: Expert_world_1498.txt
+Game: 555, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 215/554 (0.39)]
+WIN, Finished in: 5.847421884536743(seconds)
+running: Expert_world_1499.txt
+Game: 556, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 216/555 (0.39)]
+running: Expert_world_15.txt
+Game: 557, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 216/556 (0.39)]
+running: Expert_world_150.txt
+Game: 558, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 216/557 (0.39)]
+running: Expert_world_1500.txt
+Game: 559, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 216/558 (0.39)]
+running: Expert_world_1501.txt
+Game: 560, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 216/559 (0.39)]
+running: Expert_world_1502.txt
+Game: 561, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 216/560 (0.39)]
+WIN, Finished in: 1.2017707824707031(seconds)
+running: Expert_world_1503.txt
+Game: 562, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 217/561 (0.39)]
+running: Expert_world_1504.txt
+Game: 563, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 217/562 (0.39)]
+WIN, Finished in: 1.2087726593017578(seconds)
+running: Expert_world_1505.txt
+Game: 564, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 218/563 (0.39)]
+WIN, Finished in: 274.0144884586334(seconds)
+running: Expert_world_1506.txt
+Game: 565, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 219/564 (0.39)]
+running: Expert_world_1507.txt
+Game: 566, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 219/565 (0.39)]
+running: Expert_world_1508.txt
+Game: 567, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 219/566 (0.39)]
+running: Expert_world_1509.txt
+Game: 568, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 219/567 (0.39)]
+running: Expert_world_151.txt
+Game: 569, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 219/568 (0.39)]
+WIN, Finished in: 1.861724853515625(seconds)
+running: Expert_world_1510.txt
+Game: 570, BoardSize: (16,30), TotalMines: 99 | Current Win [B: 0/-1 (-0.00) I: 0/-1 (-0.00) E: 220/569 (0.39)]

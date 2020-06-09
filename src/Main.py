@@ -103,8 +103,10 @@ def main():
 			scoreBeg = 0
 			scoreInt = 0
 			scoreExp = 0
+
 			for dirpath, _, filenames in directory:
 				for filename in filenames:
+					print("running:", filename)
 					f = os.path.join(dirpath, filename)
 
 					world = World(filename=f, aiType=aiType, verbose=verbose, debug=debug)
