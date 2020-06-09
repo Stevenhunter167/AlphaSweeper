@@ -36,7 +36,7 @@ def line():
 	return "line: " + str(line_number)
 
 def print(*args, **kwargs):
-	builtins.print(*args, **kwargs)
+	# builtins.print(*args, **kwargs)
 	pass
 
 def print2(*args, **kwargs):
@@ -96,7 +96,7 @@ class MyAI( AI ):
 	# Model Hyperparameters
 	THREASH_TIME = 4 		# time left for stoping all time consuming heuristics
 	THREASH_SUBGROUP = 6	# maximum number to use subgroup
-	CORNER_FACTOR = 0.6
+	CORNER_FACTOR = 0.8		# 1 - corner_factor is how much you prefer corner on a random move
 
 	class Board:
 
