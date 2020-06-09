@@ -1,4 +1,5 @@
 # ==========CS-171=============
+#
 # FILE:			MyAI.py
 #
 # AUTHOR: 		Litian Liang
@@ -10,24 +11,20 @@ from AI import AI
 from Action import Action
 from itertools import combinations
 
-######################################
-# Global Var #########################
-######################################
+##############################################
+# Global Var #################################
+##############################################
 
-LOG = True
-DEBUG = False
-AlphaSweeper = False
-MANUAL = not AlphaSweeper
 OUTFOLDER = "../dataset/intermediate100_with_subgroup/"
 
-######################################
-# debug console out ##################
-######################################
+##############################################
+# debug console out section ##################
+##############################################
 import builtins
 import traceback
-from time import time, sleep
+from time import time
 from inspect import currentframe, getframeinfo
-from pprint import pformat
+# from pprint import pformat
 
 
 def line():
@@ -40,11 +37,12 @@ def print(*args, **kwargs):
 	pass
 
 def print2(*args, **kwargs):
-	builtins.print(*args, **kwargs)
+	# builtins.print(*args, **kwargs)
 	pass
 
 def debug(*args, **kwargs):
-	builtins.print("[debug" + line() + "]", *args, **kwargs)
+	# builtins.print("[debug" + line() + "]", *args, **kwargs)
+	pass
 
 def log(filename, string):
 	# global OUTFOLDER
@@ -60,7 +58,9 @@ def logCSP(filename, string):
 	# 	f.write(string + "\n")
 	pass
 
-######################################
+##############################################
+# AlphaSweeper Agent #########################
+##############################################
 
 def set0(arr):
 	for i in range(len(arr)):
@@ -431,6 +431,11 @@ class MyAI( AI ):
 	# Basic Movements
 	#################################################################
 
+	def allCells(self):
+		for y in range(self.board.rowDimension):
+			for x in range(self.board.colDimension):
+				yield (x, y)
+
 	# lookup
 	def lookSurround(self, X, Y):
 		for dx in range(-1, 2):
@@ -440,25 +445,20 @@ class MyAI( AI ):
 						yield X + dx, Y + dy
 
 	#################################################################
-	#          Layer Name						result type
+	# Strategy Overview #############################################
+	#################################################################
+	#          Layer Name						Result Type
 	# Layer 0: Preprocessing Layer				deterministic
-	# Layer 1: Basic Layer						deterministic
-	# Layer 2: Grouping							deterministic
+	# Layer 1: Basic Inference Layer			deterministic
+	# Layer 2: Grouping	+ Subgrouping			deterministic
 	# Layer 3: CSP Layer						deterministic
-	# Layer 4: PSEQ Layer						probabilistic
-	# Layer 5: Probablistic CSP Layer			probabilistic
-	# Layer 6: Human Overriding Layer			      -
+	# Layer 4: Probablistic CSP Layer			probabilistic
+	# Layer 5: History Inspection Layer			probabilistic
 	#################################################################
 
 	#################################################################
 	# preprocessing Layer ###########################################
 	#################################################################
-
-	def allCells(self):
-		for y in range(self.board.rowDimension):
-			for x in range(self.board.colDimension):
-				yield (x, y)
-
 
 	def preprocessingLayer(self, number) -> Action:
 		hName = "PREPROCESS"
@@ -928,12 +928,13 @@ class MyAI( AI ):
 		self.stats[(self.board.rowDimension, self.board.colDimension)][0] += 1
 		return Action(self.Action(self.LEAVE), 1, 1)
 
-	#################################################################
-	# MAIN ##########################################################
-	#################################################################
 
 	def timeLeft(self):
 		return 300 - (time() - self.BEGINTIME)
+
+	#################################################################
+	# History Inspection Layer ######################################
+	#################################################################
 
 	def chooseRandom(self):
 
@@ -959,6 +960,9 @@ class MyAI( AI ):
 			self.pushMove(self.UNCOVER, *self.best_in(varset), heuristic=hName)
 		return self.popMove()
 
+	#################################################################
+	# MAIN ##########################################################
+	#################################################################
 
 	def getAction(self, number: int) -> "Action Object":
 		""" DO NOT MODIFY self.lastMove OR self.moveCount """
@@ -998,7 +1002,7 @@ class MyAI( AI ):
 
 			self.board.displayWithMarkup({i: "(%d)" %self.board.get(*i) for i in self.frontier})
 
-			# 2 Grouping
+			# 2 Grouping + Subgrouping:
 			groupingResult = self.grouping()
 			if groupingResult is not None:
 				return groupingResult
@@ -1047,7 +1051,9 @@ class MyAI( AI ):
 		except Exception as e:
 			print("EXCEPTION:")
 			print2(traceback.format_exc())
-			input()
+			# production version no stopping
+			# input()
+			return self.chooseRandom()
 
 	#################################################################
 		# Add frontier splitting
