@@ -96,7 +96,7 @@ class MyAI( AI ):
 	# Model Hyperparameters
 	THREASH_TIME = 4 		# time left for stoping all time consuming heuristics
 	THREASH_SUBGROUP = 6	# maximum number to use subgroup
-	CORNER_FACTOR = 0.8		# 1 - corner_factor is how much you prefer corner on a random move
+	CORNER_FACTOR = 1.2		# corner_factor is how much you prefer corner on a random move
 
 	class Board:
 
@@ -244,9 +244,11 @@ class MyAI( AI ):
 		print([(pos, self.cumulative_mine_count(*pos)) for pos in range])
 
 		(X, Y) = None, None
-		cumScore = 99999
+		cumScore = 0
+
+		# choose a location where it was mine for the most of history
 		for (x, y) in range:
-			if self.cumulative_mine_count(x, y) < cumScore:
+			if self.cumulative_mine_count(x, y) > cumScore:
 				cumScore = self.cumulative_mine_count(x, y)
 				(X, Y) = (x, y)
 		print('best in')
