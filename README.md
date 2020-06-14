@@ -35,6 +35,6 @@ phase 2: During game:
   2. return what MyAI believes is a good move by returning Action objects
 
 phase 3: End of game
-  1. Winning is when all the tiles that are not mines are uncoverd. The program did not know.
-  2. Losing is when not all tiles that are not mines are uncoverd, and a mine is uncoverd. The program also did not know this too.
+  1. Winning is when all the tiles that are not mines are uncoverd.
+  2. Losing is when not all tiles that are not mines are uncoverd, and a mine is uncoverd.
 
