@@ -1,7 +1,7 @@
 # AlphaSweeper
 An AI that playes Minesweeper with winrate: beginner 89%, intermediate 87%, expert 40% (sample size = 3000)
 
-Ranked #1 in UCI Spring 2020 CS171 Minesweeper AI tournament.
+#### Ranked #1 in UCI Spring 2020 CS171 Minesweeper AI tournament.
 
 ## Final Report PDF
 https://github.com/Stevenhunter167/AlphaSweeper/blob/master/AlphaSweeper_Final_Report.pdf
